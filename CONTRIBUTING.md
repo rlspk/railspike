@@ -1,13 +1,9 @@
 # Contributing to Railspike
 
-Contributions are welcome when they make the workflow clearer, more testable, or easier to use without weakening its approval and evidence boundaries.
+Product instruction changes belong in this repository. Keep changes concise and preserve the workflow's approval and evidence boundaries.
 
-1. Open an issue or discussion for a material workflow change before drafting it.
-2. Keep instruction-file changes small and explain the user-visible contract change.
-3. Preserve concise, copyable Markdown and relative links.
-4. For examples, retain decisions, risks, verification, and known limitations; redact private details rather than inventing evidence.
-5. Run the repository checks documented in the README and include affected link/fixture results in the pull request.
+Use [railspike-dev](https://github.com/rlspk/railspike-dev) for Railspike's own plans, debug logs, research, maintainer records, and verification scripts. Follow its [contribution guidance](https://github.com/rlspk/railspike-dev/blob/main/CONTRIBUTING.md) and [checks](https://github.com/rlspk/railspike-dev#checks), passing this product checkout explicitly. Do not add upstream development records or tooling to this installable repository.
 
-Keep the Python, Perl, and Node.js script alternatives. Multiple language implementations make the tooling accessible across installation environments with different runtimes available. Keep them dependency-light and equivalent in behavior; when changing a shared check, update and verify all implementations.
+Website changes belong in [rlspk.github.io](https://github.com/rlspk/rlspk.github.io). Report product bugs and ideas in [Issues](https://github.com/rlspk/railspike/issues).
 
-By contributing, you agree that your contribution is licensed under the repository’s [MIT License](./LICENSE).
+Contributions are licensed under the [MIT License](./LICENSE).

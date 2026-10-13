@@ -6,6 +6,8 @@ Planning, documentation, development, bug fixes, test suites, and checklists can
 ## Repository Boundary
 Instruction files under `docs/workflow/` belong to the Railspike repository. If Railspike is included in another repository as a submodule or vendored directory, resolve those paths relative to the Railspike repository root, not the host repository root. Planning artifacts still belong in the host repository under `docs/plans/`.
 
+When developing Railspike itself, use the separate `railspike-dev` checkout as the planning workspace and consuming-project root; its plans and debug logs belong there. Product edits belong in `railspike`, website edits in `rlspk.github.io`. Keep stage summaries in the development workspace and record paired implementation commits before advancing; do not add Railspike's own development records to the installable product.
+
 ## How to Use This Chain
 1. Start with the highest-numbered approved step (usually Step 1 unless explicitly skipped).
 2. Read only the relevant instruction file in Railspike's `docs/workflow/` directory and reprint it before starting work.
@@ -26,7 +28,7 @@ Debug mode is optional feedback for improving Railspike's instructions, not appl
 
 **Project default**:
 - An optional `.railspike_debug_on` file at the consuming-project root enables debug by default for new workflows. Only file presence matters: do not read or validate its contents. Empty, arbitrary, or “false” contents all enable the default; unreadable contents do not matter when file presence is established. An absent marker leaves the default disabled.
-- Use the consuming-project root established for the workflow and its `docs/plans/`, not the current shell directory or an installed Railspike directory. For standalone work on Railspike, this is the Railspike repository root; for submodule or vendored installations, it is the host project root. Do not search ancestor directories or apply nested-project or user-global inheritance.
+- Use the consuming-project root established for the workflow and its `docs/plans/`, not the current shell directory or an installed Railspike directory. For work on Railspike itself, this is the separate `railspike-dev` planning workspace root; for submodule or vendored installations, it is the host project root. Do not search ancestor directories or apply nested-project or user-global inheritance.
 - Consult the marker only for a new workflow without an explicit mode request. If the consuming root or marker's file presence cannot be established, ask for clarification instead of assuming absence. A directory at the marker path is not a marker file; clarify that mismatch when lookup is needed.
 - Record the resolved mode in the first artifact as a snapshot. Adding or removing the marker affects future workflows only; editing its contents has no effect. Workflow-specific overrides do not create, remove, or edit the marker.
 

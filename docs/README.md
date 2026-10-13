@@ -1,6 +1,8 @@
-# Documentation
+# User documentation
 
-- [workflow/](./workflow/): one instruction file per Railspike step; `RAILSPIKE.md` points here.
-- [failure-modes.md](./failure-modes.md): what to do when a run goes wrong.
-- [plans/](./plans/README.md): plans and debug logs for Railspike's own features.
-- [maintainers/](./maintainers/BACKLOG.md): maintainer working files: backlog, release approach, positioning checklist, case-study candidates, and the HN launch drafts in `launch/`.
+- [Workflow entry point](../RAILSPIKE.md)
+- [Step and phase instructions](./workflow/)
+- [Failure modes and recovery](./failure-modes.md)
+- [Installation and updates](../README.md#installation-checks)
+
+Your project's plans belong in its own `docs/plans/`, outside this installed directory. Railspike's own [development records and checks](https://github.com/rlspk/railspike-dev) are maintained separately.
