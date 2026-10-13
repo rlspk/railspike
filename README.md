@@ -1,6 +1,6 @@
 # Railspike
 
-<img src="https://rlspk.github.io/railspike-logo.png" alt="Railspike rail and spike logo" width="96" height="96">
+<img src="https://railspike.dev/railspike-logo.png" alt="Railspike rail and spike logo" width="96" height="96">
 
 **Make your coding agent write the plan down first.**
 
@@ -8,7 +8,7 @@ Railspike is a set of Markdown instructions your agent follows. The agent writes
 
 Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read your project files. Railspike has no CLI or runtime dependencies. Installation copies reviewed files into your project by default; Git submodules are available on explicit request.
 
-[Website](https://rlspk.github.io/) · [RAILSPIKE.md](RAILSPIKE.md) · [Step files](docs/workflow/)
+[Website](https://railspike.dev/) · [RAILSPIKE.md](RAILSPIKE.md) · [Step files](docs/workflow/)
 
 ## Why we built this
 
@@ -269,7 +269,7 @@ If replacement or verification fails, stop and report the partial state. Restore
 
 ### Migrating from gulkily/railspike
 
-The product source is now `https://github.com/rlspk/railspike.git`, with updates on `main`. Development records/checks moved to `rlspk/railspike-dev`; the website is `https://rlspk.github.io/`. The product retains its Git history, so removed development files remain recoverable at earlier revisions. Fresh working trees and copied snapshots are lean; a full Git clone can still download historical development content.
+The product source is now `https://github.com/rlspk/railspike.git`, with updates on `main`. Development records/checks moved to `rlspk/railspike-dev`; the website is `https://railspike.dev/`. The product retains its Git history, so removed development files remain recoverable at earlier revisions. Fresh working trees and copied snapshots are lean; a full Git clone can still download historical development content.
 
 Migration is an explicit source change, separate from routine updates. Do not treat an unexpected remote as permission to rewrite it. Identify the installation type and preserve local edits, staging, and a recoverable prior state first.
 
