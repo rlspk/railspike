@@ -11,3 +11,5 @@
 - [Whitepaper research](./railspike_paper/railspike_paper_step1_solution_assessment.md): exploratory debug evidence and feasibility assessment before comparative evaluation and publication.
 - [Prompted installation](./prompted_installation/prompted_installation_step1_solution_assessment.md): agent-led installation, first-use welcome, and optional workflow reminders.
 - [Installation process improvements](./installation_process_improvements/installation_process_improvements_step1_solution_assessment.md): reviewed copies by default, explicit submodules, recovery, and first-task planning.
+
+- [Separate development content](./separate_development_content/separate_development_content_step1_solution_assessment.md): split the product into `rlspk/railspike` and development records, checks, and website into `rlspk/railspike-dev`.
