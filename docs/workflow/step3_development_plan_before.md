@@ -10,7 +10,7 @@ Confirm the planning boundary and artifact setup before drafting Step 3.
 - Confirm Step 2 is approved and no new scope was added after approval.
 - Prepare the Step 3 artifact path: `docs/plans/{feature_name}_step3_development_plan.md`.
 - Keep Step 1-3 planning docs uncommitted while drafting/revising Step 3.
-- Reprint this file before starting Step 3 drafting.
+- Apply the [instruction summary contract](../../RAILSPIKE.md#instruction-summaries) before starting Step 3 drafting.
 
 ## Next
 When all checks pass, continue with `docs/workflow/step3_development_plan_do.md`.

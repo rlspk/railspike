@@ -10,9 +10,19 @@ When developing Railspike itself, use the separate `railspike-dev` checkout as t
 
 ## How to Use This Chain
 1. Start with the highest-numbered approved step (usually Step 1 unless explicitly skipped).
-2. Read only the relevant instruction file in Railspike's `docs/workflow/` directory and reprint it before starting work.
+2. Read the relevant instruction file in Railspike's `docs/workflow/` directory and follow the [instruction summary contract](#instruction-summaries) before starting work.
 3. For Steps 3 and 4, use phase files in order: `*_before.md` -> `*_do.md` -> `*_after.md`.
 4. Request approval in the format `Approved Step N` when required, and do not open the next step's files until approval is received.
+
+## Instruction Summaries
+
+After reading the applicable instructions and before acting, briefly summarize the next action, relevant constraints, and any approval gate. Keep the summary focused on the upcoming work rather than compressing the entire file; no separate reading acknowledgment is required.
+
+Summarize again only when the next action, relevant constraints, or approval gate changes. A step/phase transition or resumption alone does not require repetition. On resumption, reread applicable instructions and restore workflow state; omit an unchanged summary when prior context is recoverable, or establish a fresh summary after restoration when it is not.
+
+The original instructions remain authoritative, including exceptions omitted from a summary. Summaries never replace required reading, step/phase order, state restoration, approvals, or commit rules. If required instructions are missing or unreadable, report the blocker and resolve it before proceeding; do not imply they were read.
+
+Do not automatically reprint instruction files. Explicit requests to show them remain supported, as do relevant quotations needed to explain a concrete decision or blocker and useful progress/handoff updates. This contract governs assistant-authored repetition, not ordinary tool-output rendering, and applies with debug enabled or disabled; summaries are not diagnostic reports.
 
 ## Step Guide
 - **Step 1 – Solution Assessment (Optional)**: compare approaches, combine compatible options, and refine the recommendation before approval. `docs/workflow/step1_solution_assessment.md`
@@ -40,7 +50,7 @@ Debug mode is optional feedback for improving Railspike's instructions, not appl
 
 **Completed-step report**: When enabled, save the complete diagnostic report in the debug log. In each completed Step 1–4 handoff, include exactly one short debug line linking to the saved log, before requesting approval where applicable. Do not repeat findings, group headings, or empty-group markers in the conversation, or narrate diagnostic collection. Phases and implementation stages do not trigger reports. When disabled, emit no diagnostics or debug link and preserve existing logs.
 
-**Conversation exceptions**: Briefly disclose log-write failures or request clarification when available evidence cannot resolve mode state. Provide findings in the conversation when the user explicitly requests them. Do not dump unsaved diagnostics into the conversation as a fallback for a failed write. Ordinary task updates, blockers, approval requests, and instruction-reprint rules remain unchanged.
+**Conversation exceptions**: Briefly disclose log-write failures or request clarification when available evidence cannot resolve mode state. Provide findings in the conversation when the user explicitly requests them. Do not dump unsaved diagnostics into the conversation as a fallback for a failed write. Ordinary task updates, blockers, approval requests, and the instruction summary contract remain unchanged.
 
 **Full report content (log only)**:
 
@@ -111,7 +121,7 @@ Inspect destinations and affected references before moving files. If files confl
 - A feature is a releasable vertical slice: normal entry, end-to-end outcome, and required recovery. Component-only work is internal maintenance; split larger stories vertically.
 - Keep work within a day or eight Step 3 stages; otherwise rescope the slice.
 - Avoid database schema changes when possible—lean on existing models/fields
-- Reprint the current step/phase instructions (from the linked Railspike file) before you begin that work
+- Read the current step/phase instructions and apply the [instruction summary contract](#instruction-summaries) before acting
 - Add the Plan navigation bar to every Step 1–4 artifact
 - Step 1 starts with `## Original Query`: preserve the request except mechanical grammar, spelling, capitalization, punctuation, and formatting fixes; when needed, follow it with a brief, clearly labeled `## Understood Intent` that clarifies inferred goal/context without inventing scope
 - For Step 3, prefer `## Stage N` headers with flat bullet lists for each stage field so plans stay easy to scan and review

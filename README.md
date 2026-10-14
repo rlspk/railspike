@@ -160,7 +160,7 @@ Redundant/unnecessary instructions
 
 Findings must cite their instruction source and observable evidence. Inapplicable and uncertain findings belong in separate groups; an unused instruction is not necessarily redundant. Findings are advisory: approval gates still apply, and changing instructions requires separate authorization.
 
-Brief save-failure notices and necessary mode-state questions may appear in chat; full findings may appear when explicitly requested. Failed saves must be resolved before claiming a report was logged, without dumping unsaved diagnostics into chat. Ordinary task updates, blockers, approval requests, and instruction reprints are unaffected.
+Brief save-failure notices and necessary mode-state questions may appear in chat; full findings may appear when explicitly requested. Failed saves must be resolved before claiming a report was logged, without dumping unsaved diagnostics into chat. Ordinary task updates, blockers, approval requests, and the [instruction summary contract](./RAILSPIKE.md#instruction-summaries) are unaffected.
 
 The log stays uncommitted during planning and moves with the plans into the feature folder. Include it in the initial planning commit; later additions accompany authorized stage commits or a final log-only handoff commit. Never amend completed commits. See the [debug contract](./RAILSPIKE.md#railspike-debug-mode) for recovery and commit rules, and the [failure guide](./docs/failure-modes.md#debug-state-or-logging-is-unclear) if state or saving fails.
 
@@ -174,7 +174,7 @@ Use it for planning, documentation, development, bug fixes, test suites, and che
 
 ## Tips
 
-- **Make the agent reprint the step file** before it starts each step. You'll both be working from the same instructions, and you'll see right away if it skipped one.
+- **Check the task-relevant summary** before new or changed work begins: the next action, relevant constraints, and approval gate should match the instructions. Follow the [instruction summary contract](./RAILSPIKE.md#instruction-summaries); a summary makes interpretation visible but does not prove the agent read or followed the file.
 - **Ask about existing components in Step 2.** Agents drift fastest when they rebuild something that already exists.
 - **Call out risks early.** Record impact, early validation, and mitigation in Step 2. Resolve material risks before dependent stages begin.
 - **Keep Step 4 to the plan.** New ideas go back to Step 2. That's the point of the gates.
