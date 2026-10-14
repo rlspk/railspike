@@ -95,11 +95,13 @@ Before starting the next stage, the agent records the results and any limitation
 
 ### How commits work
 
-The plan files stay uncommitted while you revise them. When you type `Approved Step 3`, the agent creates a feature branch. Before the first commit, the agent groups the plans in `docs/plans/{feature}/`, even if Step 1 was skipped, and repairs the navigation and plan index. That commit contains the approved plans, this feature’s existing debug log if present, and only those necessary organization changes. The Step 4 summary is created afterward in the same folder. Then each stage gets its own commit, together with its section of the Step 4 summary. So a three-stage plan ends with at least four commits.
+The plan files stay uncommitted while you revise them. When you type `Approved Step 3`, the agent creates a feature branch or confirms eligible reuse for a follow-up cycle. Before this cycle’s planning commit, the agent groups the plans in `docs/plans/{feature}/`, even if Step 1 was skipped, and repairs the navigation and plan index. That commit contains the approved plans, this feature’s existing debug log if present, and only those necessary organization changes. The Step 4 summary is created afterward in the same folder. Then each stage gets its own commit, together with its section of the Step 4 summary. So each three-stage cycle ends with at least four commits, even when it shares a branch with a previous cycle.
 
 ### When scope changes
 
-If something new comes up during Step 4, the agent stops and goes back to Step 2. You review and approve the revised scope and plan before building continues.
+Every enhancement request gets a durable record in the current planning artifact or Step 4 summary: request, disposition and reason, approval status, and outcome or follow-up link. In-scope refinements can proceed within approved stage boundaries and are recorded with verification and commit evidence. Changed scope returns to the earliest affected planning step for renewed approval; separate work remains visibly pending. Ambiguity needs clarification, and an explicit request to stop or switch governs continuation. See [Enhancement Requests](./RAILSPIKE.md#enhancement-requests).
+
+After Step 4 completes, related enhancements can use a new cycle on the same unmerged feature branch when you request reuse. Use distinct plan names such as `search_filters` following `search` (or `search_cycle2`), link the predecessor, and record the shared branch. Each cycle needs fresh approvals, its own planning commit, and its own stage commits. Completed records remain intact; cycle completion does not mean ready to merge. See [Follow-up Cycles Before Merge](./RAILSPIKE.md#follow-up-cycles-before-merge).
 
 ```mermaid
 flowchart LR
@@ -195,7 +197,7 @@ README.md, CONTRIBUTING.md, LICENSE
 
 This is the complete installable product. Railspike's own [development records and checks](https://github.com/rlspk/railspike-dev) and [website sources](https://github.com/rlspk/rlspk.github.io) live in separate repositories; neither is needed to use Railspike. See the [failure-mode guide](./docs/failure-modes.md) for recovery.
 
-Your plans go in your project's `docs/plans/`, not here. Keep each step in its own file; organize every feature under `docs/plans/{feature}/` after Step 3 approval and branching, before the initial planning commit. Reuse an existing feature folder. Each Step 1–4 artifact links to the others so the decision record stays navigable. The agent opens only the step file it needs, so it never has to hold one huge prompt in context.
+Your plans go in your project's `docs/plans/`, not here. Keep each step in its own file; organize every feature under `docs/plans/{feature}/` after Step 3 approval and branch creation or eligible reuse, before the initial planning commit. Reuse an existing feature folder. Each Step 1–4 artifact links to the others so the decision record stays navigable. The agent opens only the step file it needs, so it never has to hold one huge prompt in context.
 
 ## Customizing
 
