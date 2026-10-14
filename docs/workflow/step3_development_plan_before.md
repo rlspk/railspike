@@ -12,5 +12,7 @@ Confirm the planning boundary and artifact setup before drafting Step 3.
 - Keep Step 1-3 planning docs uncommitted while drafting/revising Step 3.
 - Apply the [instruction summary contract](../../RAILSPIKE.md#instruction-summaries) before starting Step 3 drafting.
 
+Before drafting, reconcile recorded requests against approved Step 2 under [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests); changed requirements need renewed approval.
+
 ## Next
 When all checks pass, continue with `docs/workflow/step3_development_plan_do.md`.

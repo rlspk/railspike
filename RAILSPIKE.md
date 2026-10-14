@@ -117,7 +117,7 @@ Inspect destinations and affected references before moving files. If files confl
 - Enforce Step 4 commit cadence: first organize and commit approved plans under the organization rule above; each completed stage has a stage-scoped commit that includes the Step 4 summary update
 - Treat documentation-only work as a Step 4 implementation only when its allowed documentation file scope was approved in Steps 2 and 3; use applicable verification and record non-applicable runtime checks in the summary
 - Prefer shared components/API contracts first; reuse or extend instead of forking markup, CSS, or payloads
-- Flag scope creep early and bounce back to planning steps rather than improvising mid-implementation
+- Apply [Enhancement Requests](#enhancement-requests): document every request, incorporate only in-scope refinements, and replan changed scope
 - A feature is a releasable vertical slice: normal entry, end-to-end outcome, and required recovery. Component-only work is internal maintenance; split larger stories vertically.
 - Keep work within a day or eight Step 3 stages; otherwise rescope the slice.
 - Avoid database schema changes when possible—lean on existing models/fields
@@ -133,6 +133,18 @@ Inspect destinations and affected references before moving files. If files confl
 - Flag issues early so adjustments happen before implementation
 - Resist adding scope during Step 4
 - Prefer solutions that avoid database migrations; rely on existing schema where feasible
+
+## Enhancement Requests
+
+Record every enhancement request before acting in the current planning artifact or Step 4 summary. Use a concise record: **Request / Disposition and reason / Approval status / Outcome or follow-up link**. Keep deferred and declined requests visible; conversation and commit messages alone are insufficient. An implemented request must identify changes, verification, and its stage commit. Record the commit after creation without amending it; include the reference in the next authorized summary update.
+
+Classify against approved requirements, file boundaries, dependencies, risks, and completion criteria, not estimated effort:
+- **In-scope refinement:** incorporate within the approved current stage and record verification. Adjusting copy in an approved UI stage can qualify; adding an export format does not.
+- **Changed scope:** preserve completed work, return to the earliest affected planning step, and obtain renewed approvals before implementing the changed scope. During planning, revise the current artifact; a revision request never approves a step.
+- **Separate work:** retain a pending request or follow-up link and continue the original task unless the user asks to stop or switch. Do not silently start deferred work.
+- **Ambiguous:** clarify before dependent work; continue independent authorized work when possible.
+
+On resumption, recover pending requests, their approval status, and the active cycle from artifacts. Resolve missing or conflicting state before dependent work. Preserve completed substantive records and commit history; record later dispositions separately rather than rewriting completed scope.
 
 ## Warning Signs
 - **Step 1**: >1 page, >4 options, or verbose explanations
