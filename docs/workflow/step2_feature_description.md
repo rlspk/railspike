@@ -26,6 +26,8 @@ Capture the problem framing, desired outcomes, and shared-component consideratio
 - Simple user flow: numbered steps
 - Success criteria: measurable outcomes that confirm the feature solves the problem
 
+Apply [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests) when revising scope; retain pending requests and approval status in this artifact.
+
 ## Guardrails
 - Avoid implementation details, code, database schema, UI mockups, or verbose descriptions
 - Surface material risks; do not bury them in other sections

@@ -14,6 +14,8 @@ Execute the plan in atomic stages on a dedicated feature branch, documenting pro
 - Require one stage-scoped commit per completed stage; do not batch multiple stages into one commit
 - Commit the stage artifact plus the Step 4 summary update for that stage in the same commit before beginning the next stage
 
+Apply [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests) before incorporating new requests. Keep dispositions and pending outcomes in the summary, restore them on resumption, and record implemented refinements with verification and stage-commit references.
+
 ## Stage Boundary Protocol (Required)
 At every stage boundary (including Stage 1), complete this sequence before starting the next stage:
 1. Finish the approved artifact scope for the current stage only.

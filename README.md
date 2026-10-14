@@ -1,6 +1,6 @@
 # Railspike
 
-<img src="https://rlspk.github.io/railspike-logo.png" alt="Railspike rail and spike logo" width="96" height="96">
+<img src="https://railspike.dev/railspike-logo.png" alt="Railspike rail and spike logo" width="96" height="96">
 
 **Make your coding agent write the plan down first.**
 
@@ -8,7 +8,7 @@ Railspike is a set of Markdown instructions your agent follows. The agent writes
 
 Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read your project files. Railspike has no CLI or runtime dependencies. Installation copies reviewed files into your project by default; Git submodules are available on explicit request.
 
-[Website](https://rlspk.github.io/) · [RAILSPIKE.md](RAILSPIKE.md) · [Step files](docs/workflow/)
+[Website](https://railspike.dev/) · [RAILSPIKE.md](RAILSPIKE.md) · [Step files](docs/workflow/)
 
 ## Why we built this
 
@@ -95,11 +95,13 @@ Before starting the next stage, the agent records the results and any limitation
 
 ### How commits work
 
-The plan files stay uncommitted while you revise them. When you type `Approved Step 3`, the agent creates a feature branch. Before the first commit, the agent groups the plans in `docs/plans/{feature}/`, even if Step 1 was skipped, and repairs the navigation and plan index. That commit contains the approved plans, this feature’s existing debug log if present, and only those necessary organization changes. The Step 4 summary is created afterward in the same folder. Then each stage gets its own commit, together with its section of the Step 4 summary. So a three-stage plan ends with at least four commits.
+The plan files stay uncommitted while you revise them. When you type `Approved Step 3`, the agent creates a feature branch or confirms eligible reuse for a follow-up cycle. Before this cycle’s planning commit, the agent groups the plans in `docs/plans/{feature}/`, even if Step 1 was skipped, and repairs the navigation and plan index. That commit contains the approved plans, this feature’s existing debug log if present, and only those necessary organization changes. The Step 4 summary is created afterward in the same folder. Then each stage gets its own commit, together with its section of the Step 4 summary. So each three-stage cycle ends with at least four commits, even when it shares a branch with a previous cycle.
 
 ### When scope changes
 
-If something new comes up during Step 4, the agent stops and goes back to Step 2. You review and approve the revised scope and plan before building continues.
+Every enhancement request gets a durable record in the current planning artifact or Step 4 summary: request, disposition and reason, approval status, and outcome or follow-up link. In-scope refinements can proceed within approved stage boundaries and are recorded with verification and commit evidence. Changed scope returns to the earliest affected planning step for renewed approval; separate work remains visibly pending. Ambiguity needs clarification, and an explicit request to stop or switch governs continuation. See [Enhancement Requests](./RAILSPIKE.md#enhancement-requests).
+
+After Step 4 completes, related enhancements can use a new cycle on the same unmerged feature branch when you request reuse. Use distinct plan names such as `search_filters` following `search` (or `search_cycle2`), link the predecessor, and record the shared branch. Each cycle needs fresh approvals, its own planning commit, and its own stage commits. Completed records remain intact; cycle completion does not mean ready to merge. See [Follow-up Cycles Before Merge](./RAILSPIKE.md#follow-up-cycles-before-merge).
 
 ```mermaid
 flowchart LR
@@ -160,7 +162,7 @@ Redundant/unnecessary instructions
 
 Findings must cite their instruction source and observable evidence. Inapplicable and uncertain findings belong in separate groups; an unused instruction is not necessarily redundant. Findings are advisory: approval gates still apply, and changing instructions requires separate authorization.
 
-Brief save-failure notices and necessary mode-state questions may appear in chat; full findings may appear when explicitly requested. Failed saves must be resolved before claiming a report was logged, without dumping unsaved diagnostics into chat. Ordinary task updates, blockers, approval requests, and instruction reprints are unaffected.
+Brief save-failure notices and necessary mode-state questions may appear in chat; full findings may appear when explicitly requested. Failed saves must be resolved before claiming a report was logged, without dumping unsaved diagnostics into chat. Ordinary task updates, blockers, approval requests, and the [instruction summary contract](./RAILSPIKE.md#instruction-summaries) are unaffected.
 
 The log stays uncommitted during planning and moves with the plans into the feature folder. Include it in the initial planning commit; later additions accompany authorized stage commits or a final log-only handoff commit. Never amend completed commits. See the [debug contract](./RAILSPIKE.md#railspike-debug-mode) for recovery and commit rules, and the [failure guide](./docs/failure-modes.md#debug-state-or-logging-is-unclear) if state or saving fails.
 
@@ -174,7 +176,7 @@ Use it for planning, documentation, development, bug fixes, test suites, and che
 
 ## Tips
 
-- **Make the agent reprint the step file** before it starts each step. You'll both be working from the same instructions, and you'll see right away if it skipped one.
+- **Check the task-relevant summary** before new or changed work begins: the next action, relevant constraints, and approval gate should match the instructions. Follow the [instruction summary contract](./RAILSPIKE.md#instruction-summaries); a summary makes interpretation visible but does not prove the agent read or followed the file.
 - **Ask about existing components in Step 2.** Agents drift fastest when they rebuild something that already exists.
 - **Call out risks early.** Record impact, early validation, and mitigation in Step 2. Resolve material risks before dependent stages begin.
 - **Keep Step 4 to the plan.** New ideas go back to Step 2. That's the point of the gates.
@@ -195,7 +197,7 @@ README.md, CONTRIBUTING.md, LICENSE
 
 This is the complete installable product. Railspike's own [development records and checks](https://github.com/rlspk/railspike-dev) and [website sources](https://github.com/rlspk/rlspk.github.io) live in separate repositories; neither is needed to use Railspike. See the [failure-mode guide](./docs/failure-modes.md) for recovery.
 
-Your plans go in your project's `docs/plans/`, not here. Keep each step in its own file; organize every feature under `docs/plans/{feature}/` after Step 3 approval and branching, before the initial planning commit. Reuse an existing feature folder. Each Step 1–4 artifact links to the others so the decision record stays navigable. The agent opens only the step file it needs, so it never has to hold one huge prompt in context.
+Your plans go in your project's `docs/plans/`, not here. Keep each step in its own file; organize every feature under `docs/plans/{feature}/` after Step 3 approval and branch creation or eligible reuse, before the initial planning commit. Reuse an existing feature folder. Each Step 1–4 artifact links to the others so the decision record stays navigable. The agent opens only the step file it needs, so it never has to hold one huge prompt in context.
 
 ## Customizing
 
@@ -269,7 +271,7 @@ If replacement or verification fails, stop and report the partial state. Restore
 
 ### Migrating from gulkily/railspike
 
-The product source is now `https://github.com/rlspk/railspike.git`, with updates on `main`. Development records/checks moved to `rlspk/railspike-dev`; the website is `https://rlspk.github.io/`. The product retains its Git history, so removed development files remain recoverable at earlier revisions. Fresh working trees and copied snapshots are lean; a full Git clone can still download historical development content.
+The product source is now `https://github.com/rlspk/railspike.git`, with updates on `main`. Development records/checks moved to `rlspk/railspike-dev`; the website is `https://railspike.dev/`. The product retains its Git history, so removed development files remain recoverable at earlier revisions. Fresh working trees and copied snapshots are lean; a full Git clone can still download historical development content.
 
 Migration is an explicit source change, separate from routine updates. Do not treat an unexpected remote as permission to rewrite it. Identify the installation type and preserve local edits, staging, and a recoverable prior state first.
 
