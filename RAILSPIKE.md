@@ -70,7 +70,7 @@ Each step MUST be a separate file in `docs/plans/`:
 - **Step 3**: `{feature_name}_step3_development_plan.md`
 - **Step 4**: `{feature_name}_step4_implementation_summary.md`
 
-**Directory structure and organization rule**: After explicit `Approved Step 3` and creation of the Step 4 feature branch, organize the current feature's planning artifacts in `docs/plans/{feature_name}/` before the first commit or implementation, regardless of artifact count or whether Step 1 was skipped. Reuse an existing feature folder. Preserve filenames, separate step files, and approved substantive content. Repair relative plan navigation and affected repository references; add or update this feature's entry in `docs/plans/README.md`, creating the index if absent.
+**Directory structure and organization rule**: After explicit `Approved Step 3` and creation or eligible reuse of the Step 4 feature branch, organize the current feature's planning artifacts in `docs/plans/{feature_name}/` before the first commit or implementation, regardless of artifact count or whether Step 1 was skipped. Reuse an existing feature folder. Preserve filenames, separate step files, and approved substantive content. Repair relative plan navigation and affected repository references; add or update this feature's entry in `docs/plans/README.md`, creating the index if absent.
 
 The initial planning commit contains only approved Steps 1–3 (Steps 2–3 if Step 1 was skipped), this feature’s existing debug log if present, and the moves, index entries, and reference fixes necessary for this feature’s organization. Exclude implementation, the Step 4 summary, unrelated plans, and other unapproved auxiliary content. This narrow organization allowance qualifies the [Step 4 planning-commit gate](./docs/workflow/step4_implementation_before.md#planning-docs-commit-gate-required); it does not authorize substantive revisions to approved plans. Create the Step 4 summary in the same folder only after the planning commit, inheriting debug state under the [debug recovery rules](#railspike-debug-mode). Organization must not change that state.
 
@@ -85,8 +85,8 @@ Inspect destinations and affected references before moving files. If files confl
 **Commit discipline**:
 - Keep Step 1-3 planning documents uncommitted while they are being drafted/revised.
 - Do not commit Step 1-3 planning documents when Step 1 or Step 2 is approved.
-- After the user explicitly responds `Approved Step 3`, create the Step 4 feature branch.
-- Before the first commit on that branch, organize the plans under the rule above; limit the commit to approved planning documents and its organization allowance.
+- After the user explicitly responds `Approved Step 3`, create the Step 4 feature branch or confirm eligible reuse under [Follow-up Cycles Before Merge](#follow-up-cycles-before-merge).
+- Before this cycle’s planning commit on that branch, organize the plans under the rule above; limit the commit to approved planning documents and its organization allowance.
 - During Step 4, each completed stage must be committed with its Step 4 summary update in the same commit before starting the next stage.
 
 **Plan review**: Plans are working documents. The user may edit the current artifact or request revisions, including a combination of compatible Step 1 options. Recheck tradeoffs and scope after revisions; a revision request is not approval to advance. Do not begin Step 4 until the user explicitly responds `Approved Step 3`. Organize and commit the approved plans under the organization rule above before implementation.
@@ -113,7 +113,7 @@ Inspect destinations and affected references before moving files. If files confl
 - Stay in the current step; do not draft/edit later deliverables without approval
 - After delivering each step, explicitly request “Approved Step N” and pause until the user responds with that exact phrase
 - Create separate files for each step only after receiving the relevant approval
-- ALWAYS create a feature branch before Step 4 implementation
+- ALWAYS establish a feature branch before Step 4 implementation; reuse only under [Follow-up Cycles Before Merge](#follow-up-cycles-before-merge)
 - Enforce Step 4 commit cadence: first organize and commit approved plans under the organization rule above; each completed stage has a stage-scoped commit that includes the Step 4 summary update
 - Treat documentation-only work as a Step 4 implementation only when its allowed documentation file scope was approved in Steps 2 and 3; use applicable verification and record non-applicable runtime checks in the summary
 - Prefer shared components/API contracts first; reuse or extend instead of forking markup, CSS, or payloads
@@ -134,6 +134,14 @@ Inspect destinations and affected references before moving files. If files confl
 - Resist adding scope during Step 4
 - Prefer solutions that avoid database migrations; rely on existing schema where feasible
 
+## Follow-up Cycles Before Merge
+
+Completed Step 4 means the approved cycle is complete, not necessarily ready to merge. Related enhancements for the same intended release may use a distinct follow-up cycle on the same unmerged feature branch when the user requests reuse. Confirm the branch is still unmerged; if eligibility is uncertain, clarify before reuse. Merged branches are ineligible: create a new feature branch.
+
+Give each follow-up its own descriptive feature prefix (for example, `search_filters` following `search`) or a unique numbered fallback (`search_cycle2`), independent of branch name. Check for collisions before writing; never overwrite another cycle's artifacts. In the follow-up's first artifact, link the predecessor and record the intended reused branch; inherit this cycle identity into later artifacts and restore it on resumption. Keep the predecessor's completed content intact; record requests and backlinks separately when necessary.
+
+Use fresh approvals for this cycle (Step 1 optional). After `Approved Step 3`, create a new branch or confirm the explicitly requested eligible branch reuse, then organize this cycle's plans and make its own planning commit before implementation. Create its summary afterward. Each cycle retains one planning commit plus at least one stage-scoped commit per stage, with stage-summary updates; prior cycle commits and approvals do not count. Count from this cycle's planning commit, not the branch's creation. Branch reuse does not authorize merging, publishing, or rewriting completed history.
+
 ## Enhancement Requests
 
 Record every enhancement request before acting in the current planning artifact or Step 4 summary. Use a concise record: **Request / Disposition and reason / Approval status / Outcome or follow-up link**. Keep deferred and declined requests visible; conversation and commit messages alone are insufficient. An implemented request must identify changes, verification, and its stage commit. Record the commit after creation without amending it; include the reference in the next authorized summary update.
@@ -153,5 +161,5 @@ On resumption, recover pending requests, their approval status, and the active c
 - **Step 4**: Missing branch/planning commit/stage commit + summary, scope changes, direct-only behavior, or too few commits
 
 ## Workflows
-- **Simple**: Step 2 → Step 3 → Step 4 (feature branch → implement stages → test/commit → complete)
+- **Simple**: Step 2 → Step 3 → Step 4 (create or eligible reuse of feature branch → implement stages → test/commit → complete)
 - **Complex**: Step 1 (solution assessment) → Step 2 → Step 3 → Step 4
