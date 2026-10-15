@@ -125,6 +125,7 @@ Inspect destinations and affected references before moving files. If files confl
 - Add the Plan navigation bar to every Step 1–4 artifact
 - Step 1 starts with `## Original Query`: preserve the request except mechanical grammar, spelling, capitalization, punctuation, and formatting fixes; when needed, follow it with a brief, clearly labeled `## Understood Intent` that clarifies inferred goal/context without inventing scope
 - For Step 3, prefer `## Stage N` headers with flat bullet lists for each stage field so plans stay easy to scan and review
+- When the request names a known user or environment, Step 2 states that user's ordinary entry and recovery condition; evidence from another supported platform never satisfies it
 - Step 2 risks state impact, early validation, and mitigation; Step 3 begins with `## Key Risks`, and unresolved risks block dependents
 - For Step 4 summaries, prefer `## Stage N - title` headers with bullet lists for changes, verification, and notes so stage handoff stays easy to audit
 

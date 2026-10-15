@@ -21,6 +21,7 @@ Capture the problem framing, desired outcomes, and shared-component consideratio
   - Work type: application change or documentation-only
   - For documentation-only work: allowed documentation files or directories, intended audience/outcome, and an explicit statement that application/runtime changes are not permitted
 - Completion boundary: for application work, normal entry, end-to-end outcome, needed recovery, and release condition; for documentation-only work, document completion, intended audience outcome, correction/recovery path, and handoff condition
+- Known user or environment: when the request names a user, machine, or environment, state that user's ordinary entry point and recovery condition: the mismatch or failure to handle, the next action they can take unaided, how they verify success or retry, and the evidence that will show it. Evidence from a different supported platform does not satisfy this condition; omit the item when no user or environment is named
 - Risks (2–4): impact, earliest validation, mitigation before Step 3
 - Shared component inventory: enumerate every existing UI/API surface that already renders the data; specify whether the feature reuses/extends the canonical component or needs a new one (with rationale)
 - Simple user flow: numbered steps
