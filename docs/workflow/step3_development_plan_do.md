@@ -44,6 +44,7 @@ For each stage include:
 - For documentation-only work, keep every expected change within the approved documentation file scope and identify the evidence and document-integrity checks for that stage
 
 Additional requirements:
+- When Step 2 states a known user or environment recovery condition, include a stage that replays each reported failure as acceptance evidence. A pass only on the installer or another supported platform does not complete it; actionable manual guidance can satisfy it when automatic support is out of scope
 - Stages should be about <=1 hour or <=50 lines of change; split anything larger before implementation
 - Document database changes conceptually (no SQL)
 - Include planned function signatures when relevant, without code
