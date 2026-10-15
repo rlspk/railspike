@@ -26,6 +26,12 @@ Railspike is intentionally strict at the points where AI-assisted work most ofte
 
 **Recovery:** Do not begin the next stage. Run the applicable check, update the current stage section, inspect `git status --short`, and create the missing stage-scoped commit. If later work is already mixed in, separate it into reviewable commits before continuing; record any limitation honestly.
 
+## Passing tests did not establish the user's recovery
+
+**Signal:** A request named a known user or environment, but the handoff reports tests on a different supported platform, or a user still cannot recover.
+
+**Recovery:** Do not treat the pass as completion. Return to Step 2 and state that user's ordinary entry point and recovery condition. Replay each reported failure as acceptance evidence in Step 3, and report the result in Step 4 as passed, failed, blocked, pending, or inapplicable. Manual guidance can be the accepted outcome when automatic support is out of scope.
+
 ## A risk blocks a dependent stage
 
 **Signal:** A Step 2 or Step 3 risk has no accepted mitigation or its early validation fails.
