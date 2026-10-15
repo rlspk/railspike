@@ -115,6 +115,7 @@ Inspect destinations and affected references before moving files. If files confl
 - Create separate files for each step only after receiving the relevant approval
 - ALWAYS establish a feature branch before Step 4 implementation; reuse only under [Follow-up Cycles Before Merge](#follow-up-cycles-before-merge)
 - Enforce Step 4 commit cadence: first organize and commit approved plans under the organization rule above; each completed stage has a stage-scoped commit that includes the Step 4 summary update
+- Report Step 4 checks as passed, failed, blocked, pending, or inapplicable; a focused pass is never an unqualified full-suite or user-outcome result
 - Treat documentation-only work as a Step 4 implementation only when its allowed documentation file scope was approved in Steps 2 and 3; use applicable verification and record non-applicable runtime checks in the summary
 - Prefer shared components/API contracts first; reuse or extend instead of forking markup, CSS, or payloads
 - Apply [Enhancement Requests](#enhancement-requests): document every request, incorporate only in-scope refinements, and replan changed scope
