@@ -255,6 +255,20 @@ After the chosen installation passes verification, read and follow [WELCOME.md](
 
 A copied installation consists of ordinary project files. Once those files and `RAILSPIKE_SOURCE.md` are committed with the host project, a normal clone includes them; no submodule initialization is needed. Preserve the installation record when sharing the copy. Detect the installation type before choosing an update procedure; do not run submodule commands on a copied directory or silently convert either type.
 
+### Ask your agent to upgrade Railspike
+
+Ask your coding agent from the project containing the installation; no sync command is required:
+
+> Upgrade Railspike at `docs/railspike` from https://github.com/rlspk/railspike. Identify how it is installed and its current source revision. Review the proposed update, preserve local changes and a recoverable prior state, verify the result, and report the old/new revisions and project changes. Leave staging and committing to my normal project workflow.
+
+Without a requested version, the update target is `main`. To choose a release or beta, name its exact tag and source instead of asking for “the next beta.” Find published tags in [Releases](https://github.com/rlspk/railspike/releases), including pre-releases. For example:
+
+> Upgrade Railspike at `docs/railspike` to tag `v0.2.0-beta.1` of https://github.com/rlspk/railspike. Verify that the tag resolves to commit `9774132db592c3bc9026163f50384f52376bac1c`. Identify the installation method and baseline, review the snapshot, preserve local changes and a recoverable prior state, and verify the result. Record the source, tag, and full commit ID, and report project changes. Leave staging and committing to my normal project workflow.
+
+An explicit tag is the target for that request; do not substitute `main` or GitHub's “Latest” release. A later request without a version targets `main` again, so name the desired tag when staying on or moving between betas. To roll back, request the previous reviewed tag or commit with the same preservation and verification checks. For a submodule, the `main` update block below does not implement a tagged update: the agent must review and select the exact requested revision deliberately.
+
+The agent should distinguish ordinary copies, Git submodules, and legacy Git subtrees before choosing a procedure. If the installed source is `gulkily/railspike`, follow [source migration](#migrating-from-gulkilyrailspike) as part of the requested upgrade rather than checking only the legacy remote for releases.
+
 ### Ask your agent to update a copied installation
 
 > Review and update the Railspike copy at `docs/railspike`. Use its recorded source revision to identify local changes before replacing anything. Inspect the proposed new snapshot, preserve local edits and a recoverable prior copy, verify the result, and report old/new revisions and project changes. Leave staging and committing to my normal project workflow.
@@ -273,9 +287,15 @@ If replacement or verification fails, stop and report the partial state. Restore
 
 The product source is now `https://github.com/rlspk/railspike.git`, with updates on `main`. Development records/checks moved to `rlspk/railspike-dev`; the website is `https://railspike.dev/`. The product retains its Git history, so removed development files remain recoverable at earlier revisions. Fresh working trees and copied snapshots are lean; a full Git clone can still download historical development content.
 
-Migration is an explicit source change, separate from routine updates. Do not treat an unexpected remote as permission to rewrite it. Identify the installation type and preserve local edits, staging, and a recoverable prior state first.
+Migration is an explicit source change, separate from routine updates. A request to migrate from `gulkily/railspike` to `rlspk/railspike` authorizes updating the installation's existing Railspike remote or source configuration after verifying that it belongs to this installation; record its previous value for recovery. An unexpected remote during a routine update still requires clarification. Identify the installation type and preserve local edits, staging, and a recoverable prior state first. Use an explicitly requested tag or commit as the replacement target; use `main` only when no version was requested.
 
 **Copied installation:** use the copied-update procedure above, obtaining the exact recorded baseline from the old source and the reviewed replacement from the new source. Compare all installed files, including development directories removed upstream. Preserve local additions or edits in those directories in an agreed location; never discard them as upstream clutter. Only after verification, write the new source URL/revision and retained deviations to `RAILSPIKE_SOURCE.md`. Keep the original source record with the prior copy for rollback. Missing baselines, ambiguous provenance, or conflicts block replacement.
+
+**Legacy Git subtree:** some older installations have no `RAILSPIKE_SOURCE.md`. Inspect the host's import/update history for the applicable `git-subtree-dir` and `git-subtree-split` markers. Match the recorded directory to this installation and obtain the exact split revision from the legacy source; verify it against the installed tree to identify local additions, edits, and deletions. A marker is a candidate upstream baseline, not proof that the current files still match it. Missing objects, conflicting markers, or ambiguous provenance must be resolved before replacement; do not use today's upstream tip as the baseline.
+
+Preserve the prior installed tree and import metadata, and review the requested product snapshot using the copied-update preservation and verification checks above. Account for development and website files removed by the repository split. Record the new source, requested tag if any, full commit ID, and retained deviations in `RAILSPIKE_SOURCE.md`. Choose and report how subsequent agent-led updates will work. Replacing files with an archive does not update subtree bookkeeping, and shared ancestry alone does not establish that a later subtree pull will work. Verify any proposed subtree procedure in a disposable copy of the host history before recommending it; do not silently convert the installation method.
+
+**Host-project references:** inspect agent guidance such as `AGENTS.md`, links to the installed `RAILSPIKE.md` and `WELCOME.md`, and any project scripts or documentation that refer to the old source or removed installed paths such as `scripts/`, `docs/plans/`, `docs/maintainers/`, and `docs/research/`. Update affected references and verify the entrypoints still resolve. The host project's own `docs/plans/` remains its planning location; do not remove it as part of cleaning up upstream development files. Report affected project integrations that need separate changes.
 
 **Submodule:** from the host root, establish the same clean-worktree, registered-path, initialized-submodule, and non-symlink conditions required by the update block below, but require both the registered URL and origin to equal `https://github.com/gulkily/railspike.git`. Accept only an unset or `master` branch setting and a detached or `master` checkout. Record the current revision, branch, `.gitmodules`, and local submodule settings before changing anything. Then:
 
