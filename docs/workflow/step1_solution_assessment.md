@@ -5,6 +5,10 @@ _Read this file only if the feature is complex enough to require Step 1. Pause 
 ## Debug state
 On entry or resumption, restore and record state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode).
 
+## Effort estimation
+
+For a selected effort-study cycle, restore its study state and preserve intake before detailed inspection; capture the Step 1 projected-total snapshot for the recommended scope before handoff. Unselected cycles have no scoring requirement. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
 ## Objective
 Resolve uncertainty when there are multiple viable approaches, complex trade-offs, or an unclear direction before investing in further planning.
 

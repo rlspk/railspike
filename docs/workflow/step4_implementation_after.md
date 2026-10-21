@@ -2,6 +2,10 @@
 
 _Open only after completing Step 4 Do._
 
+## Effort estimation
+
+For selected cycles, record a separately labeled retrospective scope assessment and actual verification/omissions, never a replacement projection. Record the maintainer comfortable-fit judgment or mark it pending. Include authorized ledger closeout updates in the final stage commit; verify this before leaving Do. Missing judgment does not authorize invented study acceptance. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
 ## Objective
 Run final Step 4 verification gates and prepare handoff.
 

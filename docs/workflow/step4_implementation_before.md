@@ -2,6 +2,10 @@
 
 _Open only after the user responds "Approved Step 3."_
 
+## Effort estimation
+
+For selected cycles, restore study state before setup. Only after the required planning commit and creation of the summary, record the Step 4 entry projection there (explicitly reaffirm Step 3 if unchanged), before implementation. Do not add the ledger or summary to the planning commit. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
 ## Objective
 Set up the Step 4 branch and lock in planning artifacts before implementation starts. For documentation-only work, confirm that the approved Step 2/3 artifacts name the allowed documentation file scope.
 

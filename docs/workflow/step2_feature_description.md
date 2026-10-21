@@ -5,6 +5,10 @@ _Open this only after receiving “Approved Step 1” (or if Step 1 was skippe
 ## Debug state
 On entry or resumption, restore and record state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode).
 
+## Effort estimation
+
+For a selected effort-study cycle, restore study state (and preserve intake if Step 1 was skipped), then capture the Step 2 projected-total snapshot before handoff. Include authorized ledger bookkeeping in the delivery scope. Preserve earlier snapshots on revisions. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
 ## Objective
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 

@@ -2,6 +2,10 @@
 
 _Open only after completing Step 4 Before._
 
+## Effort estimation
+
+For selected cycles, preserve the entry projection and append total-cycle revisions when discoveries warrant them, before dependent work where possible. Keep changed-scope approval gates; include snapshot updates with the authorized stage summary commit. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
 ## Objective
 Execute the plan in atomic stages on a dedicated feature branch, documenting progress and verification as you go.
 
@@ -49,6 +53,8 @@ _Template_
 ```
 
 Prefer this header-plus-bullets structure over prose paragraphs so the implementation summary stays easy to diff against the Step 3 plan and easy to review at stage boundaries.
+
+For selected study cycles, complete the retrospective assessment and authorized ledger closeout update in the final stage before its commit; record unavailable maintainer judgment as pending.
 
 ## Next
 After all planned stages are implemented and committed, continue with `docs/workflow/step4_implementation_after.md`.

@@ -2,6 +2,7 @@
 
 - [Workflow entry point](../RAILSPIKE.md)
 - [Step and phase instructions](./workflow/)
+- [Effort scoring and continuing study collection](./effort-estimation.md)
 - [Failure modes and recovery](./failure-modes.md)
 - [Installation and updates](../README.md#installation-checks)
 

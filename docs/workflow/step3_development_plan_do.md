@@ -4,6 +4,10 @@ _Open only after completing Step 3 Before._
 
 On resumption, restore the current artifact’s state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). This phase does not trigger a diagnostic report.
 
+## Effort estimation
+
+For selected cycles, capture the Step 3 projected-total snapshot after the plan accounts for required verification and recovery. Keep it in the plan and link from the authorized ledger; retain prior values and approval context on revision. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
 ## Objective
 Break the feature into atomic implementation stages, identify dependencies, and define verification expectations before coding starts.
 
