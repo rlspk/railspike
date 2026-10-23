@@ -6,6 +6,8 @@ _Open only after the user responds "Approved Step 2."_
 
 Restore selected-cycle study state and frozen references alongside debug state; recover earlier snapshots without backfilling missing scores. Confirm ledger bookkeeping is inside the approved scope before planning writes. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
 
+Restore inherited [extended-estimate mode](../effort-estimation.md#extended-estimates), including a standing host policy when applicable. If enabled, carry the mode into the plan and prepare stable stage identities; unavailable references leave affected estimates explicitly unavailable rather than fabricated.
+
 ## Objective
 Confirm the planning boundary and artifact setup before drafting Step 3.
 

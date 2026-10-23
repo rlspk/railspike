@@ -9,6 +9,8 @@ On entry or resumption, restore and record state using [Railspike Debug Mode](..
 
 For a selected effort-study cycle, restore study state (and preserve intake if Step 1 was skipped), then capture the Step 2 projected-total snapshot before handoff. Include authorized ledger bookkeeping in the delivery scope. Preserve earlier snapshots on revisions. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
 
+Inherit any recorded [extended-estimate mode](../effort-estimation.md#extended-estimates); it does not require a repeated selection question. Keep the scoped-cycle projection here distinct from stage-work annotations planned in Step 3.
+
 ## Objective
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 

@@ -47,6 +47,36 @@ Use stable option/stage identities with scope version, reference, UTC date, rate
 
 For example, an illustrative two-stage plan might show stage work 0.10 for a shared component and its checks, then 0.20 for integration and its own checks. Shared validation belongs only to its named owner. An independently judged cycle total of 0.45 also includes inspection/planning; neither the stage sum nor subtraction defines it. Illustrative stage history could retain original 0.20, append a whole-stage revision 0.30 after a discovery, and later add retrospective scope 0.25. All remain different records; no actual hours are inferred.
 
+### Planning examples
+
+These fictional snippets illustrate format, not new study observations. State study/cycle, UTC date, rater/exposure, reference and starting revision once in the artifact, then give each option/stage its identity and scope version.
+
+```text
+Extended estimates: enabled
+Option A v1: existing importer, one supported format, including retry/docs/checks.
+  Whole-cycle estimate: 0.40, plausible 0.30–0.55; driver: existing import path.
+  Uncertainty: malformed-input coverage; excludes migration from other formats.
+Option B v1: new importer plus migration from a second format and recovery.
+  Whole-cycle estimate: 0.75, plausible 0.55–1.00; driver: migration/replay.
+  Uncertainty: historical input variants; delivers broader coverage than A.
+Recommendation: A. Formal handoff snapshot: 0.40 for the selected A scope.
+Combined option C v1: freshly judged 0.60 for its explicitly combined scope;
+  driver: shared parser with selective migration; uncertainty: migration cases.
+  C is not A plus B. Preserve A/B and their original estimates.
+```
+
+```text
+Stage 1 v1: shared parser and its checks/documentation.
+  Stage work: 0.10, plausible 0.05–0.20; driver: existing parsing contract.
+  Uncertainty: legacy escaping; owns shared parser regression checks.
+Stage 2 v1: importer integration and its own recovery/docs/checks.
+  Stage work: 0.20, plausible 0.15–0.35; driver: recovery and adapter wiring.
+  Uncertainty: existing adapter compatibility; reuses Stage 1's shared checks.
+Whole-cycle projection: 0.45, judged independently with planning/inspection.
+```
+
+Option estimates cover whole alternatives, while stage estimates cover their stated partial work. Neither combining options nor splitting stages supports an additive forecast. If frozen references cannot be verified, replace the affected numeric field with `unavailable: <reason>`; keep prior values and recover the sources rather than inventing a number.
+
 ## Recovering frozen references
 
 A frozen source is the exact document version used to define a study's reference scale. Its expected hash comes from the existing ledger or accepted manifest; a hash computed from today's changed document cannot replace that identity. New hosts may start from the bundled R1 examples. Existing hosts retain their recorded source requirements.

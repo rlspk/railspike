@@ -8,6 +8,8 @@ On resumption, restore the current artifact’s state using [Railspike Debug Mod
 
 For selected cycles, capture the Step 3 projected-total snapshot after the plan accounts for required verification and recovery. Keep it in the plan and link from the authorized ledger; retain prior values and approval context on revision. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
 
+With [extended estimates](../effort-estimation.md#extended-estimates) enabled, each stage includes **stage work** as a point or range, a short complexity driver and material uncertainty. Cover that stage's full scope, verification, documentation and ordinary correction; identify the owner of shared work without charging whole-cycle planning to every stage. Preserve stable identities, original scopes and dated estimates for Step 4. The independently judged cycle projection is not the stage sum; stage annotations are not remaining effort, hours, cycle observations or percentage complete.
+
 ## Objective
 Break the feature into atomic implementation stages, identify dependencies, and define verification expectations before coding starts.
 
@@ -30,6 +32,7 @@ Render the plan using this preferred format for every stage:
 - Dependencies: ...
 - Expected changes: ...
 - Verification approach: ...
+- Stage work estimate (extended mode only): ...; driver: ...; uncertainty: ...
 - Risks or open questions:
   - Impact: ...
   - Early warning / validation: ...
@@ -46,6 +49,7 @@ For each stage include:
 - Canonical components/API contracts as an explicit bullet, not buried in prose
 - Include all wiring, operations, and verification needed for the Completion Contract; split stories into vertical slices, not layers
 - For documentation-only work, keep every expected change within the approved documentation file scope and identify the evidence and document-integrity checks for that stage
+- Include the optional stage-work bullet only when extended mode is enabled; otherwise omit it. Shared reference/date/rater/exposure metadata may appear once in the artifact, with compact current values and links to retained revision history.
 
 Additional requirements:
 - When Step 2 states a known user or environment recovery condition, include a stage that replays each reported failure as acceptance evidence. A pass only on the installer or another supported platform does not complete it; actionable manual guidance can satisfy it when automatic support is out of scope
