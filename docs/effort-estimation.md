@@ -77,6 +77,29 @@ Whole-cycle projection: 0.45, judged independently with planning/inspection.
 
 Option estimates cover whole alternatives, while stage estimates cover their stated partial work. Neither combining options nor splitting stages supports an additive forecast. If frozen references cannot be verified, replace the affected numeric field with `unavailable: <reason>`; keep prior values and recover the sources rather than inventing a number.
 
+### Execution history example
+
+The following is fictional, with shared study/reference/rater/exposure metadata stated once. Stage 2 keeps the same scoped integration/recovery outcome and starting point throughout; the discovery changes understanding, not authorized scope.
+
+```text
+Stage 2 v1:
+  2026-01-01T10:00:00Z, Step 3 original stage work 0.20 [0.15–0.35].
+    Driver: adapter/recovery wiring; uncertainty: retry compatibility.
+  2026-01-01T11:00:00Z, Step 4 entry inherits that original unchanged.
+  2026-01-01T11:15:00Z, before dependent work, revised whole-stage work
+    0.30 [0.20–0.40]; new understanding: the existing retry guard needs
+    compatibility work already covered by the approved recovery outcome.
+    Preserve original 0.20; this is not 0.30 remaining work.
+  2026-01-01T12:00:00Z, completed scoped flow and recovery checks passed.
+    Retrospective stage work 0.25, separately judged; measured time unknown.
+```
+
+The whole-cycle projection is reconsidered independently at discovery, with its own dated reason; do not calculate it from the stage increase or retrospective difference. A changed outcome/file boundary instead returns to the normal approval process before implementation. The original, revision and retrospective values all survive; elapsed timestamps do not measure labor.
+
+For an old cycle resumed after implementation began, leave its original stage estimate missing and record a current dated whole-stage judgment with prior exposure; do not present it as the missing Step 3 estimate. A completed historical stage can receive a current retrospective assessment only when its scope/evidence support one. Missing references keep numeric values unavailable and trigger exact-source recovery.
+
+Keep `blocked: <reason>` or `skipped: <reason>` with earlier values rather than zero or a completion claim. For a split, retain the original stage as superseded with its scope/estimates and link fresh child identities/scopes, including deferred children. Children and worktree copies are not additional independent cycle outcomes. Corrections append a dated entry identifying the superseded entry; a compact current-value view may link that immutable history.
+
 ## Recovering frozen references
 
 A frozen source is the exact document version used to define a study's reference scale. Its expected hash comes from the existing ledger or accepted manifest; a hash computed from today's changed document cannot replace that identity. New hosts may start from the bundled R1 examples. Existing hosts retain their recorded source requirements.

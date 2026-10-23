@@ -6,6 +6,8 @@ _Open only after completing Step 4 Do._
 
 For selected cycles, record a separately labeled retrospective scope assessment and actual verification/omissions, never a replacement projection. Record the maintainer comfortable-fit judgment or mark it pending. Include authorized ledger closeout updates in the final stage commit; verify this before leaving Do. Missing judgment does not authorize invented study acceptance. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
 
+If extended mode is enabled, confirm every stage record retains its original scoped estimate or honest missing value, any material dated revisions and a separate retrospective stage-work assessment at completion (or explicit unavailable reason). Preserve blocked/skipped/superseded states and links without inventing completion. Stage records are supplemental: cycle retrospective assessment, maintainer acceptance and measured time remain separate. They create no extra independent study outcomes and do not alter existing stage-completion/commit gates.
+
 ## Objective
 Run final Step 4 verification gates and prepare handoff.
 
