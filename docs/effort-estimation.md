@@ -33,6 +33,18 @@ Use a stable project/cycle ID, for example `project-name/feature-prefix`, and re
 
 Record every enrolled cycle at its first artifact, including those that pause, fail, are superseded or are abandoned. Keep proposed backlog candidates separate from started cycles. Never select only completed successes. When adopting collection for an existing cycle, begin at the current checkpoint, disclose prior exposure and mark earlier checkpoints missing. A skipped optional step is inapplicable, not zero. Zero means no implementation work assigned; retain the row's status to explain why.
 
+## Recovering frozen references
+
+A frozen source is the exact document version used to define a study's reference scale. Its expected hash comes from the existing ledger or accepted manifest; a hash computed from today's changed document cannot replace that identity. New hosts may start from the bundled R1 examples. Existing hosts retain their recorded source requirements.
+
+1. Read the active study/reference and required source identities. Resolve relative links from the ledger's directory, not the shell directory or installed Railspike. Distinguish a broken path from missing content or a hash mismatch. Inspect the ledger's current recovery notice before treating historical “unavailable” entries as the present state.
+2. Verify any retained host-local copy first. Otherwise inspect recorded revisions in accessible local history or an authorized source checkout. Read historical content without switching/resetting a branch or replacing current documents. Retrieve only the required document bytes, not a working-tree or history migration. Another clone is a retrieval source, not an independent observation.
+3. Check every required SHA-256 against its recorded expected value **before rating**. Retain verified bytes under a host-owned reference-version directory, outside the installed product. Keep conflicting destination content intact. Plain `.txt` snapshots can preserve Markdown bytes without requiring their historical relative links to work; do not reformat or normalize line endings.
+4. Keep a portable provenance manifest beside the snapshots: study/reference version, source label, original repository, exact revision/path when known, expected SHA-256, local cached path relative to the manifest, recovery UTC date and retrieval method. Record unknown provenance as unknown; a matching byte hash does not establish authorship or acceptance. Keep snapshots and manifest together for offline/relocated use; verify against the ledger's identities on reuse.
+5. Repair the ledger's source links to the verified local copies, retaining old locations as provenance. Append a dated recovery event without changing historical scores, scopes or missing checkpoints. Record new ratings at their actual current checkpoint; separately label any retrospective reconstruction and its exposure. Preserve unrelated edits when updating shared ledgers.
+
+If a source is still missing, changed or conflicting, identify it and the next recovery action; leave affected numeric ratings unavailable. Do not regenerate frozen text from memory, guess a matching reference, or silently replace it with the bundled examples. An accepted replacement needs an explicit new reference version with earlier sources and scores retained. Source recovery alone never approves implementation, uploads, release publication or study outcomes.
+
 ## Snapshot and outcome template
 
 Keep snapshots in the existing feature artifacts; the ledger links to them. Use one dated snapshot per applicable handoff or material revision, explicitly reaffirming unchanged estimates. Resumption alone does not need a duplicate.
