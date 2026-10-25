@@ -11,6 +11,8 @@ For a selected effort-study cycle, restore study state (and preserve intake if S
 
 Inherit any recorded [extended-estimate mode](../effort-estimation.md#extended-estimates); it does not require a repeated selection question. Keep the scoped-cycle projection here distinct from stage-work annotations planned in Step 3.
 
+Display the enrolled cycle's estimate on a standalone bold `Cycle estimate: <value>` line below the state fields, following [estimate presentation](../effort-estimation.md#estimate-presentation). Sign beneath authored/revised contributions using [agent attribution](../../RAILSPIKE.md#agent-attribution), with model/settings only when verified. Attribution applies even without estimates.
+
 ## Objective
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 

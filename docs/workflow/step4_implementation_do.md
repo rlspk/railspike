@@ -54,15 +54,22 @@ At every stage boundary (including Stage 1), complete this sequence before start
 _Template_
 ```markdown
 ## Stage X - {title}
+
+**Original estimate: <value>**
+
 - Changes:
 - Verification:
 - Notes:
-- Stage work (extended mode only): original ...; revisions/history ...; retrospective ...
+- Estimate details (extended mode only): original scope ...; uncertainty ...; revisions/history ...
+
+*— Agent name · YYYY-MM-DD UTC*
 ```
 
 Prefer this header-plus-bullets structure over prose paragraphs so the implementation summary stays easy to diff against the Step 3 plan and easy to review at stage boundaries.
 
-Omit the optional stage-work field when extended mode is off. For an active stage, the retrospective field remains pending; fill it only as a separately dated assessment when completion evidence exists. Keep the current view concise and link retained history instead of duplicating snapshots.
+Omit the estimate line/details when extended mode is off. When enabled, show original and any revised/retrospective values on separate bold lines beneath the stage heading, following [estimate presentation](../effort-estimation.md#estimate-presentation); keep dates, scope and reasons in retained history. Do not add a retrospective number until completion evidence exists; its status stays pending meanwhile. Show the independent cycle estimate below the state fields and label cycle retrospectives separately. Keep the current view concise and link retained history instead of duplicating snapshots.
+
+Sign beneath authored/revised contributions using [agent attribution](../../RAILSPIKE.md#agent-attribution), independently of estimate/debug mode. Add model/settings to the minimal template only when verified; preserve earlier signatures and identify revisions. Copying a prior estimate does not make the copying agent its original rater.
 
 For selected study cycles, complete the retrospective assessment and authorized ledger closeout update in the final stage before its commit; record unavailable maintainer judgment as pending.
 

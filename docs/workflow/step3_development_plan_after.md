@@ -6,7 +6,7 @@ _Open only after completing Step 3 Do._
 
 For selected cycles, verify the Step 3 snapshot and authorized ledger link, and include the projected total in the handoff. A score does not approve Step 4 or widen the planning-commit allowance. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
 
-If extended mode is enabled, check every stage has its stable identity, scoped stage-work value or explicit unavailable reason, driver and uncertainty. Verify shared work has an owner, whole-cycle total is independently judged, and original values/scopes remain available for Step 4; do not normalize estimates into stage fractions or infer measured time.
+If extended mode is enabled, check every stage has its stable identity, a standalone bold estimate line beneath its heading (or explicit unavailable reason), and separate driver/uncertainty. Verify the cycle estimate is visible below the state fields, shared work has an owner, whole-cycle total is independently judged, and original values/scopes remain available for Step 4; do not normalize estimates into stage fractions or infer measured time. Check contribution signatures under [agent attribution](../../RAILSPIKE.md#agent-attribution) regardless of estimate/debug mode, including verified-only model/settings and retained prior authorship.
 
 ## Objective
 Finalize Step 3 for review, enforce approval gating, and hand off cleanly to Step 4.

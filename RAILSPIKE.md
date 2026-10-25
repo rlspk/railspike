@@ -54,6 +54,8 @@ This is an optional beta capability. A user or host project may select individua
 
 When enabled, every Step 1 option gets a complete scoped-cycle estimate; every Step 3 stage gets a separately labeled **stage work** estimate using the reference yardstick. Step 4 preserves originals, appends material whole-stage revisions and records separate retrospective assessments. Stage work covers only that stage's changes, verification, documentation and ordinary correction, not the cycle's planning again. Keep shared overhead explicit, cycle totals independently judged, and stage annotations separate from cycle snapshots and outcome counts. Never sum stage or alternative estimates, normalize them into fractions, or interpret retrospective ratings as measured effort. This extension leaves the frozen R1 definition and ordinary approval/commit requirements intact.
 
+**Visible estimates:** Put a standalone bold `Estimate: 0.35` line directly beneath each estimated option/stage heading, with at most a short comment. Show `Cycle estimate: 0.60` near the top of each enrolled artifact, below its state fields. Use plain numbers without approximation signs; keep drivers, uncertainty and study metadata separate. Tables use a dedicated estimate column. Preserve ranges, unavailable reasons and explicit original/revised/retrospective labels under the [presentation rules](docs/effort-estimation.md#estimate-presentation). Disabled extended mode omits option/stage estimate fields; enrolled cycles still retain whole-cycle checkpoints.
+
 **Checkpoints**
 
 | Checkpoint | Required record for selected cycles |
@@ -126,6 +128,16 @@ Inspect destinations and affected references before moving files. If files confl
 ```md
 > **Feature plan:** [Step 1](./{feature_name}_step1_solution_assessment.md) · [Step 2](./{feature_name}_step2_feature_description.md) · [Step 3](./{feature_name}_step3_development_plan.md) · [Step 4](./{feature_name}_step4_implementation_summary.md)
 ```
+
+### Agent attribution
+
+Sign beneath each authored or revised option, stage or other substantive plan section in Steps 1–4. Use one short italic attribution line per coherent contribution, not per bullet. A compact single-contribution artifact may use one footer. Attribution applies independently of debug mode and effort-study enrollment.
+
+Use the agent's known name and UTC date. Include the model name/version and relevant settings (for example reasoning effort or temperature) **when verified for the session that produced that contribution**. Use only explicit, available runtime/session metadata; a configured preference is not proof of the actual runtime model. Omit unknown fields, or mark them unavailable once in shared metadata. Never infer them from the agent name, output style, Git author, another agent or an example. Do not delay work or ask the user merely to fill optional fields. Record only shareable metadata, not credentials, hidden prompts or private configuration.
+
+Minimal form: `*— Agent name · YYYY-MM-DD UTC*`. With verified metadata: `*— Agent name · YYYY-MM-DD UTC · Model: <verified model> · Reasoning effort: <verified setting>*`. Include other relevant verified settings as named fields; omit unavailable ones rather than copying placeholders. Examples are formatting illustrations, not evidence of a live model or setting.
+
+Preserve prior attribution when revising another agent's work; append `*— Revised by Agent name · YYYY-MM-DD UTC*` beneath the changed contribution, with verified model/settings if available. Preserve earlier dated entries for later revisions, including changes of model/settings by the same agent. Attribute only work actually authored or revised; a reviewer or agent merely copying an earlier estimate does not become its original author/rater. Do not backfill unknown historical authorship. These are textual authorship records, not cryptographic signatures, approvals or independent ratings.
 
 **Commit discipline**:
 - Keep Step 1-3 planning documents uncommitted while they are being drafted/revised.

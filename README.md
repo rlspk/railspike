@@ -40,6 +40,8 @@ The agent rewrites the recommendation and checks the tradeoffs again for the com
 
 For new enrolled effort-study cycles, extended estimates are enabled by default: each Step 1 option has a whole-cycle estimate, and each planned stage has a separate work estimate retained through Step 4 revisions and retrospective assessment. Enrollment remains optional. Ask “Disable extended effort estimates for this cycle,” or set a host policy disabling them for future cycles, to opt out. Existing cycle settings survive upgrades; older cycles without a recorded setting retain their prior opt-in behavior. Ask “Enable extended effort estimates for this cycle” to activate one prospectively, preserving missing historical estimates. Stage estimates are relative judgments, not hours or values to sum into a cycle total. See the [effort guide](docs/effort-estimation.md#extended-estimates) for precedence, recovery, uncertainty and history; the capability remains provisional.
 
+Estimates appear on their own bold lines beneath option/stage headings, with a distinct cycle estimate near the top of the plan. Details and uncertainty stay separate; no approximation sign is needed. Agents also [sign their plan contributions](RAILSPIKE.md#agent-attribution) with their name and date, adding model and settings when verified and preserving earlier authorship on revisions.
+
 ## Quick start
 
 ### 1. Add Railspike

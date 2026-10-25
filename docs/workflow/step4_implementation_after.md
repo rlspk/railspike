@@ -19,7 +19,7 @@ Run final Step 4 verification gates and prepare handoff.
    - this cycle’s commit count, starting with its planning commit, is not lower than `1 + number_of_stages`
 4. Confirm the Contract: normal UI/CLI flow, end-to-end outcome, and required recovery—not direct-only behavior. For documentation-only work, confirm the intended document outcome, evidence boundary, and allowed file scope instead.
 5. Verify scoped deployment, release, external-system, role, migration, and other dependencies in the applicable environment when they are within the approved scope; otherwise record them as not applicable in the Step 4 summary.
-6. Confirm documentation is updated, including the finalized Step 4 implementation summary.
+6. Confirm documentation is updated, including the finalized Step 4 implementation summary. Check visible estimate labels and preserved histories under [estimate presentation](../effort-estimation.md#estimate-presentation), plus contribution signatures under [agent attribution](../../RAILSPIKE.md#agent-attribution) with only verified model/settings.
 7. Report each applicable check as passed, failed, blocked, pending, or inapplicable, with the reason for any other than passed. Identify reproduced baseline failures. A focused pass is never reported as a full-suite or user-outcome result, and the handoff opens with anything unverified, including a stated known user's recovery condition.
 
 ## Next
