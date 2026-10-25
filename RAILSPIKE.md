@@ -133,6 +133,8 @@ Inspect destinations and affected references before moving files. If files confl
 
 Sign beneath each authored or revised option, stage or other substantive plan section in Steps 1–4. Use one short italic attribution line per coherent contribution, not per bullet. A compact single-contribution artifact may use one footer. Attribution applies independently of debug mode and effort-study enrollment.
 
+For Step 3, when one agent generates the entire plan in one pass, use a single attribution footer for the whole plan, regardless of plan length. Use stage-level attribution only for stages subsequently authored or substantively revised separately. Preserve the original plan footer and prior stage attribution when recording revisions.
+
 Use the agent's known name and UTC date. Include the model name/version and relevant settings (for example reasoning effort or temperature) **when verified for the session that produced that contribution**. Use only explicit, available runtime/session metadata; a configured preference is not proof of the actual runtime model. Omit unknown fields, or mark them unavailable once in shared metadata. Never infer them from the agent name, output style, Git author, another agent or an example. Do not delay work or ask the user merely to fill optional fields. Record only shareable metadata, not credentials, hidden prompts or private configuration.
 
 Minimal form: `*— Agent name · YYYY-MM-DD UTC*`. With verified metadata: `*— Agent name · YYYY-MM-DD UTC · Model: <verified model> · Reasoning effort: <verified setting>*`. Include other relevant verified settings as named fields; omit unavailable ones rather than copying placeholders. Examples are formatting illustrations, not evidence of a live model or setting.

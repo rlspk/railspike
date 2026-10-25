@@ -118,8 +118,6 @@ Freshly judged for its explicitly combined scope.
 - Driver: existing parsing contract; plausible range 0.05–0.20.
 - Uncertainty: legacy escaping.
 
-*— Example agent · 2026-01-01 UTC*
-
 ## Stage 2 v1 — Importer integration
 
 **Estimate: 0.20**
@@ -128,10 +126,12 @@ Freshly judged for its explicitly combined scope.
 - Driver: adapter wiring; plausible range 0.15–0.35.
 - Uncertainty: adapter compatibility; reuses Stage 1's shared checks.
 
-*— Example agent · 2026-01-01 UTC*
-
 The cycle total is judged independently with inspection/planning included.
+
+*— Example agent · 2026-01-01 UTC*
 ```
+
+This Step 3 example was authored as one whole plan, so it has one footer. A stage subsequently authored or substantively revised separately receives its own attribution; retain the original footer and earlier attribution.
 
 Option estimates cover whole alternatives, while stage estimates cover their stated partial work. Neither combining options nor splitting stages supports an additive forecast. If frozen references cannot be verified, replace the affected numeric field with `unavailable: <reason>`; keep prior values and recover the sources rather than inventing a number.
 
