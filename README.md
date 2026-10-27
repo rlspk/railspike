@@ -4,7 +4,9 @@
 
 **Make your coding agent write the plan down first.**
 
-Railspike is a set of Markdown instructions your agent follows. The agent writes requirements and a staged plan into your repo, then stops until you approve each one. After that it works on a branch, one stage at a time, verifying and committing each stage with a record of what changed.
+Railspike is a set of Markdown instructions your agent follows. In staged mode, the agent writes requirements and a plan into your repo, then stops until you approve each one. After that it works on a branch, one stage at a time, verifying and committing each stage with a record of what changed.
+
+For a bounded fix you explicitly authorize upfront, [one-shot mode](#one-shot-work-with-a-development-record) keeps comparable evidence in one evolving record without intermediate planning approvals.
 
 Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read your project files. Railspike has no CLI or runtime dependencies. Installation copies reviewed files into your project by default; Git submodules are available on explicit request.
 
@@ -14,7 +16,7 @@ Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read y
 
 We wanted plans that live in the repo, that we can edit in our own editor and come back to the next day, with explicit review points when the direction changes.
 
-So Railspike puts every plan in a Markdown file. You can read it in VS Code, Obsidian, vim, or a GitHub diff. You can edit it directly or ask the agent to change it. The instructions require the agent to stop until you type `Approved Step N`. These are instructions the agent follows, not a technical enforcement mechanism.
+So Railspike puts every plan in a Markdown file. You can read it in VS Code, Obsidian, vim, or a GitHub diff. You can edit it directly or ask the agent to change it. In staged mode, the instructions require the agent to stop until you type `Approved Step N`. These are instructions the agent follows, not a technical enforcement mechanism.
 
 Use Railspike alongside your agent’s plan mode when you want to keep decisions in editable files across sessions. Compare approaches, combine the parts that fit, and revise the requirements and stages before approving the work.
 
@@ -37,6 +39,8 @@ Leave scheduled exports out of scope and update the recommendation.
 The agent rewrites the recommendation and checks the tradeoffs again for the combined version.
 
 ## Optional effort estimates
+
+One-shot cycles use the same enrollment policy with [one-shot checkpoints](docs/effort-estimation.md#one-shot-checkpoints); estimates for alternatives/work units apply only when those actually exist.
 
 For new enrolled effort-study cycles, extended estimates are enabled by default: each Step 1 option has a whole-cycle estimate, and each planned stage has a separate work estimate retained through Step 4 revisions and retrospective assessment. Enrollment remains optional. Ask “Disable extended effort estimates for this cycle,” or set a host policy disabling them for future cycles, to opt out. Existing cycle settings survive upgrades; older cycles without a recorded setting retain their prior opt-in behavior. Ask “Enable extended effort estimates for this cycle” to activate one prospectively, preserving missing historical estimates. Stage estimates are relative judgments, not hours or values to sum into a cycle total. See the [effort guide](docs/effort-estimation.md#extended-estimates) for precedence, recovery, uncertainty and history; the capability remains provisional.
 
@@ -82,7 +86,26 @@ Approved Step 1
 
 Repeat for each planning step. A request for revisions does not approve the next step. Don't approve a file you haven't read.
 
+## One-shot work with a development record
+
+For a bounded task with a clear outcome and proportionate verification, explicitly request one-shot execution:
+
+```text
+Use docs/railspike/RAILSPIKE.md to implement the typo correction in the
+settings help text as a one-shot. Change only that text and the cycle records.
+Verify the rendered wording. Leave changes uncommitted for review.
+```
+
+The agent records your request, actual authorization, scope, approach and checks before implementation in `docs/plans/{feature}/{feature}_one_shot.md`. It then appends decisions, changes, verification and outcome. A question or plan reference does not grant execution permission. If the scope grows, the agent seeks renewed authorization or switches to staged planning with linked history. After interruption, it restores the record's authority and next permitted action; unresolved authority blocks dependent work.
+
+One-shot mode uses a feature branch and normally one completion commit containing the changes and record, with additional meaningful commits allowed. There is no separate planning commit, and an explicit no-commit request takes precedence. Technical completion, commit status and publication are separate. Existing host study/debug policies apply; one-shot selection does not automatically enable a study or debug mode. See the [complete one-shot workflow and template](docs/workflow/one_shot.md).
+
+Small ordinary tasks can still proceed outside Railspike. An existing staged cycle remains staged unless you explicitly authorize a mode/scope change. Neither task size nor an implementation question switches modes.
+
 ## The four steps
+
+The following approvals, artifacts and commit cadence apply to staged cycles.
+
 
 | Step | The agent writes | You decide |
 |---|---|---|
