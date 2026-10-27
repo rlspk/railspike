@@ -3,6 +3,14 @@
 ## Overview
 Planning, documentation, development, bug fixes, test suites, and checklists can use this four-step workflow, with an optional solution assessment upfront. Review and revise the current artifact before approving the next step; a planning handoff can pause before implementation. To keep the instructions inside the context window, the detailed guidance for each step now lives in separate files that you open only when you are ready for that step.
 
+## Choose the execution mode
+
+Use the staged workflow below when approaches or scope need review. For explicitly authorized, bounded execution with a clear outcome and proportionate verification, use the [one-shot workflow](docs/workflow/one_shot.md). It preserves comparable development evidence in one evolving record without intermediate step approvals. Ordinary tasks outside Railspike remain possible; size alone does not select a mode or enroll a task in a study.
+
+Before work, read applicable project instructions, including `AGENTS.md`, and the selected workflow. If required instructions cannot be found or read, resolve that before dependent work. A mode label, plan reference, or implementation question is not execution authorization. Record the user's actual authorization and its boundary; do not manufacture approval from agent-authored scope. Questions leave existing authority unchanged. Clarify unresolved authority before dependent actions while continuing independent authorized work.
+
+Step/phase order, separate step artifacts, `Approved Step N` gates, and planning/stage commit rules below govern **staged cycles**. One-shot cycles use the linked lifecycle and commit rules instead. Repository boundaries, instruction summaries, scope protection, attribution, honest verification, and applicable study/debug policies apply to both modes. This is an instruction contract, not programmatic enforcement.
+
 ## Repository Boundary
 Instruction files under `docs/workflow/` belong to the Railspike repository. If Railspike is included in another repository as a submodule or vendored directory, resolve those paths relative to the Railspike repository root, not the host repository root. Planning artifacts still belong in the host repository under `docs/plans/`.
 
