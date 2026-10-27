@@ -66,6 +66,8 @@ When enabled, every Step 1 option gets a complete scoped-cycle estimate; every S
 
 **Checkpoints**
 
+The table below applies to staged cycles. One-shot cycles use [intake, execution-entry, revision and closeout checkpoints](docs/effort-estimation.md#one-shot-checkpoints) in their consolidated record, with the same reference, scope-history and outcome semantics.
+
 | Checkpoint | Required record for selected cycles |
 | --- | --- |
 | Intake | Preserve initial scoped estimate in the ledger or first artifact before detailed implementation inspection; disclose earlier inspection instead of pretending it was prospective. |
@@ -90,6 +92,8 @@ At closeout, retain delivered scope, starting/final revisions, commits/diffs, pl
 ## Railspike Debug Mode
 
 Debug mode is optional feedback for improving Railspike's instructions, not application debugging. New workflows default to disabled unless the consuming project opts in. Enable or disable it for a workflow with a plain-language request such as “Enable Railspike debug mode for this workflow” or “Disable Railspike debug mode.”
+
+Precedence, content and recovery rules apply to both execution modes. One-shot records use a cycle/index line instead of Plan navigation and follow [one-shot report timing and commit rules](docs/workflow/one_shot.md#study-and-debug-state) instead of the staged handoff/commit cadence below.
 
 **Project default**:
 - An optional `.railspike_debug_on` file at the consuming-project root enables debug by default for new workflows. Only file presence matters: do not read or validate its contents. Empty, arbitrary, or “false” contents all enable the default; unreadable contents do not matter when file presence is established. An absent marker leaves the default disabled.
@@ -212,6 +216,8 @@ Give each follow-up its own descriptive feature prefix (for example, `search_fil
 Use fresh approvals for this cycle (Step 1 optional). After `Approved Step 3`, create a new branch or confirm the explicitly requested eligible branch reuse, then organize this cycle's plans and make its own planning commit before implementation. Create its summary afterward. Each cycle retains one planning commit plus at least one stage-scoped commit per stage, with stage-summary updates; prior cycle commits and approvals do not count. Count from this cycle's planning commit, not the branch's creation. Branch reuse does not authorize merging, publishing, or rewriting completed history.
 
 ## Enhancement Requests
+
+For one-shot cycles, use the consolidated record instead of a step artifact, record actual implementation commit references when available, and apply [one-shot scope-change and transition rules](docs/workflow/one_shot.md#resumption-and-scope-changes) for changed scope. The classification and evidence requirements below apply to both modes.
 
 Record every enhancement request before acting in the current planning artifact or Step 4 summary. Use a concise record: **Request / Disposition and reason / Approval status / Outcome or follow-up link**. Keep deferred and declined requests visible; conversation and commit messages alone are insufficient. An implemented request must identify changes, verification, and its stage commit. Record the commit after creation without amending it; include the reference in the next authorized summary update.
 

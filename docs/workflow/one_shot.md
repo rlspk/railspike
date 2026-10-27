@@ -20,11 +20,29 @@ Answering a question does not increase authority or automatically revoke permiss
 
 Run checks appropriate to the outcome and capture commands, results, omissions and recovery instructions. Label checks passed, failed, blocked, pending, or inapplicable. A focused check does not establish a full-suite pass or success in an untested environment. Record technical status separately from commit, merge and publication status. Keep incomplete, paused, failed and abandoned cycles visible.
 
+## Resumption and scope changes
+
+On resumption, reread applicable instructions and this record. Restore cycle identity, mode, branch/revisions, actual authorization, latest scope, pending requests, verification status, and study/debug state. Compare the working tree with recorded work; do not discard unexplained differences or infer permission from their presence. If authority or state cannot be recovered, identify the missing evidence and clarify before dependent work. Preserve failed attempts and corrections rather than rewriting the record as if they never happened.
+
+For renewed one-shot authorization, append the changed scope and user's instruction before executing it. If staged review is needed, retain the original record, mark its transition, and start the earliest affected planning step (Step 1 for approach uncertainty, otherwise Step 2). Link both directions and obtain normal staged approvals before further implementation; one-shot authority does not approve the new plans. Preserve existing implementation and commits separately from the new planning-only commit. For the same cycle, retain its identity, study history, scope versions, and debug log. The approved staged scope must identify retained work and remaining work. An existing unmerged feature branch can continue for the same cycle; record that continuation, rather than treating it as a new follow-up branch reuse. Do not reuse a merged branch for further implementation.
+
+Separate additional work receives a distinct linked identity and its own authorization. Do not count a mode transition, superseded artifact, or worktree copy as another study outcome. Related split cycles follow the host's outcome-counting rules. Preserve paused/abandoned status and unresolved requests even when execution ends without success.
+
+## Study and debug state
+
+Use the host's enrollment policy, independent of debug state. For enrolled cycles, follow [one-shot effort checkpoints](../effort-estimation.md#one-shot-checkpoints); unselected cycles omit study fields and estimates. Missing intake stays missing rather than being reconstructed after work starts. Restore prior values on resumption and append material revisions before dependent work where possible.
+
+Apply shared debug precedence and report content. Put the debug field near the top of the record, below its cycle/index line. When enabled, append a complete diagnostic report to `{feature_name}_debug_log.md` beside the record at closeout, including a paused, failed, abandoned, or staged-transition handoff. Each report has a UTC timestamp and lifecycle identifier; unchanged resumptions require no duplicate report. Include exactly one short debug link in the handoff. Keep full findings in the log. Disabled cycles produce no diagnostics or debug link and preserve existing logs. A failed write must be disclosed and resolved before claiming a report was saved.
+
+Include enabled log changes in the next authorized one-shot commit; after the final commit, a log-only handoff commit is permitted. Explicit no-commit requests apply to logs too. On transition, inherit resolved debug state and continue the same log under staged cadence; never use a new project-marker lookup to overwrite resumed state.
+
 ## Commits and closeout
 
 One-shot cycles do not require a separate planning commit or fabricated stage commits. Normally make one completion commit containing only the bounded changes, updated record, relevant index/ledger updates and existing debug log. Additional meaningful commits are allowed; do not rewrite completed history to improve appearances. Verify and inspect intended files before each commit. An explicit no-commit request takes precedence: leave changes uncommitted and report that status.
 
 For separate product/development repositories, commit each repository's authorized files separately and keep the host record linked to the paired revisions. Do not put development records inside the installable product. One-shot authorization does not grant merge, push, tagging or release permission.
+
+A record cannot contain the hash of the commit that first contains it. Before that commit, mark its reference pending. After creation, confirm the revision with Git and append it in the next authorized record update without amending the commit. If no further work remains, one record-only handoff commit is allowed for the confirmed implementation references; report that handoff commit's own hash in the final response without creating an endless record/commit chain. If commits are prohibited, retain the reference update uncommitted. Never invent a hash or treat a pending reference as missing implementation.
 
 At closeout, record delivered outcome, verification limitations, recovery/next action, unresolved requests, commit status and applicable study closeout. Sign authored contributions under the shared attribution rules. Report concise results, with the record link and any required debug link. Do not declare completion while required work remains blocked or pending.
 

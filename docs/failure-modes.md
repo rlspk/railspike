@@ -1,12 +1,24 @@
 # Railspike Failure Modes and Recovery
 
-Railspike is intentionally strict at the points where AI-assisted work most often becomes hard to review. Treat these as stop conditions, not workarounds.
+Railspike is intentionally strict at the points where AI-assisted work most often becomes hard to review. Treat these as stop conditions, not workarounds. Step/phase and stage-commit cases below describe staged execution; one-shot cases use the explicitly selected mode and recorded authorization.
 
 ## Approval was skipped
 
 **Signal:** The agent starts a later step or changes implementation before the user explicitly says `Approved Step N`.
 
 **Recovery:** Stop. Review or revise the current artifact; do not keep later work as implicitly approved. Resume only from the last explicitly approved step. If implementation began before `Approved Step 3`, discard or set aside the unapproved implementation and return to planning.
+
+## One-shot authority or instructions are missing
+
+**Signal:** Required project instructions were not read, an agent treats a plan reference or implementation question as execution approval, or a resumed record lacks recoverable authority.
+
+**Recovery:** Read applicable `AGENTS.md` and workflow instructions; resolve missing/unreadable required files before dependent work. Recover the actual user authorization and bounded scope from the record. Answer questions without granting new authority. If permission is missing or ambiguous, ask for the specific execution boundary; do not begin implementation while waiting. Preserve unrelated work and set aside unapproved changes for review without deleting them unilaterally. A question during authorized execution does not by itself cancel that authority. See [one-shot entry and recovery](workflow/one_shot.md).
+
+## A one-shot grows or cannot finish
+
+**Signal:** New scope exceeds recorded authorization, state cannot be recovered, or verification is unavailable.
+
+**Recovery:** Preserve the original record and current changes. Stop dependent work, record the limitation and next permitted action, then obtain renewed bounded authorization or enter staged planning at the earliest affected step. Link records without creating a second study outcome for the same cycle. For missing checks, distinguish technical completion from unverified requirements; do not report a full pass. Retain paused, failed and abandoned outcomes. Follow [transition rules](workflow/one_shot.md#resumption-and-scope-changes).
 
 ## Scope expands during Step 4
 
@@ -18,7 +30,7 @@ Railspike is intentionally strict at the points where AI-assisted work most ofte
 
 **Signal:** The intended outcome is a document, not runtime behavior.
 
-**Recovery:** Step 2 must call it documentation-only, name the allowed documentation paths, intended audience/outcome, and prohibit application/runtime changes. Step 3 carries that boundary into its Completion Contract. Step 4 verifies document integrity, evidence, local links/paths, and changed-file scope; runtime, UI, deployment, migration, and release checks are marked not applicable with a reason.
+**Recovery:** In a one-shot, record the documentation-only outcome and allowed paths before execution, then apply its document verification requirements. In a staged cycle, Step 2 must call it documentation-only, name the allowed documentation paths, intended audience/outcome, and prohibit application/runtime changes. Step 3 carries that boundary into its Completion Contract. Step 4 verifies document integrity, evidence, local links/paths, and changed-file scope; runtime, UI, deployment, migration, and release checks are marked not applicable with a reason.
 
 ## Verification or a stage commit is missing
 
@@ -30,7 +42,7 @@ Railspike is intentionally strict at the points where AI-assisted work most ofte
 
 **Signal:** A request named a known user or environment, but the handoff reports tests on a different supported platform, or a user still cannot recover.
 
-**Recovery:** Do not treat the pass as completion. Return to Step 2 and state that user's ordinary entry point and recovery condition. Replay each reported failure as acceptance evidence in Step 3, and report the result in Step 4 as passed, failed, blocked, pending, or inapplicable. Manual guidance can be the accepted outcome when automatic support is out of scope.
+**Recovery:** Do not treat the pass as completion. In a one-shot, recover the named environment and expected recovery from the record, document missing evidence and verify the actual outcome or seek renewed scope authorization. In a staged cycle, return to Step 2 and state that user's ordinary entry point and recovery condition. Replay each reported failure as acceptance evidence in Step 3, and report the result in Step 4 as passed, failed, blocked, pending, or inapplicable. Manual guidance can be the accepted outcome when automatic support is out of scope.
 
 ## A risk blocks a dependent stage
 
@@ -46,7 +58,9 @@ git status --short
 git log --oneline
 ```
 
-Then confirm that the first Step 4 commit contains approved plans and only the [organization allowance](../RAILSPIKE.md#planning-artifacts), every completed stage has a summary update and commit, and the final artifact satisfies the Step 3 Completion Contract.
+For one-shot work, confirm actual authority, scope history, verification/omissions, next action, and distinct technical/commit/publication status in the record. Respect no-commit requests; a missing separate planning commit is expected.
+
+For staged work, confirm that the first Step 4 commit contains approved plans and only the [organization allowance](../RAILSPIKE.md#planning-artifacts), every completed stage has a summary update and commit, and the final artifact satisfies the Step 3 Completion Contract.
 
 ## Plan organization is blocked
 
@@ -64,4 +78,4 @@ For a new workflow without an explicit mode request, check for `.railspike_debug
 
 If saving fails, briefly report the failure without claiming the log was saved or dumping unsaved diagnostics into chat; resolve it before presenting diagnostics as logged. Preserve existing entries and append labeled corrections identifying the superseded entry; skip unchanged reports and link to the existing log without claiming a new entry. Keep full findings and required groups in the log, with inapplicable or uncertain findings separate from redundant instructions. Restore routine enabled handoffs to one short debug link line, without findings or collection narration; present findings in chat only when explicitly requested. Disabled mode preserves the log without new diagnostics or debug links. Preserve ordinary task updates, blockers, approvals, and the [instruction summary contract](../RAILSPIKE.md#instruction-summaries), including explicit requests to show instructions.
 
-Include saved additions only in the authorized planning/stage commit or final log-only handoff commit; never amend completed commits or use the allowance for unrelated files.
+For one-shot log timing and commit exceptions, use the [one-shot debug contract](workflow/one_shot.md#study-and-debug-state). In staged cycles, include saved additions only in the authorized planning/stage commit or final log-only handoff commit; never amend completed commits or use the allowance for unrelated files.

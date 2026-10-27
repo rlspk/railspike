@@ -33,6 +33,23 @@ Use a stable project/cycle ID, for example `project-name/feature-prefix`, and re
 
 Record every enrolled cycle at its first artifact, including those that pause, fail, are superseded or are abandoned. Keep proposed backlog candidates separate from started cycles. Never select only completed successes. When adopting collection for an existing cycle, begin at the current checkpoint, disclose prior exposure and mark earlier checkpoints missing. A skipped optional step is inapplicable, not zero. Zero means no implementation work assigned; retain the row's status to explain why.
 
+## One-shot checkpoints
+
+Supported one-shot cycles use the same host selection policy, R1 definition and snapshot fields as staged cycles. Standing enrollment includes them; ordinary tasks outside Railspike remain outside the study. Keep snapshots in the consolidated cycle record and link that record from the host ledger. Study enrollment does not authorize execution or ledger writes beyond the task's documentation scope.
+
+| Checkpoint | Required record for an enrolled one-shot cycle |
+| --- | --- |
+| Intake | Before detailed implementation inspection where possible, preserve the first scoped whole-cycle projection, starting revisions, scope version and actual authorization context. Disclose prior exposure; a missed intake remains missing. |
+| Execution entry | Before implementation, reaffirm or revise the whole-cycle projection against the recorded outcome, approach, verification and recovery. No planning commit is required. |
+| Material discovery or scope revision | Append a dated total-cycle projection when warranted, with reason and retained original scope/score. Changed scope requires renewed execution authority. |
+| Closeout, including incomplete outcomes | Record delivered/remaining scope, verification and omissions, corrections versus additions, known final revisions and commit status, and a separately labeled retrospective scope assessment when evidence permits. Unknown values remain unavailable, never zero. Keep maintainer fit/acceptance pending when absent. |
+
+Apply extended estimates only to real alternatives or work units when they exist; do not manufacture numbered stages to populate estimate fields. Preserve original and revised unit estimates and separate retrospective unit assessments under the existing stage-work semantics. The independently judged cycle total includes shared planning and verification; never sum units or alternatives. No measured labor is inferred from these values or timestamps.
+
+On resumption, restore enrollment, scope/version, original/revised estimates and frozen references; do not repeat unchanged checkpoints. On a transition to staged planning for the same work, retain the cycle identity, original one-shot record, estimates and debug state, link successor artifacts, and collect subsequent staged checkpoints prospectively. Earlier unused staged steps are not applicable, not missing estimates or zero. Distinct additional work retains parent/split links and follows the host outcome-counting rules; transition artifacts and clones are not independent outcomes.
+
+Scope permitted ledger updates into the one-shot completion commit, or leave them pending when authority excludes them. Preserve all histories for failed, paused, abandoned, superseded and completed cycles independently of debug mode; no automatic upload is implied.
+
 ## Extended estimates
 
 Extended estimates default to enabled for **new enrolled effort-study cycles**. Study enrollment remains optional and whole-cycle checkpoints continue unchanged. An extension request does not silently enroll an unselected cycle; establish its study/reference under the normal study setup first. Unselected cycles need no estimate fields or extra mode question. Debug state is independent.
