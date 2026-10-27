@@ -4,7 +4,9 @@
 
 **Make your coding agent write the plan down first.**
 
-Railspike is a set of Markdown instructions your agent follows. The agent writes requirements and a staged plan into your repo, then stops until you approve each one. After that it works on a branch, one stage at a time, verifying and committing each stage with a record of what changed.
+Railspike is a set of Markdown instructions your agent follows. In staged mode, the agent writes requirements and a plan into your repo, then stops until you approve each one. After that it works on a branch, one stage at a time, verifying and committing each stage with a record of what changed.
+
+For a bounded fix you explicitly authorize upfront, [one-shot mode](#one-shot-work-with-a-development-record) keeps comparable evidence in one evolving record without intermediate planning approvals.
 
 Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read your project files. Railspike has no CLI or runtime dependencies. Installation copies reviewed files into your project by default; Git submodules are available on explicit request.
 
@@ -14,7 +16,7 @@ Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read y
 
 We wanted plans that live in the repo, that we can edit in our own editor and come back to the next day, with explicit review points when the direction changes.
 
-So Railspike puts every plan in a Markdown file. You can read it in VS Code, Obsidian, vim, or a GitHub diff. You can edit it directly or ask the agent to change it. The instructions require the agent to stop until you type `Approved Step N`. These are instructions the agent follows, not a technical enforcement mechanism.
+So Railspike puts every plan in a Markdown file. You can read it in VS Code, Obsidian, vim, or a GitHub diff. You can edit it directly or ask the agent to change it. In staged mode, the instructions require the agent to stop until you type `Approved Step N`. These are instructions the agent follows, not a technical enforcement mechanism.
 
 Use Railspike alongside your agent’s plan mode when you want to keep decisions in editable files across sessions. Compare approaches, combine the parts that fit, and revise the requirements and stages before approving the work.
 
@@ -35,6 +37,14 @@ Leave scheduled exports out of scope and update the recommendation.
 ```
 
 The agent rewrites the recommendation and checks the tradeoffs again for the combined version.
+
+## Optional effort estimates
+
+One-shot cycles use the same enrollment policy with [one-shot checkpoints](docs/effort-estimation.md#one-shot-checkpoints); estimates for alternatives/work units apply only when those actually exist.
+
+For new enrolled effort-study cycles, extended estimates are enabled by default: each Step 1 option has a whole-cycle estimate, and each planned stage has a separate work estimate retained through Step 4 revisions and retrospective assessment. Enrollment remains optional. Ask “Disable extended effort estimates for this cycle,” or set a host policy disabling them for future cycles, to opt out. Existing cycle settings survive upgrades; older cycles without a recorded setting retain their prior opt-in behavior. Ask “Enable extended effort estimates for this cycle” to activate one prospectively, preserving missing historical estimates. Stage estimates are relative judgments, not hours or values to sum into a cycle total. See the [effort guide](docs/effort-estimation.md#extended-estimates) for precedence, recovery, uncertainty and history; the capability remains provisional.
+
+Estimates appear on their own bold lines beneath option/stage headings, with a distinct cycle estimate near the top of the plan. Details and uncertainty stay separate; no approximation sign is needed. Agents also [sign their plan contributions](RAILSPIKE.md#agent-attribution) with their name and date, adding model and settings when verified and preserving earlier authorship on revisions.
 
 ## Quick start
 
@@ -76,7 +86,26 @@ Approved Step 1
 
 Repeat for each planning step. A request for revisions does not approve the next step. Don't approve a file you haven't read.
 
+## One-shot work with a development record
+
+For a bounded task with a clear outcome and proportionate verification, explicitly request one-shot execution:
+
+```text
+Use docs/railspike/RAILSPIKE.md to implement the typo correction in the
+settings help text as a one-shot. Change only that text and the cycle records.
+Verify the rendered wording. Leave changes uncommitted for review.
+```
+
+The agent records your request, actual authorization, scope, approach and checks before implementation in `docs/plans/{feature}/{feature}_one_shot.md`. It then appends decisions, changes, verification and outcome. A question or plan reference does not grant execution permission. If the scope grows, the agent seeks renewed authorization or switches to staged planning with linked history. After interruption, it restores the record's authority and next permitted action; unresolved authority blocks dependent work.
+
+One-shot mode uses a feature branch and normally one completion commit containing the changes and record, with additional meaningful commits allowed. There is no separate planning commit, and an explicit no-commit request takes precedence. Technical completion, commit status and publication are separate. Existing host study/debug policies apply; one-shot selection does not automatically enable a study or debug mode. See the [complete one-shot workflow and template](docs/workflow/one_shot.md).
+
+Small ordinary tasks can still proceed outside Railspike. An existing staged cycle remains staged unless you explicitly authorize a mode/scope change. Neither task size nor an implementation question switches modes.
+
 ## The four steps
+
+The following approvals, artifacts and commit cadence apply to staged cycles.
+
 
 | Step | The agent writes | You decide |
 |---|---|---|
@@ -255,6 +284,20 @@ After the chosen installation passes verification, read and follow [WELCOME.md](
 
 A copied installation consists of ordinary project files. Once those files and `RAILSPIKE_SOURCE.md` are committed with the host project, a normal clone includes them; no submodule initialization is needed. Preserve the installation record when sharing the copy. Detect the installation type before choosing an update procedure; do not run submodule commands on a copied directory or silently convert either type.
 
+### Ask your agent to upgrade Railspike
+
+Ask your coding agent from the project containing the installation; no sync command is required:
+
+> Upgrade Railspike at `docs/railspike` from https://github.com/rlspk/railspike. Identify how it is installed and its current source revision. Review the proposed update, preserve local changes and a recoverable prior state, verify the result, and report the old/new revisions and project changes. Leave staging and committing to my normal project workflow.
+
+Without a requested version, the update target is `main`. To choose a release or beta, name its exact tag and source instead of asking for “the next beta.” Find published tags in [Releases](https://github.com/rlspk/railspike/releases), including pre-releases. For example:
+
+> Upgrade Railspike at `docs/railspike` to tag `v0.2.0-beta.1` of https://github.com/rlspk/railspike. Verify that the tag resolves to commit `9774132db592c3bc9026163f50384f52376bac1c`. Identify the installation method and baseline, review the snapshot, preserve local changes and a recoverable prior state, and verify the result. Record the source, tag, and full commit ID, and report project changes. Leave staging and committing to my normal project workflow.
+
+An explicit tag is the target for that request; do not substitute `main` or GitHub's “Latest” release. A later request without a version targets `main` again, so name the desired tag when staying on or moving between betas. To roll back, request the previous reviewed tag or commit with the same preservation and verification checks. For a submodule, the `main` update block below does not implement a tagged update: the agent must review and select the exact requested revision deliberately.
+
+The agent should distinguish ordinary copies, Git submodules, and legacy Git subtrees before choosing a procedure. If the installed source is `gulkily/railspike`, follow [source migration](#migrating-from-gulkilyrailspike) as part of the requested upgrade rather than checking only the legacy remote for releases.
+
 ### Ask your agent to update a copied installation
 
 > Review and update the Railspike copy at `docs/railspike`. Use its recorded source revision to identify local changes before replacing anything. Inspect the proposed new snapshot, preserve local edits and a recoverable prior copy, verify the result, and report old/new revisions and project changes. Leave staging and committing to my normal project workflow.
@@ -273,9 +316,15 @@ If replacement or verification fails, stop and report the partial state. Restore
 
 The product source is now `https://github.com/rlspk/railspike.git`, with updates on `main`. Development records/checks moved to `rlspk/railspike-dev`; the website is `https://railspike.dev/`. The product retains its Git history, so removed development files remain recoverable at earlier revisions. Fresh working trees and copied snapshots are lean; a full Git clone can still download historical development content.
 
-Migration is an explicit source change, separate from routine updates. Do not treat an unexpected remote as permission to rewrite it. Identify the installation type and preserve local edits, staging, and a recoverable prior state first.
+Migration is an explicit source change, separate from routine updates. A request to migrate from `gulkily/railspike` to `rlspk/railspike` authorizes updating the installation's existing Railspike remote or source configuration after verifying that it belongs to this installation; record its previous value for recovery. An unexpected remote during a routine update still requires clarification. Identify the installation type and preserve local edits, staging, and a recoverable prior state first. Use an explicitly requested tag or commit as the replacement target; use `main` only when no version was requested.
 
 **Copied installation:** use the copied-update procedure above, obtaining the exact recorded baseline from the old source and the reviewed replacement from the new source. Compare all installed files, including development directories removed upstream. Preserve local additions or edits in those directories in an agreed location; never discard them as upstream clutter. Only after verification, write the new source URL/revision and retained deviations to `RAILSPIKE_SOURCE.md`. Keep the original source record with the prior copy for rollback. Missing baselines, ambiguous provenance, or conflicts block replacement.
+
+**Legacy Git subtree:** some older installations have no `RAILSPIKE_SOURCE.md`. Inspect the host's import/update history for the applicable `git-subtree-dir` and `git-subtree-split` markers. Match the recorded directory to this installation and obtain the exact split revision from the legacy source; verify it against the installed tree to identify local additions, edits, and deletions. A marker is a candidate upstream baseline, not proof that the current files still match it. Missing objects, conflicting markers, or ambiguous provenance must be resolved before replacement; do not use today's upstream tip as the baseline.
+
+Preserve the prior installed tree and import metadata, and review the requested product snapshot using the copied-update preservation and verification checks above. Account for development and website files removed by the repository split. Record the new source, requested tag if any, full commit ID, and retained deviations in `RAILSPIKE_SOURCE.md`. Choose and report how subsequent agent-led updates will work. Replacing files with an archive does not update subtree bookkeeping, and shared ancestry alone does not establish that a later subtree pull will work. Verify any proposed subtree procedure in a disposable copy of the host history before recommending it; do not silently convert the installation method.
+
+**Host-project references:** inspect agent guidance such as `AGENTS.md`, links to the installed `RAILSPIKE.md` and `WELCOME.md`, and any project scripts or documentation that refer to the old source or removed installed paths such as `scripts/`, `docs/plans/`, `docs/maintainers/`, and `docs/research/`. Update affected references and verify the entrypoints still resolve. The host project's own `docs/plans/` remains its planning location; do not remove it as part of cleaning up upstream development files. Report affected project integrations that need separate changes.
 
 **Submodule:** from the host root, establish the same clean-worktree, registered-path, initialized-submodule, and non-symlink conditions required by the update block below, but require both the registered URL and origin to equal `https://github.com/gulkily/railspike.git`. Accept only an unset or `master` branch setting and a detached or `master` checkout. Record the current revision, branch, `.gitmodules`, and local submodule settings before changing anything. Then:
 

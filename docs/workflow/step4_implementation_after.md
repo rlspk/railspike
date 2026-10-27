@@ -2,6 +2,12 @@
 
 _Open only after completing Step 4 Do._
 
+## Effort estimation
+
+For selected cycles, record a separately labeled retrospective scope assessment and actual verification/omissions, never a replacement projection. Record the maintainer comfortable-fit judgment or mark it pending. Include authorized ledger closeout updates in the final stage commit; verify this before leaving Do. Missing judgment does not authorize invented study acceptance. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
+If extended mode is enabled, confirm every stage record retains its original scoped estimate or honest missing value, any material dated revisions and a separate retrospective stage-work assessment at completion (or explicit unavailable reason). Preserve blocked/skipped/superseded states and links without inventing completion. Stage records are supplemental: cycle retrospective assessment, maintainer acceptance and measured time remain separate. They create no extra independent study outcomes and do not alter existing stage-completion/commit gates.
+
 ## Objective
 Run final Step 4 verification gates and prepare handoff.
 
@@ -13,7 +19,8 @@ Run final Step 4 verification gates and prepare handoff.
    - this cycle’s commit count, starting with its planning commit, is not lower than `1 + number_of_stages`
 4. Confirm the Contract: normal UI/CLI flow, end-to-end outcome, and required recovery—not direct-only behavior. For documentation-only work, confirm the intended document outcome, evidence boundary, and allowed file scope instead.
 5. Verify scoped deployment, release, external-system, role, migration, and other dependencies in the applicable environment when they are within the approved scope; otherwise record them as not applicable in the Step 4 summary.
-6. Confirm documentation is updated, including the finalized Step 4 implementation summary.
+6. Confirm documentation is updated, including the finalized Step 4 implementation summary. Check visible estimate labels and preserved histories under [estimate presentation](../effort-estimation.md#estimate-presentation), plus contribution signatures under [agent attribution](../../RAILSPIKE.md#agent-attribution) with only verified model/settings.
+7. Report each applicable check as passed, failed, blocked, pending, or inapplicable, with the reason for any other than passed. Identify reproduced baseline failures. A focused pass is never reported as a full-suite or user-outcome result, and the handoff opens with anything unverified, including a stated known user's recovery condition.
 
 ## Next
 Restore mode state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). If enabled, save the full completed Step 4 diagnostic report and include only one short debug line linking to the saved log in the handoff. Report once for Step 4, not per stage; save and commit final additions in a separate log-only handoff commit after the final stage, without amending completed commits.

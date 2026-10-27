@@ -5,6 +5,14 @@ _Open this only after receiving “Approved Step 1” (or if Step 1 was skippe
 ## Debug state
 On entry or resumption, restore and record state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode).
 
+## Effort estimation
+
+For a selected effort-study cycle, restore study state (and preserve intake if Step 1 was skipped), then capture the Step 2 projected-total snapshot before handoff. Include authorized ledger bookkeeping in the delivery scope. Preserve earlier snapshots on revisions. Follow [Experimental Effort Estimation](../../RAILSPIKE.md#experimental-effort-estimation).
+
+Inherit any recorded [extended-estimate mode](../effort-estimation.md#extended-estimates); it does not require a repeated selection question. Keep the scoped-cycle projection here distinct from stage-work annotations planned in Step 3.
+
+Display the enrolled cycle's estimate on a standalone bold `Cycle estimate: <value>` line below the state fields, following [estimate presentation](../effort-estimation.md#estimate-presentation). Sign beneath authored/revised contributions using [agent attribution](../../RAILSPIKE.md#agent-attribution), with model/settings only when verified. Attribution applies even without estimates.
+
 ## Objective
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 
@@ -21,6 +29,7 @@ Capture the problem framing, desired outcomes, and shared-component consideratio
   - Work type: application change or documentation-only
   - For documentation-only work: allowed documentation files or directories, intended audience/outcome, and an explicit statement that application/runtime changes are not permitted
 - Completion boundary: for application work, normal entry, end-to-end outcome, needed recovery, and release condition; for documentation-only work, document completion, intended audience outcome, correction/recovery path, and handoff condition
+- Known user or environment: when the request names a user, machine, or environment, state that user's ordinary entry point and recovery condition: the mismatch or failure to handle, the next action they can take unaided, how they verify success or retry, and the evidence that will show it. Evidence from a different supported platform does not satisfy this condition; omit the item when no user or environment is named
 - Risks (2–4): impact, earliest validation, mitigation before Step 3
 - Shared component inventory: enumerate every existing UI/API surface that already renders the data; specify whether the feature reuses/extends the canonical component or needs a new one (with rationale)
 - Simple user flow: numbered steps
