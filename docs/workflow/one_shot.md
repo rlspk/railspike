@@ -48,14 +48,14 @@ At closeout, record delivered outcome, verification limitations, recovery/next a
 
 ## Record template
 
-Replace placeholders and omit study-only fields for unselected cycles. Keep an index link and current status in place of staged navigation; do not create empty Step 1–4 artifacts. Debug diagnostics remain a separate log when enabled.
+Replace placeholders and omit study-only fields for unselected cycles. Keep an index link and current status in place of staged navigation; do not create empty Step 1–4 artifacts. Debug diagnostics remain a separate log when enabled. Render the cycle estimate as a standalone bold line near the top, and use the shared estimate presentation for any actual alternatives/work units. The compact outline below names required evidence; expand it with headings and dated entries as needed.
 
 ```text
 Cycle: <stable identity>; Mode: one-shot; Record/index: <relative links>
 Debug mode: enabled | disabled
 Effort study: <selected study/cycle and host ledger link, if applicable>
 Extended estimates: enabled | disabled <if enrolled>
-Cycle estimate: <whole-cycle value or unavailable reason, if enrolled>
+**Cycle estimate: <whole-cycle value or unavailable reason, if enrolled>**
 Status: <current lifecycle status>; next permitted action: <action>
 
 Original request: <preserved request>
