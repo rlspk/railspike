@@ -64,11 +64,11 @@ The agent should inspect the repository before adopting its instructions, runnin
 
 After inspection, the agent should follow the [installation checks](#installation-checks) below and report what it inspected, any review limitations, and the resulting project changes. The default installation is an ordinary copy at `docs/railspike`, with its source revision recorded inside it. Existing unrelated work can stay in place. Review and commit the copied files through your normal project workflow; see [Reusing across projects](#reusing-across-projects) for reuse and updates, and [Uninstall](#uninstall) to remove it.
 
-After successful installation, the agent follows [WELCOME.md](./WELCOME.md) from the installed Railspike directory (`docs/railspike/WELCOME.md`), announcing Railspike as the default for the first suitable task and offering separate, optional project guidance to retain that default across sessions.
+After successful installation, the agent follows [WELCOME.md](./WELCOME.md) from the installed Railspike directory (`docs/railspike/WELCOME.md`), announcing Railspike as the default for the first suitable task. It then asks one yes/no question: whether to add optional project guidance to `AGENTS.md` so that default persists across sessions.
 
 ### 2. Give your agent a task
 
-During welcome, describe your next substantial task; the agent starts Railspike planning unless you opt out. Small, straightforward changes can proceed directly. An unanswered offer to add project guidance does not block your task. For later sessions without persistent guidance, invoke Railspike explicitly:
+After you answer the guidance question, describe your next substantial task; the agent starts Railspike planning unless you opt out. Small, straightforward changes can proceed directly. If you reply with a task instead of answering, the agent leaves `AGENTS.md` unchanged, tells you the guidance was not added, and starts the task; you can ask for the guidance later. For later sessions without persistent guidance, invoke Railspike explicitly:
 
 ```text
 I want to export my saved searches as CSV. Write Step 1 of @railspike.
