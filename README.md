@@ -6,7 +6,7 @@
 
 Railspike is a set of Markdown instructions your agent follows. In staged mode, the agent writes requirements and a plan into your repo, then stops until you approve each one. After that it works on a branch, one stage at a time, verifying and committing each stage with a record of what changed.
 
-For a bounded fix you explicitly authorize upfront, [one-shot mode](#one-shot-work-with-a-development-record) keeps comparable evidence in one evolving record without intermediate planning approvals.
+For a bounded fix you explicitly authorize upfront, [one-shot mode](#one-shot-work-with-a-development-record) keeps comparable evidence in one evolving record without intermediate planning approvals. Both modes follow the same [implementation standards](docs/workflow/implementation_standards.md), including existing-component reuse, recovery, and verification.
 
 Use it with Claude Code, Codex, GitHub Copilot, or another agent that can read your project files. Railspike has no CLI or runtime dependencies. Installation copies reviewed files into your project by default; Git submodules are available on explicit request.
 
@@ -279,6 +279,8 @@ Before adopting the installed instructions, check that the submodule revision eq
 ### Installation handoff
 
 After the chosen installation passes verification, read and follow [WELCOME.md](./WELCOME.md) from the installed directory. Resolve that path relative to Railspike, not the host project. Uncommitted installation changes alone do not block welcome. An unresolved inspection concern or failed prerequisite does.
+
+Keep enduring engineering rules in the host project's `AGENTS.md` or `CONTRIBUTING.md` so they apply even when a task opts out of Railspike. The welcome offers reviewable host guidance covering reuse, scope, risks, recovery, and verification alongside the workflow default; accepting it does not authorize implementation or enroll Direct work in an effort study. Preserve existing host rules and request consent before edits. Declining leaves the host unchanged; updating Railspike alone does not install host rules.
 
 ## Reusing across projects
 

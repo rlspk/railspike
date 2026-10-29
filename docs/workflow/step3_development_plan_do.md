@@ -20,6 +20,7 @@ Break the feature into atomic implementation stages, identify dependencies, and 
 ## Structure
 
 Read the [shared implementation standards](implementation_standards.md) and carry their evidence into the Completion Contract, risks, and stage fields below. Preserve the approved scope and record placement; do not duplicate the common contract in the plan.
+
 Include **Concepts touched** and plan the affected inventory updates and checks using [concept guidance](../concepts.md#planning).
 
 Begin with the standard Plan navigation bar (template in `RAILSPIKE.md`; omit skipped Step 1).

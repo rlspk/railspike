@@ -23,6 +23,7 @@ Capture the problem framing, desired outcomes, and shared-component consideratio
 ## Structure
 
 Read the [shared implementation standards](implementation_standards.md) before defining the outcome, reuse decisions, risks, and verification below. These fields capture its evidence for staged planning; they do not create a separate implementation standard.
+
 - Include **Concepts touched** and proposed inventory additions/corrections within delivery scope; follow [concept guidance](../concepts.md#planning).
 - Standard Plan navigation bar (template in `RAILSPIKE.md`; omit skipped Step 1)
 - Problem: 1–2 sentences
