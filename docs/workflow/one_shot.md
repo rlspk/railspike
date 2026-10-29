@@ -4,7 +4,7 @@ Use this workflow after reading [Railspike's mode selection](../../RAILSPIKE.md#
 
 ## Entry and authorization
 
-1. Read applicable project instructions, including `AGENTS.md`. Resolve missing or unreadable required instructions before dependent work. Identify the host repository and preserve unrelated local work.
+1. Read the [shared implementation standards](implementation_standards.md) and applicable project instructions, including `AGENTS.md`. Resolve missing or unreadable required instructions before dependent work. Identify the host repository and preserve unrelated local work.
 2. Establish explicit user authorization for bounded one-shot execution, the intended outcome, and exclusions. “Implement this fix as a Railspike one-shot” can authorize execution when the fix's boundary is clear. “Write a plan,” a reference to a plan, or a question about implementation cannot. Do not ask again when the existing request already supplies clear authority; resolve only material ambiguity.
 3. If the approach, scope, or risk needs review before execution, use staged planning. Do not switch an active staged cycle into one-shot mode merely because a later request sounds small; obtain explicit authorization for the mode and scope change, retaining its history.
 4. Before implementation, create a distinct cycle record at `docs/plans/{feature_name}/{feature_name}_one_shot.md` in the host. Check for collisions; resume the same cycle's record when appropriate, never overwrite unrelated work. Add its link to `docs/plans/README.md`, creating the index if needed. Record original request, actual authorization, bounded outcome, approach, risks, verification and recovery expectations. Keep detail proportional; do not invent alternatives or stages.
@@ -16,17 +16,19 @@ Include **Concepts touched** and proposed inventory additions/corrections in the
 
 ## Execution and evidence
 
+Apply the [shared implementation standards](implementation_standards.md) before dependent work. One-shot changes planning handoffs and record/commit cadence, not implementation quality or evidence requirements.
+
 Maintain and verify touched inventory entries with the authorized work using [concept guidance](../concepts.md#implementation-and-verification).
 
 Work within the recorded authority. Preserve the original request/scope and append dated decisions, discoveries, scope changes, and authorization evidence. Record every enhancement request with disposition, reason, approval status, and outcome or follow-up link, using the shared enhancement classification. Distinguish corrections from additions. An agent-written record is evidence of a claim, not independent proof of user approval.
 
 Answering a question does not increase authority or automatically revoke permission already granted. If work exceeds the boundary, stop dependent implementation and seek renewed bounded authorization or transition to staged planning. Do not perform the expansion while asking for approval. Retain still-valid work and unrelated local changes.
 
-Run checks appropriate to the outcome and capture commands, results, omissions and recovery instructions. Label checks passed, failed, blocked, pending, or inapplicable. A focused check does not establish a full-suite pass or success in an untested environment. Record technical status separately from commit, merge and publication status. Keep incomplete, paused, failed and abandoned cycles visible.
+Run and record the shared standards’ [verification and final review](implementation_standards.md#verification-and-final-review) in this record, including environment/recovery evidence, omissions and next actions. Keep technical status separate from commit, merge and publication status, and retain incomplete outcomes.
 
 ## Resumption and scope changes
 
-On resumption, reread applicable instructions and this record. Restore cycle identity, mode, branch/revisions, actual authorization, latest scope, pending requests, verification status, and study/debug state. Compare the working tree with recorded work; do not discard unexplained differences or infer permission from their presence. If authority or state cannot be recovered, identify the missing evidence and clarify before dependent work. Preserve failed attempts and corrections rather than rewriting the record as if they never happened.
+On resumption, reread applicable instructions, the [shared implementation standards](implementation_standards.md), and this record. Restore cycle identity, mode, branch/revisions, actual authorization, latest scope, pending requests, verification status, and study/debug state. Compare the working tree with recorded work; do not discard unexplained differences or infer permission from their presence. If authority or state cannot be recovered, identify the missing evidence and clarify before dependent work. Preserve failed attempts and corrections rather than rewriting the record as if they never happened.
 
 For renewed one-shot authorization, append the changed scope and user's instruction before executing it. If staged review is needed, retain the original record, mark its transition, and start the earliest affected planning step (Step 1 for approach uncertainty, otherwise Step 2). Link both directions and obtain normal staged approvals before further implementation; one-shot authority does not approve the new plans. Preserve existing implementation and commits separately from the new planning-only commit. For the same cycle, retain its identity, study history, scope versions, and debug log. The approved staged scope must identify retained work and remaining work. An existing unmerged feature branch can continue for the same cycle; record that continuation, rather than treating it as a new follow-up branch reuse. Do not reuse a merged branch for further implementation.
 
@@ -48,7 +50,7 @@ For separate product/development repositories, commit each repository's authoriz
 
 A record cannot contain the hash of the commit that first contains it. Before that commit, mark its reference pending. After creation, confirm the revision with Git and append it in the next authorized record update without amending the commit. If no further work remains, one record-only handoff commit is allowed for the confirmed implementation references; report that handoff commit's own hash in the final response without creating an endless record/commit chain. If commits are prohibited, retain the reference update uncommitted. Never invent a hash or treat a pending reference as missing implementation.
 
-At closeout, record delivered outcome, verification limitations, recovery/next action, unresolved requests, commit status and applicable study closeout. Sign authored contributions under the shared attribution rules. Report concise results, with the record link and any required debug link. Do not declare completion while required work remains blocked or pending.
+At closeout, apply the shared standards’ [verification and final review](implementation_standards.md#verification-and-final-review), then record delivered outcome, verification limitations, recovery/next action, unresolved requests, commit status and applicable study closeout. Sign authored contributions under the shared attribution rules. Report concise results, with the record link and any required debug link. Do not declare completion while required work remains blocked or pending.
 
 ## Record template
 

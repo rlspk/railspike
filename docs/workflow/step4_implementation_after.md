@@ -12,6 +12,8 @@ If extended mode is enabled, confirm every stage record retains its original sco
 Run final Step 4 verification gates and prepare handoff.
 
 ## Final Verification Checklist
+
+Read and apply the [shared implementation standards](implementation_standards.md#verification-and-final-review) at closeout; the checks below also preserve staged completion and commit gates.
 Confirm touched inventory entries match delivered behavior and their source paths resolve, following [concept guidance](../concepts.md#implementation-and-verification); no full-inventory audit.
 
 1. Confirm all planned stages were completed and applicable verification was recorded. For documentation-only work, confirm each stage ran the required document-integrity, evidence, link/path, and authorized-file-scope checks, and that each runtime check marked not applicable includes its reason.
@@ -19,8 +21,8 @@ Confirm touched inventory entries match delivered behavior and their source path
 3. Run `git log --oneline` and verify:
    - this cycle’s first Step 4 commit contains approved plans and only the [organization allowance](../../RAILSPIKE.md#planning-artifacts); the feature folder and navigation are complete, and the Step 4 summary appears only afterward
    - this cycle’s commit count, starting with its planning commit, is not lower than `1 + number_of_stages`
-4. Confirm the Contract: normal UI/CLI flow, end-to-end outcome, and required recovery—not direct-only behavior. For documentation-only work, confirm the intended document outcome, evidence boundary, and allowed file scope instead.
-5. Verify scoped deployment, release, external-system, role, migration, and other dependencies in the applicable environment when they are within the approved scope; otherwise record them as not applicable in the Step 4 summary.
+4. Confirm the approved Step 3 Contract is complete under the shared standards, including required recovery or the documentation-only outcome.
+5. Confirm the shared standards’ applicable dependency/environment verification and final diff review are recorded in the Step 4 summary.
 6. Confirm documentation is updated, including the finalized Step 4 implementation summary. Check visible estimate labels and preserved histories under [estimate presentation](../effort-estimation.md#estimate-presentation), plus contribution signatures under [agent attribution](../../RAILSPIKE.md#agent-attribution) with only verified model/settings.
 7. Report each applicable check as passed, failed, blocked, pending, or inapplicable, with the reason for any other than passed. Identify reproduced baseline failures. A focused pass is never reported as a full-suite or user-outcome result, and the handoff opens with anything unverified, including a stated known user's recovery condition.
 

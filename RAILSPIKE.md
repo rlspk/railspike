@@ -9,7 +9,7 @@ Use the staged workflow below when approaches or scope need review. For explicit
 
 Before work, read applicable project instructions, including `AGENTS.md`, and the selected workflow. If required instructions cannot be found or read, resolve that before dependent work. A mode label, plan reference, or implementation question is not execution authorization. Record the user's actual authorization and its boundary; do not manufacture approval from agent-authored scope. Questions leave existing authority unchanged. Clarify unresolved authority before dependent actions while continuing independent authorized work.
 
-Step/phase order, separate step artifacts, `Approved Step N` gates, and planning/stage commit rules below govern **staged cycles**. One-shot cycles use the linked lifecycle and commit rules instead. Repository boundaries, instruction summaries, scope protection, attribution, honest verification, and applicable study/debug policies apply to both modes. This is an instruction contract, not programmatic enforcement.
+Step/phase order, separate step artifacts, `Approved Step N` gates, and planning/stage commit rules below govern **staged cycles**. One-shot cycles use the linked lifecycle and commit rules instead. Repository boundaries, instruction summaries, scope protection, attribution, and applicable study/debug policies apply to both modes. Both modes must read and apply the [shared implementation standards](docs/workflow/implementation_standards.md) before dependent work, on resumption, and at closeout. This is an instruction contract, not programmatic enforcement.
 
 ## Repository Boundary
 Instruction files under `docs/workflow/` belong to the Railspike repository. If Railspike is included in another repository as a submodule or vendored directory, resolve those paths relative to the Railspike repository root, not the host repository root. Planning artifacts still belong in the host repository under `docs/plans/`.
@@ -184,7 +184,7 @@ Preserve prior attribution when revising another agent's work; append `*— Revi
 
 **AI coding agent**
 
-Step/phase-specific rules below govern staged cycles; one-shot lifecycle and commit exceptions are defined in its workflow. Shared scope, verification and recovery principles still apply.
+Step/phase-specific rules below govern staged cycles; one-shot lifecycle and commit exceptions are defined in its workflow. The [shared implementation standards](docs/workflow/implementation_standards.md) govern substantive implementation in both modes; the step-specific rules below retain staged planning and evidence placement.
 - Recommend Step 1 for complex features or whenever multiple solutions exist
 - Stay in the current step; do not draft/edit later deliverables without approval
 - After delivering each step, explicitly request “Approved Step N” and pause until the user responds with that exact phrase
@@ -193,11 +193,9 @@ Step/phase-specific rules below govern staged cycles; one-shot lifecycle and com
 - Enforce Step 4 commit cadence: first organize and commit approved plans under the organization rule above; each completed stage has a stage-scoped commit that includes the Step 4 summary update
 - Report Step 4 checks as passed, failed, blocked, pending, or inapplicable; a focused pass is never an unqualified full-suite or user-outcome result
 - Treat documentation-only work as a Step 4 implementation only when its allowed documentation file scope was approved in Steps 2 and 3; use applicable verification and record non-applicable runtime checks in the summary
-- Prefer shared components/API contracts first; reuse or extend instead of forking markup, CSS, or payloads
+- Apply the shared implementation standards for component reuse, completion, risks, verification, and final review
 - Apply [Enhancement Requests](#enhancement-requests): document every request, incorporate only in-scope refinements, and replan changed scope
-- A feature is a releasable vertical slice: normal entry, end-to-end outcome, and required recovery. Component-only work is internal maintenance; split larger stories vertically.
 - Keep work within a day or eight Step 3 stages; otherwise rescope the slice.
-- Avoid database schema changes when possible—lean on existing models/fields
 - Read the current step/phase instructions and apply the [instruction summary contract](#instruction-summaries) before acting
 - Add the Plan navigation bar to every Step 1–4 artifact
 - Step 1 starts with `## Original Query`: preserve the request except mechanical grammar, spelling, capitalization, punctuation, and formatting fixes; when needed, follow it with a brief, clearly labeled `## Understood Intent` that clarifies inferred goal/context without inventing scope

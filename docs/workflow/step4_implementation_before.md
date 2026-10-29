@@ -13,6 +13,8 @@ Set up the Step 4 branch and lock in planning artifacts before implementation st
 
 On entry or resumption, restore state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). Inherit Step 3 state when creating the summary after the planning commit.
 
+Read the [shared implementation standards](implementation_standards.md) on entry or resumption. Confirm the approved plan supplies their required outcome, reuse, risk, and verification evidence before dependent implementation.
+
 ## Planning Docs Commit Gate (Required)
 After `Approved Step 3` and before any implementation changes:
 1. Create the Step 4 feature branch, or confirm explicitly requested eligible reuse under [Follow-up Cycles Before Merge](../../RAILSPIKE.md#follow-up-cycles-before-merge). For the same cycle transitioning from one-shot execution, apply its [branch-continuation and history rules](one_shot.md#resumption-and-scope-changes); staged approvals and this planning-only commit gate still apply. Check cycle identity and artifact destinations before writing.

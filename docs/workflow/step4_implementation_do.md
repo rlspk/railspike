@@ -19,9 +19,7 @@ Execute the plan in atomic stages on a dedicated feature branch, documenting pro
 - Maintain and verify only touched concept entries with the corresponding authorized work, following [concept guidance](../concepts.md#implementation-and-verification).
 - On resumption and before continuing a stage, restore state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). Record inherited state below the summary’s navigation bar. Phases and stage boundaries do not trigger reports; pending log additions accompany the next authorized stage commit.
 - Work stages sequentially, keeping each stage <2 hours
-- Favor the simplest viable implementation first; iterate only when necessary
-- Before adding new presentation markup or API payloads, confirm whether a canonical component/contract already exists per the Step 2 inventory and reuse/extend instead of duplicating
-- Complete the Step 3 Contract—not just a subsystem, direct route, or preparatory asset. For documentation-only scope, complete the approved document outcome without leaving the allowed file scope.
+- Apply the [shared implementation standards](implementation_standards.md) before dependent work and on resumption, using the Step 2 inventory and approved Step 3 Completion Contract; record evidence in this stage’s summary.
 - Require one stage-scoped commit per completed stage; do not batch multiple stages into one commit
 - Commit the stage artifact plus the Step 4 summary update for that stage in the same commit before beginning the next stage
 
