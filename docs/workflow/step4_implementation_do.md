@@ -16,6 +16,7 @@ For blocked/skipped/unavailable stages retain status, reason and prior estimates
 Execute the plan in atomic stages on a dedicated feature branch, documenting progress and verification as you go.
 
 ## Execution Rules
+- Maintain and verify only touched concept entries with the corresponding authorized work, following [concept guidance](../concepts.md#implementation-and-verification).
 - On resumption and before continuing a stage, restore state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). Record inherited state below the summary’s navigation bar. Phases and stage boundaries do not trigger reports; pending log additions accompany the next authorized stage commit.
 - Work stages sequentially, keeping each stage <2 hours
 - Favor the simplest viable implementation first; iterate only when necessary

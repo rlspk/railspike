@@ -21,6 +21,7 @@ Capture the problem framing, desired outcomes, and shared-component consideratio
 - Filename: `{feature_name}_step2_feature_description.md`
 
 ## Structure
+- Include **Concepts touched** and proposed inventory additions/corrections within delivery scope; follow [concept guidance](../concepts.md#planning).
 - Standard Plan navigation bar (template in `RAILSPIKE.md`; omit skipped Step 1)
 - Problem: 1–2 sentences
 - User stories: bullet list in the format “As [role], I want [goal] so that [benefit]”

@@ -19,6 +19,7 @@ Resolve uncertainty when there are multiple viable approaches, complex trade-off
 - Filename: `{feature_name}_step1_solution_assessment.md`
 
 ## Structure
+- Include **Concepts touched**, with candidates by option where needed; follow [concept guidance](../concepts.md#planning).
 - Standard Plan navigation bar (template in `RAILSPIKE.md`)
 - `## Original Query` first: preserve the request except grammar, spelling, capitalization, punctuation, and formatting fixes; do not summarize or omit anything
 - When the query alone would leave the requested outcome unclear, follow it with `## Understood Intent`: a brief, clearly labeled statement of the inferred goal and relevant context. Do not invent scope or replace the original query; omit this section when it adds no useful clarification.

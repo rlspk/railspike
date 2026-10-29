@@ -33,6 +33,9 @@ The original instructions remain authoritative, including exceptions omitted fro
 Do not automatically reprint instruction files. Explicit requests to show them remain supported, as do relevant quotations needed to explain a concrete decision or blocker and useful progress/handoff updates. This contract governs assistant-authored repetition, not ordinary tool-output rendering, and applies with debug enabled or disabled; summaries are not diagnostic reports.
 
 ## Step Guide
+
+Maintain a concise host-project concept inventory and list concepts touched in plans using [concept guidance](docs/concepts.md). Grow it only through the current cycle's work.
+
 - **Step 1 – Solution Assessment (Optional)**: compare approaches, combine compatible options, and refine the recommendation before approval. `docs/workflow/step1_solution_assessment.md`
 - **Step 2 – Feature Description**: capture problem framing, user stories, requirements, and success criteria. `docs/workflow/step2_feature_description.md`
 - **Step 3 – Development Plan**: break work into atomic stages with dependencies and verification notes. Start with `docs/workflow/step3_development_plan_before.md`, then follow the `do` and `after` files.

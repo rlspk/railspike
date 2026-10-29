@@ -2,6 +2,7 @@
 
 - [Workflow entry point](../RAILSPIKE.md)
 - [Step and phase instructions](./workflow/)
+- [Project concept inventory and plan references](./concepts.md)
 - [One-shot execution and record template](./workflow/one_shot.md)
 - [Effort scoring and continuing study collection](./effort-estimation.md)
 - [Failure modes and recovery](./failure-modes.md)

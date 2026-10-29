@@ -12,6 +12,8 @@ If extended mode is enabled, confirm every stage record retains its original sco
 Run final Step 4 verification gates and prepare handoff.
 
 ## Final Verification Checklist
+Confirm touched inventory entries match delivered behavior and their source paths resolve, following [concept guidance](../concepts.md#implementation-and-verification); no full-inventory audit.
+
 1. Confirm all planned stages were completed and applicable verification was recorded. For documentation-only work, confirm each stage ran the required document-integrity, evidence, link/path, and authorized-file-scope checks, and that each runtime check marked not applicable includes its reason.
 2. Confirm each completed stage has a stage-scoped commit that includes the corresponding Step 4 summary update.
 3. Run `git log --oneline` and verify:

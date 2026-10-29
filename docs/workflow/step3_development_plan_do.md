@@ -18,6 +18,8 @@ Break the feature into atomic implementation stages, identify dependencies, and 
 - Filename: `{feature_name}_step3_development_plan.md`
 
 ## Structure
+Include **Concepts touched** and plan the affected inventory updates and checks using [concept guidance](../concepts.md#planning).
+
 Begin with the standard Plan navigation bar (template in `RAILSPIKE.md`; omit skipped Step 1).
 
 Then add `## Completion Contract`: normal entry, end-to-end outcome, required recovery, deployment/external verification, and release condition. For documentation-only work, instead state the approved allowed documentation file scope, intended audience/outcome, document completion/recovery boundary, evidence boundary, and which runtime/deployment checks are not applicable.
