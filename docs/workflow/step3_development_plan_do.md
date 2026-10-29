@@ -18,6 +18,8 @@ Break the feature into atomic implementation stages, identify dependencies, and 
 - Filename: `{feature_name}_step3_development_plan.md`
 
 ## Structure
+
+Read the [shared implementation standards](implementation_standards.md) and carry their evidence into the Completion Contract, risks, and stage fields below. Preserve the approved scope and record placement; do not duplicate the common contract in the plan.
 Include **Concepts touched** and plan the affected inventory updates and checks using [concept guidance](../concepts.md#planning).
 
 Begin with the standard Plan navigation bar (template in `RAILSPIKE.md`; omit skipped Step 1).
@@ -51,7 +53,7 @@ For each stage include:
 - Conceptual expected changes only; include database/function signature updates without implementations
 - Bullet points under Risks or open questions whenever there is more than one item
 - Resolve each material risk before dependent work begins
-- Canonical components/API contracts as an explicit bullet, not buried in prose
+- Canonical components/API contracts as an explicit bullet, not buried in prose: carry forward Step 2 source paths and reuse/extension decisions, with rationale for any new equivalent
 - Include all wiring, operations, and verification needed for the Completion Contract; split stories into vertical slices, not layers
 - For documentation-only work, keep every expected change within the approved documentation file scope and identify the evidence and document-integrity checks for that stage
 - Include the standalone estimate line and estimate-details bullet only when extended mode is enabled; otherwise omit them. Use plain numbers without approximation signs and show the enrolled cycle's independent `Cycle estimate: <value>` below its state fields. Follow [estimate presentation](../effort-estimation.md#estimate-presentation) for ranges, unavailable values and history.

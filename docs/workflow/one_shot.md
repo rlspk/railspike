@@ -7,7 +7,7 @@ Use this workflow after reading [Railspike's mode selection](../../RAILSPIKE.md#
 1. Read the [shared implementation standards](implementation_standards.md) and applicable project instructions, including `AGENTS.md`. Resolve missing or unreadable required instructions before dependent work. Identify the host repository and preserve unrelated local work.
 2. Establish explicit user authorization for bounded one-shot execution, the intended outcome, and exclusions. “Implement this fix as a Railspike one-shot” can authorize execution when the fix's boundary is clear. “Write a plan,” a reference to a plan, or a question about implementation cannot. Do not ask again when the existing request already supplies clear authority; resolve only material ambiguity.
 3. If the approach, scope, or risk needs review before execution, use staged planning. Do not switch an active staged cycle into one-shot mode merely because a later request sounds small; obtain explicit authorization for the mode and scope change, retaining its history.
-4. Before implementation, create a distinct cycle record at `docs/plans/{feature_name}/{feature_name}_one_shot.md` in the host. Check for collisions; resume the same cycle's record when appropriate, never overwrite unrelated work. Add its link to `docs/plans/README.md`, creating the index if needed. Record original request, actual authorization, bounded outcome, approach, risks, verification and recovery expectations. Keep detail proportional; do not invent alternatives or stages.
+4. Before implementation, create a distinct cycle record at `docs/plans/{feature_name}/{feature_name}_one_shot.md` in the host. Check for collisions; resume the same cycle's record when appropriate, never overwrite unrelated work. Add its link to `docs/plans/README.md`, creating the index if needed. Record original request, actual authorization, bounded outcome, and the shared standards’ reuse decisions, completion/recovery conditions, risks, and verification expectations. Keep detail proportional; do not invent alternatives or stages.
 5. Resolve and record debug and study state under the shared policies. Establish a feature branch before implementation; reuse an unmerged branch only on explicit user request under the shared follow-up eligibility rules. A new follow-up has its own record and predecessor link.
 
 For documentation-only work, record the authorized documentation paths and intended reader outcome before editing. Do not change application source, tests, CI, deployment, or generated files under documentation-only authority. Check document integrity, evidence, links and file scope; mark runtime checks inapplicable unless a document claim requires them.
@@ -67,9 +67,11 @@ Status: <current lifecycle status>; next permitted action: <action>
 Original request: <preserved request>
 Authorization: <user instruction/evidence, date, scope and exclusions>
 Outcome and work type: <application or documentation; allowed boundary>
-Approach and risks: <proportionate plan, shared components, mitigations>
+Approach and risks: <proportionate approach; impact, early validation, mitigation before dependent work>
+Reuse decisions: <existing surfaces/components/contracts and source paths; reuse/extend, or rationale for new equivalents>
+Completion conditions: <normal entry, end-to-end result, required recovery, deployment/external evidence and release/handoff condition; documentation alternative when applicable>
 Concepts touched: <names/entry links, created/changed/used unchanged, proposed inventory updates; or none>
-Verification and recovery plan: <normal entry, checks, failure/retry path>
+Verification and recovery plan: <affected consumers, applicable checks, reported user/environment failure replay and unaided next action; inapplicable checks with reasons>
 Starting revisions and branch: <host/product where applicable>
 
 Dated execution history:
@@ -79,7 +81,8 @@ Dated execution history:
 
 Study history, when enrolled: <intake, entry, revisions, closeout>
 Outcome: <delivered scope, limitations, incomplete work and next action>
-Verification: <commands/results/omissions; environment and evidence limits>
+Verification: <commands/results/statuses/omissions; environment and recovery evidence limits>
+Final review: <diff checked for duplication, authorized file scope, documentation and touched concepts; corrections/rechecks or unresolved next action>
 Commit/merge/publication status: <distinct states and known revisions>
 Attribution: <agent and UTC date; verified optional model/settings only>
 ```
