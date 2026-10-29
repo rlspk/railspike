@@ -12,7 +12,11 @@ Use this workflow after reading [Railspike's mode selection](../../RAILSPIKE.md#
 
 For documentation-only work, record the authorized documentation paths and intended reader outcome before editing. Do not change application source, tests, CI, deployment, or generated files under documentation-only authority. Check document integrity, evidence, links and file scope; mark runtime checks inapplicable unless a document claim requires them.
 
+Include **Concepts touched** and proposed inventory additions/corrections in the record's bounded scope, following [concept guidance](../concepts.md#planning).
+
 ## Execution and evidence
+
+Maintain and verify touched inventory entries with the authorized work using [concept guidance](../concepts.md#implementation-and-verification).
 
 Work within the recorded authority. Preserve the original request/scope and append dated decisions, discoveries, scope changes, and authorization evidence. Record every enhancement request with disposition, reason, approval status, and outcome or follow-up link, using the shared enhancement classification. Distinguish corrections from additions. An agent-written record is evidence of a claim, not independent proof of user approval.
 
@@ -62,6 +66,7 @@ Original request: <preserved request>
 Authorization: <user instruction/evidence, date, scope and exclusions>
 Outcome and work type: <application or documentation; allowed boundary>
 Approach and risks: <proportionate plan, shared components, mitigations>
+Concepts touched: <names/entry links, created/changed/used unchanged, proposed inventory updates; or none>
 Verification and recovery plan: <normal entry, checks, failure/retry path>
 Starting revisions and branch: <host/product where applicable>
 
