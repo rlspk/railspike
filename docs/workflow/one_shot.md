@@ -1,18 +1,28 @@
 # One-shot cycles
 
-Use this workflow after reading [Railspike's mode selection](../../RAILSPIKE.md#choose-the-execution-mode). One-shot execution reduces handoffs while retaining the substantive evidence of a staged cycle. It does not mean undocumented work or a single tool call.
+Use this workflow after reading [Railspike's mode selection](../../RAILSPIKE.md#choose-the-execution-mode). One-shot execution reduces handoffs while retaining the substantive evidence of a staged cycle. It does not mean undocumented work or a single tool call. The sequence is: feature branch → write and commit the plan → implement and verify → commit the implementation with the updated plan. The same file serves as the plan before implementation and the development record afterward; no intermediate planning approval is required when bounded execution is already authorized.
 
 ## Entry and authorization
 
 1. Read the [shared implementation standards](implementation_standards.md) and applicable project instructions, including `AGENTS.md`. Resolve missing or unreadable required instructions before dependent work. Identify the host repository and preserve unrelated local work.
 2. Establish explicit user authorization for bounded one-shot execution, the intended outcome, and exclusions. “Implement this fix as a Railspike one-shot” can authorize execution when the fix's boundary is clear. “Write a plan,” a reference to a plan, or a question about implementation cannot. Do not ask again when the existing request already supplies clear authority; resolve only material ambiguity.
 3. If the approach, scope, or risk needs review before execution, use staged planning. Do not switch an active staged cycle into one-shot mode merely because a later request sounds small; obtain explicit authorization for the mode and scope change, retaining its history.
-4. Before implementation, create a distinct cycle record at `docs/plans/{feature_name}/{feature_name}_one_shot.md` in the host. Check for collisions; resume the same cycle's record when appropriate, never overwrite unrelated work. Add its link to `docs/plans/README.md`, creating the index if needed. Record original request, actual authorization, bounded outcome, and the shared standards’ reuse decisions, completion/recovery conditions, risks, and verification expectations. Keep detail proportional; do not invent alternatives or stages.
-5. Resolve and record debug and study state under the shared policies. Establish a feature branch before implementation; reuse an unmerged branch only on explicit user request under the shared follow-up eligibility rules. A new follow-up has its own record and predecessor link.
+4. Establish a feature branch before writing the plan; reuse an unmerged branch only on explicit user request under the shared follow-up eligibility rules. A new follow-up has its own plan and predecessor link. Create a distinct cycle plan/record at `docs/plans/{feature_name}/{feature_name}_one_shot.md` in the host. Check for collisions; resume the same cycle's record when appropriate, never overwrite unrelated work. Add its link to `docs/plans/README.md`, creating the index if needed. Record original request, actual authorization, bounded outcome, and the shared standards’ reuse decisions, completion/recovery conditions, risks, and verification expectations. Keep detail proportional; do not invent alternatives or stages.
+5. Resolve and record debug and study state under the shared policies. Complete the planning commit gate below before any implementation edits.
 
 For documentation-only work, record the authorized documentation paths and intended reader outcome before editing. Do not change application source, tests, CI, deployment, or generated files under documentation-only authority. Check document integrity, evidence, links and file scope; mark runtime checks inapplicable unless a document claim requires them.
 
 Include **Concepts touched** and proposed inventory additions/corrections in the record's bounded scope, following [concept guidance](../concepts.md#planning).
+
+## Planning commit gate
+
+After writing the plan and before implementation:
+
+1. Confirm the feature branch, actual authorization, bounded outcome, and the plan's reuse, risk, verification and recovery expectations. Include concept and applicable study/debug state.
+2. Inspect `git status --short` and the staged diff. Commit only this cycle's plan, its index entry/necessary link repairs, and any existing cycle debug log. Keep study snapshots in the plan; accumulate ledger updates for the completion commit. Exclude implementation, concept inventory edits, unrelated plans and other local work.
+3. Confirm the planning commit with Git, then record its hash in the next update to the same plan. Only after the commit succeeds may implementation begin. A failed commit blocks implementation until resolved; do not treat a written file or attempted commit as a passed gate.
+
+An explicit user no-commit instruction overrides this gate and the completion commit: still create the branch and write the plan first, record the override, and leave the authorized work uncommitted. Do not infer an override from task size, urgency, or the term one-shot. In split product/development repositories, create branches in the affected repositories and commit the plan in the host before product edits; no empty product planning commit is needed.
 
 ## Execution and evidence
 
@@ -28,7 +38,7 @@ Run and record the shared standards’ [verification and final review](implement
 
 ## Resumption and scope changes
 
-On resumption, reread applicable instructions, the [shared implementation standards](implementation_standards.md), and this record. Restore cycle identity, mode, branch/revisions, actual authorization, latest scope, pending requests, verification status, and study/debug state. Compare the working tree with recorded work; do not discard unexplained differences or infer permission from their presence. If authority or state cannot be recovered, identify the missing evidence and clarify before dependent work. Preserve failed attempts and corrections rather than rewriting the record as if they never happened.
+On resumption, reread applicable instructions, the [shared implementation standards](implementation_standards.md), and this record. Restore cycle identity, mode, branch/revisions, actual authorization, latest scope, pending requests, verification status, and study/debug state. Compare the working tree with recorded work; do not discard unexplained differences or infer permission from their presence. If authority or state cannot be recovered, identify the missing evidence and clarify before dependent work. Preserve failed attempts and corrections rather than rewriting the record as if they never happened. Verify the recorded planning commit contains the pre-implementation plan. If implementation has not begun, satisfy the planning gate before proceeding. If an older or noncompliant cycle already contains implementation without that commit, disclose the actual chronology; preserve its changes/commits and commit the current plan before further implementation unless an explicit no-commit override applies. Keep uncommitted implementation out of that plan commit. Never backdate, reorder, amend or fabricate a pre-implementation commit; report the historical omission at closeout.
 
 For renewed one-shot authorization, append the changed scope and user's instruction before executing it. If staged review is needed, retain the original record, mark its transition, and start the earliest affected planning step (Step 1 for approach uncertainty, otherwise Step 2). Link both directions and obtain normal staged approvals before further implementation; one-shot authority does not approve the new plans. Preserve existing implementation and commits separately from the new planning-only commit. For the same cycle, retain its identity, study history, scope versions, and debug log. The approved staged scope must identify retained work and remaining work. An existing unmerged feature branch can continue for the same cycle; record that continuation, rather than treating it as a new follow-up branch reuse. Do not reuse a merged branch for further implementation.
 
@@ -44,9 +54,9 @@ Include enabled log changes in the next authorized one-shot commit; after the fi
 
 ## Commits and closeout
 
-One-shot cycles do not require a separate planning commit or fabricated stage commits. Normally make one completion commit containing only the bounded changes, updated record, relevant index/ledger updates and existing debug log. Additional meaningful commits are allowed; do not rewrite completed history to improve appearances. Verify and inspect intended files before each commit. An explicit no-commit request takes precedence: leave changes uncommitted and report that status.
+One-shot cycles require the planning commit above, followed by a completion commit containing the bounded implementation and the same plan updated with changes, verification, outcome and limitations, plus relevant index/ledger updates and existing debug log. Normally this is two commits in a single repository; additional meaningful commits are allowed without inventing stages. Verify the planning commit precedes implementation and the completion commit includes both implementation and the updated plan; commit count alone is not proof. Preserve and disclose historical omissions under the resumption rules rather than rewriting completed history. Verify intended files before each commit. Explicit no-commit requests take precedence: record the override and uncommitted status.
 
-For separate product/development repositories, commit each repository's authorized files separately and keep the host record linked to the paired revisions. Do not put development records inside the installable product. One-shot authorization does not grant merge, push, tagging or release permission.
+For separate product/development repositories, commit each repository's authorized implementation files separately and include the updated plan in the corresponding host completion commit, linking the paired revisions. The earlier host planning commit still precedes product edits. Do not put development records inside the installable product. One-shot authorization does not grant merge, push, tagging or release permission.
 
 A record cannot contain the hash of the commit that first contains it. Before that commit, mark its reference pending. After creation, confirm the revision with Git and append it in the next authorized record update without amending the commit. If no further work remains, one record-only handoff commit is allowed for the confirmed implementation references; report that handoff commit's own hash in the final response without creating an endless record/commit chain. If commits are prohibited, retain the reference update uncommitted. Never invent a hash or treat a pending reference as missing implementation.
 
@@ -73,6 +83,7 @@ Completion conditions: <normal entry, end-to-end result, required recovery, depl
 Concepts touched: <names/entry links, created/changed/used unchanged, proposed inventory updates; or none>
 Verification and recovery plan: <affected consumers, applicable checks, reported user/environment failure replay and unaided next action; inapplicable checks with reasons>
 Starting revisions and branch: <host/product where applicable>
+Planning commit: <pending before creation; confirmed hash afterward, or explicit no-commit override/historical omission>
 
 Dated execution history:
 - <decision/discovery/change; correction versus addition; verification>

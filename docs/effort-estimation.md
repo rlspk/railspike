@@ -40,7 +40,7 @@ Supported one-shot cycles use the same host selection policy, R1 definition and 
 | Checkpoint | Required record for an enrolled one-shot cycle |
 | --- | --- |
 | Intake | Before detailed implementation inspection where possible, preserve the first scoped whole-cycle projection, starting revisions, scope version and actual authorization context. Disclose prior exposure; a missed intake remains missing. |
-| Execution entry | Before implementation, reaffirm or revise the whole-cycle projection against the recorded outcome, approach, verification and recovery. No planning commit is required. |
+| Execution entry | Before implementation, reaffirm or revise the whole-cycle projection against the recorded outcome, approach, verification and recovery in the plan before its required planning commit (unless the user explicitly prohibits commits). |
 | Material discovery or scope revision | Append a dated total-cycle projection when warranted, with reason and retained original scope/score. Changed scope requires renewed execution authority. |
 | Closeout, including incomplete outcomes | Record delivered/remaining scope, verification and omissions, corrections versus additions, known final revisions and commit status, and a separately labeled retrospective scope assessment when evidence permits. Unknown values remain unavailable, never zero. Keep maintainer fit/acceptance pending when absent. |
 

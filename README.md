@@ -93,12 +93,12 @@ For a bounded task with a clear outcome and proportionate verification, explicit
 ```text
 Use docs/railspike/RAILSPIKE.md to implement the typo correction in the
 settings help text as a one-shot. Change only that text and the cycle records.
-Verify the rendered wording. Leave changes uncommitted for review.
+Verify the rendered wording.
 ```
 
 The agent records your request, actual authorization, scope, approach and checks before implementation in `docs/plans/{feature}/{feature}_one_shot.md`. It then appends decisions, changes, verification and outcome. A question or plan reference does not grant execution permission. If the scope grows, the agent seeks renewed authorization or switches to staged planning with linked history. After interruption, it restores the record's authority and next permitted action; unresolved authority blocks dependent work.
 
-One-shot mode uses a feature branch and normally one completion commit containing the changes and record, with additional meaningful commits allowed. There is no separate planning commit, and an explicit no-commit request takes precedence. Technical completion, commit status and publication are separate. Existing host study/debug policies apply; one-shot selection does not automatically enable a study or debug mode. See the [complete one-shot workflow and template](docs/workflow/one_shot.md).
+One-shot mode creates a feature branch, writes and commits the plan before implementation, then implements and verifies the work and commits it together with the updated plan. The plan and record are the same file. Normally this is two commits, with additional meaningful commits allowed; there are no intermediate planning approvals. An explicit no-commit request takes precedence, but the branch and written plan still come first. Technical completion, commit status and publication are separate. Existing host study/debug policies apply; one-shot selection does not automatically enable a study or debug mode. See the [complete one-shot workflow and template](docs/workflow/one_shot.md).
 
 Small ordinary tasks can still proceed outside Railspike. An existing staged cycle remains staged unless you explicitly authorize a mode/scope change. Neither task size nor an implementation question switches modes.
 

@@ -58,7 +58,7 @@ git status --short
 git log --oneline
 ```
 
-For one-shot work, confirm actual authority, scope history, verification/omissions, next action, and distinct technical/commit/publication status in the record. Respect no-commit requests; a missing separate planning commit is expected.
+For one-shot work, confirm actual authority, scope history, verification/omissions, next action, and distinct technical/commit/publication status in the record. Verify the feature branch, planning-only commit before implementation, and completion commit containing implementation plus the updated plan (paired commits across separate repositories). Respect explicit no-commit requests. If the planning commit is missing, follow the [one-shot recovery rules](workflow/one_shot.md#resumption-and-scope-changes): stop new implementation until the gate is satisfied, preserve existing work and disclose any historical omission rather than fabricate chronology.
 
 For staged work, confirm that the first Step 4 commit contains approved plans and only the [organization allowance](../RAILSPIKE.md#planning-artifacts), every completed stage has a summary update and commit, and the final artifact satisfies the Step 3 Completion Contract.
 

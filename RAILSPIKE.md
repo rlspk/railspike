@@ -241,6 +241,6 @@ On resumption, recover pending requests, their approval status, and the active c
 - **Step 4**: Missing branch/planning commit/stage commit + summary, scope changes, direct-only behavior, or too few commits
 
 ## Workflows
-- **One-shot**: explicit bounded execution authorization → record intent → implement/verify → record outcome and commit status; see [one-shot instructions](docs/workflow/one_shot.md).
+- **One-shot**: explicit bounded execution authorization → feature branch → write/commit plan → implement/verify → commit implementation and updated plan; see [one-shot instructions](docs/workflow/one_shot.md).
 - **Simple**: Step 2 → Step 3 → Step 4 (create or eligible reuse of feature branch → implement stages → test/commit → complete)
 - **Complex**: Step 1 (solution assessment) → Step 2 → Step 3 → Step 4
