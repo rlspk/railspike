@@ -72,10 +72,10 @@ Additional requirements:
 - Stages should be about <=1 hour or <=50 lines of change; split anything larger before implementation
 - Document database changes conceptually (no SQL)
 - Include planned function signatures when relevant, without code
-- Prefer bullets over prose paragraphs throughout so reviewers can scan the plan quickly
+- Follow the [writing style](../../RAILSPIKE.md#writing-style) so reviewers can scan the plan quickly
 
 ## Guardrails
-- Avoid full code, HTML templates, detailed SQL, or verbose explanations
+- Avoid full code, HTML templates, or detailed SQL
 - Keep `## Key Risks` near the top and repeat stage-specific risks
 - If the Completion Contract cannot be met, rescope in Step 2; component-only work is internal maintenance
 - Do not use documentation-only scope to change application source, tests, CI, deployment configuration, generated artifacts, or another unapproved file class; return to Step 2 if that becomes necessary

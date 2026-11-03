@@ -42,11 +42,10 @@ Read the [shared implementation standards](implementation_standards.md) before d
 Apply [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests) when revising scope; retain pending requests and approval status in this artifact.
 
 ## Guardrails
-- Avoid implementation details, code, database schema, UI mockups, or verbose descriptions
+- Avoid implementation details, code, database schema, or UI mockups; follow the [writing style](../../RAILSPIKE.md#writing-style)
 - Surface material risks; do not bury them in other sections
 - A feature is a normal-flow vertical slice, not a component, API, cache, migration, or hidden route; otherwise call it internal maintenance
 - Documentation-only scope is valid when the deliverable itself is the outcome. It must name the allowed file scope; do not use it to make application, CI, deployment, or generated-artifact changes without returning to Step 2 for approval.
-- Keep the doc lightweight enough to consume at a glance
 
 ## Next
 Before the completed-step handoff, restore mode state and, if enabled, save the full diagnostic report under [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode) and include only one short debug line linking to the saved log in the handoff, before approval.

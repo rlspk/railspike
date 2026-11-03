@@ -30,8 +30,8 @@ Resolve uncertainty when there are multiple viable approaches, complex trade-off
 - Sign beneath each authored/revised contribution using [agent attribution](../../RAILSPIKE.md#agent-attribution); include model/settings only when verified and preserve prior signatures.
 
 ## Guardrails
-- Keep content at a high level; no implementation details, code, or verbose prose
-- Favor bullets over paragraphs for fast comparisons
+- Keep content at a high level; no implementation details or code
+- Follow the [writing style](../../RAILSPIKE.md#writing-style) for every paragraph and bullet
 
 Record incidental requests and their disposition under [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests) in this artifact; revisions do not approve advancement.
 

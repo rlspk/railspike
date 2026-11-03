@@ -64,7 +64,7 @@ _Template_
 *— Agent name · YYYY-MM-DD UTC*
 ```
 
-Prefer this header-plus-bullets structure over prose paragraphs so the implementation summary stays easy to diff against the Step 3 plan and easy to review at stage boundaries.
+Prefer this header-plus-bullets structure over prose paragraphs so the implementation summary stays easy to diff against the Step 3 plan and easy to review at stage boundaries. Follow the [writing style](../../RAILSPIKE.md#writing-style).
 
 Omit the estimate line/details when extended mode is off. When enabled, show original and any revised/retrospective values on separate bold lines beneath the stage heading, following [estimate presentation](../effort-estimation.md#estimate-presentation); keep dates, scope and reasons in retained history. Do not add a retrospective number until completion evidence exists; its status stays pending meanwhile. Show the independent cycle estimate below the state fields and label cycle retrospectives separately. Keep the current view concise and link retained history instead of duplicating snapshots.
 

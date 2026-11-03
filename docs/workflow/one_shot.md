@@ -64,7 +64,7 @@ At closeout, apply the shared standards’ [verification and final review](imple
 
 ## Record template
 
-Replace placeholders and omit study-only fields for unselected cycles. Keep an index link and current status in place of staged navigation; do not create empty Step 1–4 artifacts. Debug diagnostics remain a separate log when enabled. Render the cycle estimate as a standalone bold line near the top, and use the shared estimate presentation for any actual alternatives/work units. The compact outline below names required evidence; expand it with headings and dated entries as needed.
+Replace placeholders and omit study-only fields for unselected cycles. Follow the [writing style](../../RAILSPIKE.md#writing-style). Keep an index link and current status in place of staged navigation; do not create empty Step 1–4 artifacts. Debug diagnostics remain a separate log when enabled. Render the cycle estimate as a standalone bold line near the top, and use the shared estimate presentation for any actual alternatives/work units. The compact outline below names required evidence; expand it with headings and dated entries as needed.
 
 ```text
 Cycle: <stable identity>; Mode: one-shot; Record/index: <relative links>
