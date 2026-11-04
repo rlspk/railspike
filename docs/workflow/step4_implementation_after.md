@@ -17,16 +17,16 @@ Read and apply the [shared implementation standards](implementation_standards.md
 Confirm touched inventory entries match delivered behavior and their source paths resolve, following [concept guidance](../concepts.md#implementation-and-verification); no full-inventory audit.
 
 1. Confirm all planned stages were completed and applicable verification was recorded. For documentation-only work, confirm each stage ran the required document-integrity, evidence, link/path, and authorized-file-scope checks, and that each runtime check marked not applicable includes its reason.
-2. Confirm each completed stage has a stage-scoped commit that includes the corresponding Step 4 summary update.
+2. Confirm each completed stage has a stage-scoped commit containing its summary update, or a recorded explicit no-commit override.
 3. Run `git log --oneline` and verify:
-   - this cycle’s first Step 4 commit contains approved plans and only the [organization allowance](../../RAILSPIKE.md#planning-artifacts); the feature folder and navigation are complete, and the Step 4 summary appears only afterward
-   - this cycle’s commit count, starting with its planning commit, is not lower than `1 + number_of_stages`
+   - this cycle's approved planning content was committed under the [approval commit gate](../../RAILSPIKE.md#approval-commit-gate) before dependent work, or its explicit override/recovery history is disclosed; folder/navigation are complete and the summary follows the planning gate
+   - new cycles normally have three planning approval commits (two when Step 1 is skipped) plus stage commits; disclose revisions, recovery and waivers rather than fabricate a minimum or demand duplicate commits
 4. Confirm the approved Step 3 Contract is complete under the shared standards, including required recovery or the documentation-only outcome.
 5. Confirm the shared standards’ applicable dependency/environment verification and final diff review are recorded in the Step 4 summary.
 6. Confirm documentation is updated, including the finalized Step 4 implementation summary. Check visible estimate labels and preserved histories under [estimate presentation](../effort-estimation.md#estimate-presentation), plus contribution signatures under [agent attribution](../../RAILSPIKE.md#agent-attribution) with only verified model/settings.
 7. Report each applicable check as passed, failed, blocked, pending, or inapplicable, with the reason for any other than passed. Identify reproduced baseline failures. A focused pass is never reported as a full-suite or user-outcome result, and the handoff opens with anything unverified, including a stated known user's recovery condition.
 
 ## Next
-Restore mode state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). If enabled, save the full completed Step 4 diagnostic report and include only one short debug line linking to the saved log in the handoff. Report once for Step 4, not per stage; save and commit final additions in a separate log-only handoff commit after the final stage, without amending completed commits.
+Restore mode state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). If enabled, save the full completed Step 4 diagnostic report and include only one short debug line linking to the saved log in the handoff. Report once for Step 4, not per stage; save and commit final additions in a separate log-only handoff commit after the final stage, without amending completed commits. Leave additions uncommitted when an explicit no-commit override applies.
 
 Notify the user for review/handoff. Cycle completion does not imply merge readiness; related new work can use [Follow-up Cycles Before Merge](../../RAILSPIKE.md#follow-up-cycles-before-merge) with distinct artifacts and fresh approvals. If additional scope emerges, return to the appropriate earlier step instead of improvising within Step 4.

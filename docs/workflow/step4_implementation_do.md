@@ -20,7 +20,7 @@ Execute the plan in atomic stages on a dedicated feature branch, documenting pro
 - On resumption and before continuing a stage, restore state using [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode). Record inherited state below the summary’s navigation bar. Phases and stage boundaries do not trigger reports; pending log additions accompany the next authorized stage commit.
 - Work stages sequentially, keeping each stage <2 hours
 - Apply the [shared implementation standards](implementation_standards.md) before dependent work and on resumption, using the Step 2 inventory and approved Step 3 Completion Contract; record evidence in this stage’s summary.
-- Require one stage-scoped commit per completed stage; do not batch multiple stages into one commit
+- Require one stage-scoped commit per completed stage; do not batch stages. Honor explicit no-commit overrides and record them in the summary
 - Commit the stage artifact plus the Step 4 summary update for that stage in the same commit before beginning the next stage
 
 Apply [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests) before incorporating new requests. Keep dispositions and pending outcomes in the summary, restore them on resumption, and record implemented refinements with verification and stage-commit references.
@@ -33,10 +33,10 @@ At every stage boundary (including Stage 1), complete this sequence before start
 4. Run `git status --short` and confirm only intended files are included.
 5. Commit with a stage-scoped message (example: `feat(stage 3): add rerun-safe historical write path`).
 6. Run `git log --oneline --max-count 5` and confirm the new stage commit is present.
-7. Only then begin the next stage.
+7. Only then begin the next stage. An explicit no-commit override replaces the commit requirement with a recorded waiver; it does not waive verification or summary updates.
 
 ## Implementation Summary Artifact
-- Location: `docs/plans/{feature_name}/`, beside the approved plans; create only after the initial planning commit.
+- Location: `docs/plans/{feature_name}/`, beside the approved plans; create only after approved planning history (or an explicit no-commit override) passes the Step 4 planning gate.
 - Filename: `{feature_name}_step4_implementation_summary.md`
 - Begin with the standard Plan navigation bar (template in `RAILSPIKE.md`; omit skipped Step 1)
 - Preferred format per stage:

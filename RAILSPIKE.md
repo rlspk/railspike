@@ -77,7 +77,7 @@ The table below applies to staged cycles. One-shot cycles use [intake, execution
 | Step 1 handoff, if used | Projected total for the recommended scoped approach. |
 | Step 2 handoff | Projected total for defined outcome, scope and recovery. |
 | Step 3 handoff | Projected total informed by planned implementation and verification. |
-| Step 4 entry | Before implementation, preserve or explicitly reaffirm the Step 3 projection in the summary created after the planning commit. |
+| Step 4 entry | Before implementation, preserve or explicitly reaffirm the Step 3 projection in the summary created after verification of the approved planning history or explicit no-commit override. |
 | Step 4 discoveries/revisions | Append a revised total when warranted, before dependent work where possible; changed scope still requires renewed approvals. |
 | Step 4 closeout | Separately labeled retrospective scope assessment, verification/omissions and maintainer comfortable-fit judgment. Never call this a prospective score or measured actual. |
 

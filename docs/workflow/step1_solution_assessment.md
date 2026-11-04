@@ -45,4 +45,4 @@ After writing Step 1, only if the conversation already contained discussion befo
 
 > Reminder: Now is a good opportunity to /new or /clear.
 
-The reminder is advisory; do not require a reset or repeat it on revisions or resumption. Request “Approved Step 1” and stop. Do not create Step 2 until the user explicitly responds with “Approved Step 1.” When approval arrives, continue with `docs/workflow/step2_feature_description.md`.
+The reminder is advisory; do not require a reset or repeat it on revisions or resumption. Request “Approved Step 1” and stop. Do not create Step 2 until the user explicitly responds with “Approved Step 1.” When approval arrives, follow the [approval commit gate](../../RAILSPIKE.md#approval-commit-gate): establish the host branch/folder, commit and verify the approved Step 1 (or record an explicit no-commit override). Only then continue with `docs/workflow/step2_feature_description.md`.

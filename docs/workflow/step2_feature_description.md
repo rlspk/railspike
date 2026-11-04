@@ -13,11 +13,13 @@ Inherit any recorded [extended-estimate mode](../effort-estimation.md#extended-e
 
 Display the enrolled cycle's estimate on a standalone bold `Cycle estimate: <value>` line below the state fields, following [estimate presentation](../effort-estimation.md#estimate-presentation). Sign beneath authored/revised contributions using [agent attribution](../../RAILSPIKE.md#agent-attribution), with model/settings only when verified. Attribution applies even without estimates.
 
+Before drafting on entry or resumption, verify the approved Step 1 commit under the [approval commit gate](../../RAILSPIKE.md#approval-commit-gate), unless Step 1 was skipped or an explicit no-commit override applies. Resolve missing history without fabricating earlier commits.
+
 ## Objective
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 
 ## Deliverable
-- Concise doc (≤1 page) stored in `docs/plans/`
+- Concise doc (≤1 page) stored in this cycle's `docs/plans/{feature_name}/` folder after Step 1 approval; use `docs/plans/` for the first draft when Step 1 was skipped
 - Filename: `{feature_name}_step2_feature_description.md`
 
 ## Structure
@@ -50,4 +52,4 @@ Apply [Enhancement Requests](../../RAILSPIKE.md#enhancement-requests) when revis
 ## Next
 Before the completed-step handoff, restore mode state and, if enabled, save the full diagnostic report under [Railspike Debug Mode](../../RAILSPIKE.md#railspike-debug-mode) and include only one short debug line linking to the saved log in the handoff, before approval.
 
-Deliver the document, request confirmation, and wait for "Approved Step 2." Once approved, continue with `docs/workflow/step3_development_plan_before.md`.
+Deliver the document, request confirmation, and wait for "Approved Step 2." Once approved, follow the [approval commit gate](../../RAILSPIKE.md#approval-commit-gate). If Step 1 was skipped, establish the host branch/folder now. Commit and verify approved Step 2 (or record an explicit no-commit override) before opening `docs/workflow/step3_development_plan_before.md`.

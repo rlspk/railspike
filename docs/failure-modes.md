@@ -60,13 +60,19 @@ git log --oneline
 
 For one-shot work, confirm actual authority, scope history, verification/omissions, next action, and distinct technical/commit/publication status in the record. Verify the feature branch, planning-only commit before implementation, and completion commit containing implementation plus the updated plan (paired commits across separate repositories). Respect explicit no-commit requests. If the planning commit is missing, follow the [one-shot recovery rules](workflow/one_shot.md#resumption-and-scope-changes): stop new implementation until the gate is satisfied, preserve existing work and disclose any historical omission rather than fabricate chronology.
 
-For staged work, confirm that the first Step 4 commit contains approved plans and only the [organization allowance](../RAILSPIKE.md#planning-artifacts), every completed stage has a summary update and commit, and the final artifact satisfies the Step 3 Completion Contract.
+For staged work, verify each approved plan under the [approval commit gate](../RAILSPIKE.md#approval-commit-gate), with explicit waivers or missing-history recovery disclosed. Confirm each stage has its summary update and commit unless explicitly waived; the final artifact must satisfy the Step 3 Completion Contract.
+
+## An approved plan was not committed
+
+**Signal:** The next deliverable began before the approved plan was saved, or a commit failed or included unapproved changes.
+
+**Recovery:** Stop dependent progression. Follow the [approval commit gate](../RAILSPIKE.md#approval-commit-gate): verify actual approval/content, preserve unrelated work and existing history, and commit only the currently approved plan and permitted checkpoint records. Record historical omissions rather than manufacture earlier commits. An explicit no-commit override remains valid; a missing or failed commit is not a waiver. Renew approval for substantive revisions.
 
 ## Plan organization is blocked
 
 **Signal:** Moving approved plans would overwrite an artifact, leave ambiguous destinations or broken references, or require substantive changes.
 
-**Recovery:** Stop before the planning commit or implementation. Inspect the existing feature folder, preserve filenames and approved content, and resolve collisions without overwriting files. Repair relative links, affected references, and this feature’s plan-index entry. Request renewed approval for substantive revisions. Inspect staged contents against the organization allowance; create the Step 4 summary only after the planning commit.
+**Recovery:** Stop before the planning commit or implementation. Inspect the existing feature folder, preserve filenames and approved content, and resolve collisions without overwriting files. Repair relative links, affected references, and this feature’s plan-index entry. Request renewed approval for substantive revisions. Inspect staged contents against the approval commit allowance. Resolve the first approval's organization before drafting the next deliverable; create the Step 4 summary only after its planning gate passes.
 
 ## Debug state or logging is unclear
 

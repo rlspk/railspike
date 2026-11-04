@@ -46,6 +46,8 @@ For new enrolled effort-study cycles, extended estimates are enabled by default:
 
 Estimates appear on their own bold lines beneath option/stage headings, with a distinct cycle estimate near the top of the plan. Details and uncertainty stay separate; no approximation sign is needed. Plans follow a short [writing style](RAILSPIKE.md#writing-style): one idea per sentence, real file names, no invented abstractions. Agents also [sign their plan contributions](RAILSPIKE.md#agent-attribution) with their name and date, adding model and settings when verified and preserving earlier authorship on revisions.
 
+In staged work, each planning approval saves that step before the next deliverable. The first approval establishes the host feature branch and plan folder. See the [approval commit gate](RAILSPIKE.md#approval-commit-gate) for commit contents, recovery and explicit no-commit overrides. Step 4 verifies those commits rather than creating a duplicate planning commit.
+
 ## Quick start
 
 ### 1. Add Railspike
@@ -124,7 +126,9 @@ Before starting the next stage, the agent records the results and any limitation
 
 ### How commits work
 
-The plan files stay uncommitted while you revise them. When you type `Approved Step 3`, the agent creates a feature branch or confirms eligible reuse for a follow-up cycle. Before this cycle’s planning commit, the agent groups the plans in `docs/plans/{feature}/`, even if Step 1 was skipped, and repairs the navigation and plan index. That commit contains the approved plans, this feature’s existing debug log if present, and only those necessary organization changes. The Step 4 summary is created afterward in the same folder. Then each stage gets its own commit, together with its section of the Step 4 summary. So each three-stage cycle ends with at least four commits, even when it shares a branch with a previous cycle.
+Drafts stay uncommitted while you revise them. At the first planning approval, the agent creates the host feature branch (or confirms eligible reuse), groups plans in `docs/plans/{feature}/`, and repairs navigation and the plan index. It commits and verifies each approved Step 1, 2 or 3 before drafting the next deliverable. Only the approved step, necessary organization/link changes, its existing debug log and authorized checkpoint study records belong in that commit. Unapproved drafts and unrelated changes stay out.
+
+Step 4 verifies the existing approved planning history before creating its summary; it does not add a duplicate planning commit. Each implementation stage then gets a commit with its summary update. New cycles normally have three planning commits (two if Step 1 is skipped), plus stage commits. Explicit no-commit requests take precedence; older cycles disclose and repair missing history without inventing earlier commits. See the [approval commit gate](RAILSPIKE.md#approval-commit-gate).
 
 ### When scope changes
 
@@ -193,7 +197,7 @@ Findings must cite their instruction source and observable evidence. Inapplicabl
 
 Brief save-failure notices and necessary mode-state questions may appear in chat; full findings may appear when explicitly requested. Failed saves must be resolved before claiming a report was logged, without dumping unsaved diagnostics into chat. Ordinary task updates, blockers, approval requests, and the [instruction summary contract](./RAILSPIKE.md#instruction-summaries) are unaffected.
 
-The log stays uncommitted during planning and moves with the plans into the feature folder. Include it in the initial planning commit; later additions accompany authorized stage commits or a final log-only handoff commit. Never amend completed commits. See the [debug contract](./RAILSPIKE.md#railspike-debug-mode) for recovery and commit rules, and the [failure guide](./docs/failure-modes.md#debug-state-or-logging-is-unclear) if state or saving fails.
+The log moves with the plans into the feature folder at the first approval. Pending additions accompany the next approval commit; during implementation they accompany an authorized stage commit or final log-only handoff commit. Explicit no-commit overrides apply. Never amend completed commits. See the [debug contract](./RAILSPIKE.md#railspike-debug-mode) for recovery and commit rules, and the [failure guide](./docs/failure-modes.md#debug-state-or-logging-is-unclear) if state or saving fails.
 
 ## When to use it
 
@@ -226,7 +230,7 @@ README.md, CONTRIBUTING.md, LICENSE
 
 This is the complete installable product. Railspike's own [development records and checks](https://github.com/rlspk/railspike-dev) and [website sources](https://github.com/rlspk/rlspk.github.io) live in separate repositories; neither is needed to use Railspike. See the [failure-mode guide](./docs/failure-modes.md) for recovery.
 
-Your plans go in your project's `docs/plans/`, not here. Keep each step in its own file; organize every feature under `docs/plans/{feature}/` after Step 3 approval and branch creation or eligible reuse, before the initial planning commit. Reuse an existing feature folder. Each Step 1–4 artifact links to the others so the decision record stays navigable. The agent opens only the step file it needs, so it never has to hold one huge prompt in context.
+Your plans go in your project's `docs/plans/`, not here. Keep each step in its own file; organize every feature under `docs/plans/{feature}/` at its first planning approval, with host branch creation or eligible reuse before the approved step is committed. Reuse an existing feature folder. Each Step 1–4 artifact links to the others so the decision record stays navigable. The agent opens only the step file it needs, so it never has to hold one huge prompt in context.
 
 ## Customizing
 

@@ -208,7 +208,7 @@ Reason (scope change, new understanding, or reaffirmation):
 Approval context / artifact or immutable revision:
 ```
 
-Capture intake before detailed inspection where possible, each used Step 1–3 handoff, Step 4 entry after the planning commit, discoveries and closeout. Keep initial scores immutable and append revisions. A second rating is independent only when actually collected before exposure/discussion; do not invent a rater or infer model identity from commit attribution.
+Capture intake before detailed inspection where possible, each used Step 1–3 handoff, Step 4 entry after verification of the approved planning history or explicit no-commit override, discoveries and closeout. Keep initial scores immutable and append revisions. A second rating is independent only when actually collected before exposure/discussion; do not invent a rater or infer model identity from commit attribution.
 
 At closeout append delivered scope, start/final revisions and stage commits/diffs, planned/completed stages, verification passed/failed/blocked/pending/inapplicable, omitted checks, corrective work versus new requests, and linked splits/follow-ups. Record a **retrospective scope assessment** separately from projections and from the **maintainer comfortable-fit judgment and acceptance date**. Missing judgment stays pending; technical completion is not accepted study completion. Unknown active work stays unknown; calendar time and Git timestamps are not labor measurements.
 

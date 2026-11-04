@@ -14,7 +14,7 @@ With [extended estimates](../effort-estimation.md#extended-estimates) enabled, e
 Break the feature into atomic implementation stages, identify dependencies, and define verification expectations before coding starts.
 
 ## Deliverable
-- Numbered plan (<=1 page) saved in `docs/plans/`
+- Numbered plan (<=1 page) saved in the existing `docs/plans/{feature_name}/` folder
 - Filename: `{feature_name}_step3_development_plan.md`
 
 ## Structure
