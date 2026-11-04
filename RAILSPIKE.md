@@ -81,7 +81,7 @@ The table below applies to staged cycles. One-shot cycles use [intake, execution
 | Step 4 discoveries/revisions | Append a revised total when warranted, before dependent work where possible; changed scope still requires renewed approvals. |
 | Step 4 closeout | Separately labeled retrospective scope assessment, verification/omissions and maintainer comfortable-fit judgment. Never call this a prospective score or measured actual. |
 
-Before each planning handoff, capture the applicable snapshot and link it from the ledger when that write is authorized. Do not duplicate snapshots merely because a phase resumes. Include a brief projected-total statement in the normal handoff for selected cycles. Scope ledger updates into that cycle's approved documentation boundary; pending planning updates remain uncommitted and accumulated outcome updates belong in its closeout commit. Never bypass the planning-commit file gate to commit a ledger early. If ledger edits are outside the current scope, retain the artifact snapshot and record the pending ledger update until authorized.
+Before each planning handoff, capture the applicable snapshot and link it from the ledger when that write is authorized. Do not duplicate snapshots merely because a phase resumes. Include a brief projected-total statement in the normal handoff for selected cycles. Keep unapproved snapshots uncommitted. At approval, include only this cycle's authorized checkpoint ledger changes under the [approval commit gate](#approval-commit-gate); preserve unrelated hunks. Outcome updates belong in the corresponding stage or closeout commit. If ledger edits are outside scope, keep the snapshot in the artifact and record the pending update.
 
 At closeout, retain delivered scope, starting/final revisions, commits/diffs, planned/completed stages, verification and omissions, corrective work versus new requests, splits and the maintainer judgment. If that judgment is unavailable, mark study acceptance pending rather than inventing it; technical cycle completion and study outcome acceptance are distinct. Keep original scope/estimate when splitting and follow the host study's explicit outcome-counting rules; do not silently count child cycles as independent observations. Continue collection beyond review batches; six accepted outcomes are a review checkpoint, not a stopping rule. Version reference changes without erasing old scores.
 
@@ -123,7 +123,7 @@ Precedence, content and recovery rules apply to both execution modes. One-shot r
 
 **Persistent debug log**: Before linking to a new report or presenting explicitly requested findings, append the full report to `{feature_name}_debug_log.md` beside the planning artifacts. Create it on the first report and reuse it across steps, resumptions, and mode changes. Every entry has a UTC timestamp and step identifier. Never overwrite entries: append corrections labeled `Revision`, identifying the superseded entry; skip unchanged reports and link to the existing log without claiming a new entry was saved. If writing fails, briefly report the failure rather than claiming the diagnostics were saved; resolve the failure before presenting output as logged.
 
-Move the log with the plans into `docs/plans/{feature_name}/` and repair links without altering mode state or log history. Keep it uncommitted during Steps 1–3; include this feature's existing log in the initial planning commit. During Step 4, include additions in the next authorized stage commit, or make a separate log-only handoff commit after the final stage for the completed-step report. This narrow allowance does not authorize unrelated changes or replace stage commits. Do not amend completed commits.
+Move the log with the plans into `docs/plans/{feature_name}/` at the first planning approval and repair links without altering state or history. Keep pending additions uncommitted until the next approval commit; only this cycle's existing log belongs in that allowance. During Step 4, include additions in the next authorized stage commit, or make a separate log-only handoff commit after the final stage. Do not commit unrelated content or amend completed commits. Explicit no-commit overrides apply.
 
 ## Planning Artifacts
 In staged cycles, each step MUST be a separate file in `docs/plans/`:
@@ -132,11 +132,23 @@ In staged cycles, each step MUST be a separate file in `docs/plans/`:
 - **Step 3**: `{feature_name}_step3_development_plan.md`
 - **Step 4**: `{feature_name}_step4_implementation_summary.md`
 
-**Directory structure and organization rule**: After explicit `Approved Step 3` and creation or eligible reuse of the Step 4 feature branch, organize the current feature's planning artifacts in `docs/plans/{feature_name}/` before this cycle’s planning commit or implementation, regardless of artifact count or whether Step 1 was skipped. Reuse an existing feature folder. Preserve filenames, separate step files, and approved substantive content. Repair relative plan navigation and affected repository references; add or update this feature's entry in `docs/plans/README.md`, creating the index if absent.
+**Directory structure and organization rule**: At the first planning approval (Step 1, or Step 2 when Step 1 is skipped), create the host feature branch or confirm explicitly requested eligible reuse under [Follow-up Cycles Before Merge](#follow-up-cycles-before-merge). Organize this cycle's existing plans and debug log in `docs/plans/{feature_name}/` before committing the approved step. Draft later steps directly in that folder. Reuse an existing folder, preserve filenames and approved substantive content, repair relative navigation/references, and update this feature's entry in `docs/plans/README.md`, creating the index if absent.
 
-The initial planning commit contains only approved Steps 1–3 (Steps 2–3 if Step 1 was skipped), this feature’s existing debug log if present, and the moves, index entries, and reference fixes necessary for this feature’s organization. Exclude implementation, the Step 4 summary, unrelated plans, and other unapproved auxiliary content. This narrow organization allowance qualifies the [Step 4 planning-commit gate](./docs/workflow/step4_implementation_before.md#planning-docs-commit-gate-required); it does not authorize substantive revisions to approved plans. Create the Step 4 summary in the same folder only after the planning commit, inheriting debug state under the [debug recovery rules](#railspike-debug-mode). Organization must not change that state.
+Inspect destinations and references before moving files. Resolve collisions or ambiguity without overwriting artifacts. Organization permits link repairs, not substantive plan changes; obtain renewed approval for those changes. Future-step navigation targets may be pending during planning: report them without creating unapproved deliverables.
 
-Inspect destinations and affected references before moving files. If files conflict, the destination is ambiguous, or organization requires substantive changes, stop and resolve the issue before committing or implementing. Do not overwrite artifacts or silently revise approved scope; seek renewed approval for substantive changes.
+### Approval commit gate
+
+After each explicit `Approved Step 1`, `Approved Step 2` or `Approved Step 3`, save that approved step before drafting the next deliverable:
+
+1. Confirm actual approval, cycle identity and the host feature branch. At the first approval, perform the organization above; continue on that branch at later approvals.
+2. Inspect Git status and the staged diff. Include only the approved step, necessary organization/index/link repairs, this cycle's existing debug log, and authorized study records for that checkpoint. Exclude unapproved drafts or revisions, implementation, the Step 4 summary, concept edits and unrelated work. For shared ledger files, stage only authorized cycle/checkpoint hunks. Repairing navigation in an earlier approved plan is allowed; changing its substance requires renewed approval.
+3. Commit and verify the commit exists, contains the intended approved content, and leaves unrelated changes intact. Record its hash in the next authorized artifact update, not by amending it. Only then draft the next step. Step 3 approval and its verified commit authorize Step 4 setup; create the summary afterward.
+
+Keep drafts and substantive revisions uncommitted until approval. Renewed approval saves the revision in a new commit before dependent work; it does not approve later steps. A failed commit blocks progression until repaired or explicitly waived. An explicit user no-commit request overrides commits: retain the branch, written plans, approvals and disclosed waiver, then continue only within actual authority. Never infer a waiver from urgency or task size.
+
+On resumption, verify the approved content and its recorded commits. Reuse valid commits; do not create empty duplicate commits. For older cycles or missing history, disclose the omission and commit the currently approved plans before advancing. Keep unapproved drafts and implementation out of that recovery commit. Never fabricate, backdate, reorder or amend commits to imply earlier compliance. Recheck approval if the current content differs substantively from what was approved. A recorded no-commit override remains effective until changed.
+
+In separate product/development repositories, save plans in the host repository and establish the product feature branch before product implementation. No empty product planning commit is needed. Same-cycle transitions from one-shot retain their record and branch under the [transition rules](docs/workflow/one_shot.md#resumption-and-scope-changes), while each newly approved staged plan follows this gate.
 
 **Plan navigation**: Start every staged artifact with this relative-link bar; omit Step 1 only when skipped.
 
@@ -157,23 +169,18 @@ Minimal form: `*— Agent name · YYYY-MM-DD UTC*`. With verified metadata: `*�
 Preserve prior attribution when revising another agent's work; append `*— Revised by Agent name · YYYY-MM-DD UTC*` beneath the changed contribution, with verified model/settings if available. Preserve earlier dated entries for later revisions, including changes of model/settings by the same agent. Attribute only work actually authored or revised; a reviewer or agent merely copying an earlier estimate does not become its original author/rater. Do not backfill unknown historical authorship. These are textual authorship records, not cryptographic signatures, approvals or independent ratings.
 
 **Commit discipline (staged cycles)**:
-- Keep Step 1-3 planning documents uncommitted while they are being drafted/revised.
-- Do not commit Step 1-3 planning documents when Step 1 or Step 2 is approved.
-- After the user explicitly responds `Approved Step 3`, create the Step 4 feature branch or confirm eligible reuse under [Follow-up Cycles Before Merge](#follow-up-cycles-before-merge). A same-cycle transition from one-shot execution may continue its unmerged branch under the [transition rules](docs/workflow/one_shot.md#resumption-and-scope-changes); it still requires the staged planning-only commit.
-- Before this cycle’s planning commit on that branch, organize the plans under the rule above; limit the commit to approved planning documents and its organization allowance.
-- During Step 4, each completed stage must be committed with its Step 4 summary update in the same commit before starting the next stage.
+- Keep drafts and unapproved revisions uncommitted. After each planning approval, follow the [approval commit gate](#approval-commit-gate) before drafting the next deliverable.
+- At Step 4 entry, verify the approved planning commits or explicit no-commit override. Do not require another identical planning commit.
+- Commit each completed implementation stage with its Step 4 summary update before the next stage, unless an explicit no-commit request applies.
 
-**Plan review (staged cycles)**: Plans are working documents. The user may edit the current artifact or request revisions, including a combination of compatible Step 1 options. Recheck tradeoffs and scope after revisions; a revision request is not approval to advance. Do not begin Step 4 until the user explicitly responds `Approved Step 3`. Organize and commit the approved plans under the organization rule above before implementation.
+**Plan review (staged cycles)**: The user may revise the current artifact or combine compatible options; recheck scope and tradeoffs. Revision requests do not approve progression. Obtain renewed approval for substantive changes. Step 4 still requires explicit `Approved Step 3` and the approval commit gate.
 
-**Step 4 commit cadence (mandatory)**:
-- Make one planning commit at the start of Step 4 containing approved plans and only the organization allowance above.
-- Then make at least one stage-scoped artifact commit per Step 3 stage.
-- Do not start Stage `N+1` until Stage `N` has:
-  - applicable verification completed,
-  - Step 4 summary updated for that stage,
-  - a commit recorded on the branch.
+**Step 4 commit cadence (mandatory unless explicitly overridden)**:
+- Verify this cycle's approved planning history before creating the summary; repair missing history under the recovery rule above.
+- Make at least one stage-scoped artifact commit per Step 3 stage, with its summary update.
+- Do not start Stage `N+1` until Stage `N` has applicable verification, an updated summary and a verified commit, or a recorded explicit no-commit override.
 - Do not squash/rebase/amend stage commits during active Step 4 execution.
-- Expected minimum commit count by end of Step 4: `1 + (# of Step 3 stages)`.
+- New cycles normally have three planning approval commits (two when Step 1 is skipped), plus at least one commit per implementation stage. Revisions may add commits; recovery and explicit waivers must be disclosed rather than forced into a fictional minimum.
 
 **Documentation-only scope (staged cycles; one-shot boundaries are recorded before execution in its cycle record)**:
 - Documentation-only work is permitted only when Step 2 names it as the work type and names the allowed documentation file scope; Step 3 must retain that boundary in its Completion Contract.
@@ -205,7 +212,7 @@ Step/phase-specific rules below govern staged cycles; one-shot lifecycle and com
 - After delivering each step, explicitly request “Approved Step N” and pause until the user responds with that exact phrase
 - Create separate files for each step only after receiving the relevant approval
 - ALWAYS establish a feature branch before Step 4 implementation; reuse only under [Follow-up Cycles Before Merge](#follow-up-cycles-before-merge) or the explicit same-cycle one-shot transition rule
-- Enforce Step 4 commit cadence: first organize and commit approved plans under the organization rule above; each completed stage has a stage-scoped commit that includes the Step 4 summary update
+- Enforce Step 4 commit cadence: first verify approved planning commits under the approval commit gate; each completed stage has a stage-scoped commit that includes the Step 4 summary update
 - Report Step 4 checks as passed, failed, blocked, pending, or inapplicable; a focused pass is never an unqualified full-suite or user-outcome result
 - Treat documentation-only work as a Step 4 implementation only when its allowed documentation file scope was approved in Steps 2 and 3; use applicable verification and record non-applicable runtime checks in the summary
 - Apply the shared implementation standards for component reuse, completion, risks, verification, and final review
@@ -233,7 +240,7 @@ Give each follow-up its own descriptive feature prefix (for example, `search_fil
 
 For a one-shot follow-up, use fresh explicit bounded authorization and its own record/commit rules; branch eligibility and predecessor history requirements above still apply.
 
-For a staged follow-up, use fresh approvals for this cycle (Step 1 optional). After `Approved Step 3`, create a new branch or confirm the explicitly requested eligible branch reuse, then organize this cycle's plans and make its own planning commit before implementation. Create its summary afterward. Each cycle retains one planning commit plus at least one stage-scoped commit per stage, with stage-summary updates; prior cycle commits and approvals do not count. Count from this cycle's planning commit, not the branch's creation. Branch reuse does not authorize merging, publishing, or rewriting completed history.
+For a staged follow-up, use fresh approvals for this cycle (Step 1 optional). At its first planning approval, create a new branch or confirm explicitly requested eligible reuse; organize this cycle's folder and follow the approval commit gate for each approved step. Prior cycle approvals and commits do not satisfy this cycle's gate. After Step 3 approval and commit verification, create the summary; each implementation stage retains its own commit and summary update unless explicitly waived. Branch reuse does not authorize merging, publishing or rewriting completed history.
 
 ## Enhancement Requests
 
@@ -257,5 +264,5 @@ On resumption, recover pending requests, their approval status, and the active c
 
 ## Workflows
 - **One-shot**: explicit bounded execution authorization → feature branch → write/commit plan → implement/verify → commit implementation and updated plan; see [one-shot instructions](docs/workflow/one_shot.md).
-- **Simple**: Step 2 → Step 3 → Step 4 (create or eligible reuse of feature branch → implement stages → test/commit → complete)
-- **Complex**: Step 1 (solution assessment) → Step 2 → Step 3 → Step 4
+- **Simple**: Step 2 → approval/branch/folder/commit → Step 3 → approval/commit → Step 4 (verify plans → implement stages → test/commit → complete)
+- **Complex**: Step 1 → approval/branch/folder/commit → Step 2 → approval/commit → Step 3 → approval/commit → Step 4
