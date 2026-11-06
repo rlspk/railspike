@@ -70,7 +70,7 @@ Omit the estimate line/details when extended mode is off. When enabled, show ori
 
 Sign beneath authored/revised contributions using [agent attribution](../../RAILSPIKE.md#agent-attribution), independently of estimate/debug mode. Add model/settings to the minimal template only when verified; preserve earlier signatures and identify revisions. Copying a prior estimate does not make the copying agent its original rater.
 
-For selected study cycles, complete the retrospective assessment and authorized ledger closeout update in the final stage before its commit; record unavailable maintainer judgment as pending.
+For selected study cycles, complete the retrospective assessment and authorized ledger closeout update in the final stage before its commit; record your own comfortable-fit judgment and acceptance as awaiting merge.
 
 ## Next
 After all planned stages are implemented and committed, continue with `docs/workflow/step4_implementation_after.md`.
