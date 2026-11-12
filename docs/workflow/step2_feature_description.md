@@ -19,7 +19,7 @@ Before drafting on entry or resumption, verify the approved Step 1 commit under 
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 
 ## Deliverable
-- Concise doc (≤1 page) stored in this cycle's `docs/plans/{feature_name}/` folder after Step 1 approval; use `docs/plans/` for the first draft when Step 1 was skipped
+- Concise doc stored in this cycle's `docs/plans/{feature_name}/` folder after Step 1 approval; use `docs/plans/` for the first draft when Step 1 was skipped. Aim for about a three-minute read (about 600 words); see [plan length](../../RAILSPIKE.md#plan-length)
 - Filename: `{feature_name}_step2_feature_description.md`
 
 ## Structure

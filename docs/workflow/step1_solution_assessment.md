@@ -15,7 +15,7 @@ When [extended estimates](../effort-estimation.md#extended-estimates) are enable
 Resolve uncertainty when there are multiple viable approaches, complex trade-offs, or an unclear direction before investing in further planning.
 
 ## Deliverable
-- Ultra-concise comparison document (≤1 page) located in `docs/plans/`
+- Ultra-concise comparison document located in `docs/plans/`: about a three-minute read (about 600 words), with about 100 words per option; see [plan length](../../RAILSPIKE.md#plan-length)
 - Filename: `{feature_name}_step1_solution_assessment.md`
 
 ## Structure
