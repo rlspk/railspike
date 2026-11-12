@@ -195,6 +195,10 @@ Exempt: the preserved Original Query, quoted sources, and fixed snapshot and att
 
 Before: "Extend the shared result contract to retain its probability and companion name through scoring, storage, display, and score transfer." After: "Change `FastScoreResult.php` so a result carries an author name as well as a probability. Keep the name in the scorer, the SQLite store, the result page and `FastmodScoreTransfer.php`."
 
+### Plan length
+
+Each step's instructions give a length goal for its artifact. Treat it as a soft target that helps the reviewer, not a limit to defend. Required content comes first: never drop evidence, risks or required fields to meet a goal. Navigation, debug state, effort fields and attribution never count toward it.
+
 ## Key Rules
 
 **AI coding agent**
@@ -250,8 +254,8 @@ Classify against approved requirements, file boundaries, dependencies, risks, an
 On resumption, recover pending requests, their approval status, and the active cycle from artifacts. Resolve missing or conflicting state before dependent work. Preserve completed substantive records and commit history; record later dispositions separately rather than rewriting completed scope.
 
 ## Warning Signs
-- **Step 1**: >1 page, >4 options, or sentences that break the [writing style](#writing-style)
-- **Step 2**: >1 page, code/DB details, mockups, buried risks, or a component-only "feature"
+- **Step 1**: well past its [length goal](#plan-length), >4 options, or sentences that break the [writing style](#writing-style)
+- **Step 2**: well past its [length goal](#plan-length), code/DB details, mockups, buried risks, or a component-only "feature"
 - **Step 3**: >1 page, stages >2 hours, tangled dependencies, missing Completion Contract/Key Risks, unusable outcome, or incomplete risk details
 - **Step 4**: Missing branch/planning commit/stage commit + summary, scope changes, direct-only behavior, or too few commits
 

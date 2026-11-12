@@ -17,7 +17,7 @@ Display the enrolled cycle's estimate on a standalone bold `Cycle estimate: <val
 Capture the problem framing, desired outcomes, and shared-component considerations before planning implementation work.
 
 ## Deliverable
-- Concise doc (≤1 page) stored in `docs/plans/`
+- Concise doc stored in `docs/plans/`: about a three-minute read (about 600 words); see [plan length](../../RAILSPIKE.md#plan-length)
 - Filename: `{feature_name}_step2_feature_description.md`
 
 ## Structure
