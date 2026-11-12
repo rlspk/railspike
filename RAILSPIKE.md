@@ -256,7 +256,7 @@ On resumption, recover pending requests, their approval status, and the active c
 ## Warning Signs
 - **Step 1**: well past its [length goal](#plan-length), >4 options, or sentences that break the [writing style](#writing-style)
 - **Step 2**: well past its [length goal](#plan-length), code/DB details, mockups, buried risks, or a component-only "feature"
-- **Step 3**: >1 page, stages >2 hours, tangled dependencies, missing Completion Contract/Key Risks, unusable outcome, or incomplete risk details
+- **Step 3**: stages well past their [text budget](#plan-length), stages >2 hours, tangled dependencies, missing Completion Contract/Key Risks, unusable outcome, or incomplete risk details
 - **Step 4**: Missing branch/planning commit/stage commit + summary, scope changes, direct-only behavior, or too few commits
 
 ## Workflows

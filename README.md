@@ -114,7 +114,7 @@ The following approvals, artifacts and commit cadence apply to staged cycles.
 | 3. Plan | Small, complete changes with dependencies and verification for each stage | Split, merge, or reorder stages before approving the plan |
 | 4. Build | Code, docs, tests, or checklists, one stage at a time, plus a running summary | Whether the result matches the plan |
 
-Each Step 1–3 plan file should fit on one page. If it doesn't, the scope is probably too big.
+Steps 1 and 2 should each take about three minutes to read. A Step 3 plan has about 200 words per stage. If a stage won't fit, the scope is probably too big.
 
 ### Finish and verify each stage
 

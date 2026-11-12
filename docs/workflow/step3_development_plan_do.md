@@ -14,7 +14,7 @@ With [extended estimates](../effort-estimation.md#extended-estimates) enabled, e
 Break the feature into atomic implementation stages, identify dependencies, and define verification expectations before coding starts.
 
 ## Deliverable
-- Numbered plan (<=1 page) saved in `docs/plans/`
+- Numbered plan saved in `docs/plans/`, with a text budget of about 200 words per stage and no whole-plan limit; see [plan length](../../RAILSPIKE.md#plan-length)
 - Filename: `{feature_name}_step3_development_plan.md`
 
 ## Structure
@@ -70,6 +70,7 @@ Place the whole-plan footer after all plan sections, including any study checkpo
 Additional requirements:
 - When Step 2 states a known user or environment recovery condition, include a stage that replays each reported failure as acceptance evidence. A pass only on the installer or another supported platform does not complete it; actionable manual guidance can satisfy it when automatic support is out of scope
 - Stages should be about <=1 hour or <=50 lines of change; split anything larger before implementation
+- The text budget limits how long a stage's description runs; stage size limits the work itself. A stage that cannot fit its required fields in its text budget is a split candidate: raise it in the handoff, as for the eight-stage limit
 - Document database changes conceptually (no SQL)
 - Include planned function signatures when relevant, without code
 - Follow the [writing style](../../RAILSPIKE.md#writing-style) so reviewers can scan the plan quickly
