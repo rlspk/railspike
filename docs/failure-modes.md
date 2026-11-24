@@ -74,6 +74,12 @@ For staged work, verify each approved plan under the [approval commit gate](../R
 
 **Recovery:** Stop before the planning commit or implementation. Inspect the existing feature folder, preserve filenames and approved content, and resolve collisions without overwriting files. Repair relative links, affected references, and this feature’s plan-index entry. Request renewed approval for substantive revisions. Inspect staged contents against the approval commit allowance. Resolve the first approval's organization before drafting the next deliverable; create the Step 4 summary only after its planning gate passes.
 
+## A handoff prompt points at a missing or stale branch
+
+**Signal:** A new chat cannot fetch the branch the [handoff prompt](../RAILSPIKE.md#handoff-prompts) names, or the branch is behind `origin/main`, or the prompt claims an approval the record lacks.
+
+**Recovery:** Say which. Restore state from the pushed record, not the prompt. For a stale branch, fetch and rebase only when the record allows; otherwise ask. For a missing branch, ask the user to push it or paste the plan. Treat an unrecorded approval as absent and ask for it.
+
 ## Debug state or logging is unclear
 
 **Signal:** Resumed work lacks a reliable mode setting, prior artifacts disagree, a needed project-marker lookup cannot establish the consuming root or file presence, a diagnostic log cannot be saved, a report repeats earlier findings, or routine chat echoes diagnostics instead of linking to the log.

@@ -222,6 +222,8 @@ RAILSPIKE.md             The workflow entry point.
 WELCOME.md               Post-installation welcome and first-task guidance.
 docs/workflow/           Instructions for each step and phase.
 docs/failure-modes.md    Workflow recovery guidance.
+docs/workflow/epic_checklist.md
+                         Coordinating several cycles; handoff prompts in RAILSPIKE.md.
 docs/README.md           User documentation index.
 README.md, CONTRIBUTING.md, LICENSE
                          Usage, contribution entry point, and MIT license.

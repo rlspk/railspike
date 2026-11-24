@@ -144,7 +144,7 @@ After each explicit `Approved Step 1`, `Approved Step 2` or `Approved Step 3`, s
 2. Inspect Git status and the staged diff. Include only the approved step, necessary organization/index/link repairs, this cycle's existing debug log, and authorized study records for that checkpoint. Exclude unapproved drafts or revisions, implementation, the Step 4 summary, concept edits and unrelated work. For shared ledger files, stage only authorized cycle/checkpoint hunks. Repairing navigation in an earlier approved plan is allowed; changing its substance requires renewed approval.
 3. Commit and verify the commit exists, contains the intended approved content, and leaves unrelated changes intact. Record its hash in the next authorized artifact update, not by amending it. Only then draft the next step. Step 3 approval and its verified commit authorize Step 4 setup; create the summary afterward.
 
-Keep drafts and substantive revisions uncommitted until approval. Renewed approval saves the revision in a new commit before dependent work; it does not approve later steps. A failed commit blocks progression until repaired or explicitly waived. An explicit user no-commit request overrides commits: retain the branch, written plans, approvals and disclosed waiver, then continue only within actual authority. Never infer a waiver from urgency or task size.
+Keep drafts and substantive revisions uncommitted until approval, except a separate commit labeled "draft, not approved" for a [handoff prompt](#handoff-prompts); it never counts as the approval commit. Renewed approval saves the revision in a new commit before dependent work; it does not approve later steps. A failed commit blocks progression until repaired or explicitly waived. An explicit user no-commit request overrides commits: retain the branch, written plans, approvals and disclosed waiver, then continue only within actual authority. Never infer a waiver from urgency or task size.
 
 On resumption, verify the approved content and its recorded commits. Reuse valid commits; do not create empty duplicate commits. For older cycles or missing history, disclose the omission and commit the currently approved plans before advancing. Keep unapproved drafts and implementation out of that recovery commit. Never fabricate, backdate, reorder or amend commits to imply earlier compliance. Recheck approval if the current content differs substantively from what was approved. A recorded no-commit override remains effective until changed.
 
@@ -246,6 +246,10 @@ For a one-shot follow-up, use fresh explicit bounded authorization and its own r
 
 For a staged follow-up, use fresh approvals for this cycle (Step 1 optional). At its first planning approval, create a new branch or confirm explicitly requested eligible reuse; organize this cycle's folder and follow the approval commit gate for each approved step. Prior cycle approvals and commits do not satisfy this cycle's gate. After Step 3 approval and commit verification, create the summary; each implementation stage retains its own commit and summary update unless explicitly waived. Branch reuse does not authorize merging, publishing or rewriting completed history.
 
+## Handoff prompts
+
+When the user asks for a handoff prompt, "a prompt block" or a prompt to continue in a new chat, commit the cycle's current plans and push its feature branch. The request authorizes that push only, never to `main`, a PR or a merge. Then give one fenced code block naming the repository, branch, base commit, plan or [epic checklist](docs/workflow/epic_checklist.md) path, cycle, step, mode, and what is and is not approved. It tells the new chat to read `AGENTS.md` and the plan, check the branch against `origin/main`, then continue. Repeat only approvals the record shows; the record wins over the prompt.
+
 ## Enhancement Requests
 
 For one-shot cycles, use the consolidated record instead of a step artifact, record actual implementation commit references when available, and apply [one-shot scope-change and transition rules](docs/workflow/one_shot.md#resumption-and-scope-changes) for changed scope. The classification and evidence requirements below apply to both modes.
@@ -268,5 +272,6 @@ On resumption, recover pending requests, their approval status, and the active c
 
 ## Workflows
 - **One-shot**: explicit bounded execution authorization → feature branch → write/commit plan → implement/verify → commit implementation and updated plan; see [one-shot instructions](docs/workflow/one_shot.md).
+- **Epic**: several cycles coordinated by an [epic checklist](docs/workflow/epic_checklist.md) that approves none of them.
 - **Simple**: Step 2 → approval/branch/folder/commit → Step 3 → approval/commit → Step 4 (verify plans → implement stages → test/commit → complete)
 - **Complex**: Step 1 → approval/branch/folder/commit → Step 2 → approval/commit → Step 3 → approval/commit → Step 4
