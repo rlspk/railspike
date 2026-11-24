@@ -244,7 +244,7 @@ For a staged follow-up, use fresh approvals for this cycle (Step 1 optional). At
 
 ## Handoff prompts
 
-When the user asks for a handoff prompt, "a prompt block" or a prompt to continue in a new chat, commit the cycle's current plans and push its feature branch. The request authorizes that push only, never to `main`, a PR or a merge. Then give one fenced code block naming the repository, branch, base commit, plan or epic checklist path, cycle, step, mode, and what is and is not approved. It tells the new chat to read `AGENTS.md` and the plan, check the branch against `origin/main`, then continue. Repeat only approvals the record shows; the record wins over the prompt.
+When the user asks for a handoff prompt, "a prompt block" or a prompt to continue in a new chat, commit the cycle's current plans and push its feature branch. The request authorizes that push only, never to `main`, a PR or a merge. Then give one fenced code block naming the repository, branch, base commit, plan or [epic checklist](docs/workflow/epic_checklist.md) path, cycle, step, mode, and what is and is not approved. It tells the new chat to read `AGENTS.md` and the plan, check the branch against `origin/main`, then continue. Repeat only approvals the record shows; the record wins over the prompt.
 
 ## Enhancement Requests
 
@@ -268,5 +268,6 @@ On resumption, recover pending requests, their approval status, and the active c
 
 ## Workflows
 - **One-shot**: explicit bounded execution authorization → feature branch → write/commit plan → implement/verify → commit implementation and updated plan; see [one-shot instructions](docs/workflow/one_shot.md).
+- **Epic**: several cycles coordinated by an [epic checklist](docs/workflow/epic_checklist.md) that approves none of them.
 - **Simple**: Step 2 → approval/branch/folder/commit → Step 3 → approval/commit → Step 4 (verify plans → implement stages → test/commit → complete)
 - **Complex**: Step 1 → approval/branch/folder/commit → Step 2 → approval/commit → Step 3 → approval/commit → Step 4

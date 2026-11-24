@@ -25,7 +25,7 @@ Resolve uncertainty when there are multiple viable approaches, complex trade-off
 - When the query alone would leave the requested outcome unclear, follow it with `## Understood Intent`: a brief, clearly labeled statement of the inferred goal and relevant context. Do not invent scope or replace the original query; omit this section when it adds no useful clarification.
 - Problem statement (1 sentence)
 - ≥2 solution options tagged sequentially (Option A/B/C/etc.). After its estimate line when enabled, start each option with one concise standalone paragraph explaining the approach and how it addresses the problem, then list pros/cons as bullets.
-- Recommendation, including vertical-slice viability
+- Recommendation, including vertical-slice viability. If the recommended estimate is above 1.0, discuss a split and suggest an [epic checklist](epic_checklist.md); create one only on request
 - In extended mode, put a standalone bold `Estimate: <value>` line directly beneath each option heading, before its approach paragraph; keep driver/uncertainty and shared metadata separate. Use a dedicated estimate column for a comparison table. Follow [estimate presentation](../effort-estimation.md#estimate-presentation), including the separate cycle estimate and plain numbers without approximation signs.
 - Sign beneath each authored/revised contribution using [agent attribution](../../RAILSPIKE.md#agent-attribution); include model/settings only when verified and preserve prior signatures.
 
