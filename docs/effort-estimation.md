@@ -6,7 +6,7 @@ This beta capability estimates relative work for a complete scoped outcome. It d
 
 ## Reference R1
 
-**1.0 is the largest well-scoped, releasable slice we would comfortably approve for one Railspike cycle, including required verification and documentation.** Freeform nonnegative decimals estimate total work from the recorded starting point, including inspection, planning, implementation, verification, documentation and ordinary correction. Scores above 1.0 prompt a split discussion. No conversion to hours, line counts, stage fractions or additive forecasts is supported.
+**1.0 is the largest well-scoped, releasable slice we would comfortably approve for one Railspike cycle, including required verification and documentation.** Freeform nonnegative decimals estimate total work from the recorded starting point, including inspection, planning, implementation, verification, documentation and ordinary correction. Scores above 1.0 prompt a split discussion. Each cycle of an [epic](workflow/epic_checklist.md) is its own outcome, linked to the epic. No conversion to hours, line counts, stage fractions or additive forecasts is supported.
 
 These are single-analyst retrospective references, not measured labor. Existing infrastructure is part of each comparison. Record a host-specific reference version if changing their meaning; preserve earlier estimates under their original version.
 

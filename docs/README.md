@@ -5,6 +5,7 @@
 - [Project concept inventory and plan references](./concepts.md)
 - [Shared implementation standards](./workflow/implementation_standards.md)
 - [One-shot execution and record template](./workflow/one_shot.md)
+- [Epic checklists for work across several cycles](./workflow/epic_checklist.md)
 - [Effort scoring and continuing study collection](./effort-estimation.md)
 - [Failure modes and recovery](./failure-modes.md)
 - [Installation and updates](../README.md#installation-checks)
